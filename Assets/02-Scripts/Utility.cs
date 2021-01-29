@@ -15,7 +15,11 @@ namespace DefaultNamespace {
 		}
 
 		public static int CalculateItemBattleValue(Item item) {
-			return (int) ((item.MaxHp + item.Attack + item.Defense) * RarityLevelMultiplier(item.RarityLevel));
+			int hp = Mathf.Abs(item.MaxHp);
+			int att = Mathf.Abs(item.Attack);
+			int def = Mathf.Abs(item.Defense);
+			float rarity = RarityLevelMultiplier(item.RarityLevel);
+			return (int) ((hp + att + def) * rarity);
 		}
 
 		public static int EquipableTypeIndex(CharacterClass characterClass, ItemType type) {
