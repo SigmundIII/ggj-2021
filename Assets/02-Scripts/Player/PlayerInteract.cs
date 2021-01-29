@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour {
-	private bool canGrab;
-	private bool hasGrabbed;
-	private IGrabbable obj;
+	[SerializeField]private bool canGrab;
+	[SerializeField]private bool hasGrabbed;
+	[SerializeField]private IGrabbable obj;
 
 	[Header("Interact attributes")] 
 	public float throwForce;
@@ -14,7 +14,7 @@ public class PlayerInteract : MonoBehaviour {
 
 	public void Grab() {
 		if (obj != null) {
-			if (canGrab) {
+			if (canGrab && !hasGrabbed) {
 				hasGrabbed = true;
 				obj.Grabbed(transform);
 			}
@@ -48,7 +48,7 @@ public class PlayerInteract : MonoBehaviour {
 	
 	private void OnTriggerEnter(Collider other) {
 		var grabbable=other.GetComponent<IGrabbable>();
-		if (grabbable != null) {
+		if (grabbable != null && !hasGrabbed) {
 			canGrab = true;
 			obj = grabbable;
 		}
@@ -56,7 +56,7 @@ public class PlayerInteract : MonoBehaviour {
 	
 	private void OnTriggerExit(Collider other) {
 		if (!hasGrabbed) {
-			canGrab = true;
+			canGrab = false;
 			obj = null;
 		}
 	}

@@ -7,7 +7,8 @@ namespace DefaultNamespace {
 		[SerializeField] private RarityLevel rarityLevel;
 
 		public void Generate() {
-			var item = new Item(itemType, rarityLevel);
+			var item = new Item();
+			item.Generate(itemType,rarityLevel);
 			Debug.Log($"Type: {itemType.Name}\n" +
 			          $"Rarity: {item.RarityLevel}\n" +
 			          $"Battle Value: {item.BattleValue}\n\n" +

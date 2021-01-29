@@ -29,4 +29,8 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 		rb.isKinematic = false;
 		rb.AddForce(force);
 	}
+
+	private void OnBecameInvisible() {
+		Destroy(this.gameObject);
+	}
 }
