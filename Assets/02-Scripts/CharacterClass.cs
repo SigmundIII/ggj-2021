@@ -3,7 +3,7 @@ using UnityEngine;
 namespace DefaultNamespace {
 
 	[CreateAssetMenu(fileName = "Class-", menuName = "New Class", order = 0)]
-	public class Class : ScriptableObject {
+	public class CharacterClass : ScriptableObject {
 		[SerializeField] private string _name;
 		
 		[Header("Base Stats")] 
