@@ -8,15 +8,17 @@ using UnityEngine;
 public class Storage : MonoBehaviour {
 	public GameObject prefab;
 	public Transform spawnPoint;
-
+	public Transform sputoPoint;
+	public float sputoForce;
+	public int maxItem;
+	
 	public int normalItem;
 	public int rareItem;
 	public int epicItem;
 	public int legendaryItem;
 	
-	public List<ItemType> types=new List<ItemType>();
-
-	public List<Item> items=new List<Item>();
+	private List<ItemType> types=new List<ItemType>();
+	private List<Item> items=new List<Item>();
 
 	private void Awake() {
 		LoadTypes();
@@ -78,7 +80,17 @@ public class Storage : MonoBehaviour {
 	private void OnTriggerEnter(Collider other) {
 		Item item=other.GetComponent<Item>();
 		if (item != null) {
-			items.Add(item);
+			if (items.Count < maxItem) {
+				items.Add(item);
+			}
+			else {
+				IGrabbable grabbable = other.GetComponent<IGrabbable>();
+				if (grabbable!=null) {
+					Vector3 dir = sputoPoint.position - other.gameObject.transform.position;
+					grabbable.Throw( dir*sputoForce);
+					//other.transform.position = sputoPoint.position;
+				}
+			}
 		}
 	}
 	
