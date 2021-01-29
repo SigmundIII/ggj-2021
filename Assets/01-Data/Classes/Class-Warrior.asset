@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: Class-Warrior
   m_EditorClassIdentifier: 
   _name: Warrior
-  maxHp: 100
-  attack: 10
-  defense: 10
+  maxHp: 20
+  attack: 15
+  defense: 30
   equipableTypes:
   - {fileID: 11400000, guid: 22258321bdad8984e9a146100507777d, type: 2}
-  - {fileID: 11400000, guid: def9216729b5fc54f9a03941d89fca95, type: 2}
-  - {fileID: 11400000, guid: 887fd557c925bf34090578c0a1f03aa7, type: 2}
-  - {fileID: 11400000, guid: cdc18cf6d6f77254082d9e21bb8902f2, type: 2}
+  - {fileID: 11400000, guid: 10769edc8edcdae44b4bc1d67a96c082, type: 2}
