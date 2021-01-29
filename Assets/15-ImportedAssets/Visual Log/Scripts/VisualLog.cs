@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace VisualLog {
+namespace Visual_Log {
 	public enum HorizontalAlignment { Left, Middle, Right }
 	public enum VerticalAlignment { Top, Middle, Bottom }
 	
@@ -219,7 +219,7 @@ namespace VisualLog {
 				logs.RemoveAt(0);
 			}
 			if (autoScrollOnNewMessage) {
-				scrollPosition += Vector2.up * 40;
+				scrollPosition += Vector2.up * 1000;
 			}
 		}
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace VisualLog {
+namespace Visual_Log {
 
 	public class Log {
 		public const float DefaultWaitTime = 2f;

@@ -438,3 +438,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3fa5f5a46e4bb854f93d5ec9d1cc2423, type: 2}
   - {fileID: 11400000, guid: 0b3995de4f89fe94dbce9379ba15339a, type: 2}
   - {fileID: 11400000, guid: c83466968f15ab747a11eecba21df8fe, type: 2}
+  enemyParty:
+  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
