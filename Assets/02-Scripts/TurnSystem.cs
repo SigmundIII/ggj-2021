@@ -56,6 +56,7 @@ public class TurnSystem : MonoBehaviour {
 				if (currentFloor < maxFloors) {
 					DestroyStorage(currentFloor);
 					DestroyDungeon(currentFloor);
+					FindObjectOfType<PlayerMovement>().ResetFallGuys();
 					currentFloor++;
 					StartPlacePhase();
 				}

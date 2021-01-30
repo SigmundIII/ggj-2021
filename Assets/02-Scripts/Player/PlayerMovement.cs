@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
 	[Header("MovementStats")] 
 	public float speed;
 
+	private List<Collider> floorColliders = new List<Collider>();
+
 	private void Awake() {
 		rb = GetComponent<Rigidbody>();
 	}
@@ -26,23 +28,34 @@ public class PlayerMovement : MonoBehaviour {
 		transform.eulerAngles=new Vector3(0,rotationY,0);
 	}
 
+	public void ResetFallGuys() {
+		floorColliders.Clear();
+		FallGuys();
+	}
+
 	public void FallGuys() {
-		rb.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
+		if (floorColliders.Count <= 0) {
+			rb.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
+			Debug.Log("Fall Guys");
+		}
 	}
 
 	public void NotFallGuys() {
-		//Non si freeza la rotazione
 		rb.constraints = RigidbodyConstraints.FreezeRotation |  RigidbodyConstraints.FreezePositionY;
+		Debug.Log("Not Fall Guys");
 	}
 
 	private void OnCollisionEnter(Collision other) {
 		if (other.gameObject.CompareTag("Floor")) {
+			floorColliders.Add(other.collider);
 			NotFallGuys();
 		}
 	}
 
 	private void OnCollisionExit(Collision other) {
 		if (other.gameObject.CompareTag("Floor")) {
+			floorColliders.Remove(other.collider);
+			Debug.Log(other.gameObject.name);
 			FallGuys();
 		}
 	}
