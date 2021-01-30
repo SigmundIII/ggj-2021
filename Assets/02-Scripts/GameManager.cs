@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DefaultNamespace.UI;
 using UnityEngine;
 using Visual_Log;
@@ -18,6 +19,8 @@ namespace DefaultNamespace {
 		private TurnSystem turnSystem;
 		
 		private bool battleEnded;
+
+		public List<Item> items;
 
 		private void Awake() {
 			turnSystem = FindObjectOfType<TurnSystem>();
@@ -52,7 +55,7 @@ namespace DefaultNamespace {
 
 		private void StartBattle() {
 			battleEnded = false;
-			battle = new Battle(characters, enemies);
+			battle = new Battle(characters, enemies, FindObjectOfType<Storage>().items);
 			aftermath.Hide();
 			VisualLog.Show();
 			StartCoroutine(battle.BattleCoroutine(EndBattle));
