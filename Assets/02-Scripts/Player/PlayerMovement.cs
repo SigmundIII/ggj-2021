@@ -15,8 +15,9 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void Move(Vector3 direction) {
-		Vector3 destination = transform.position + (direction * speed);
+		Vector3 destination = transform.position + (direction * speed)*Time.deltaTime;
 		model.transform.LookAt(destination);
+		//rb.velocity = direction * speed * Time.deltaTime;
 		rb.MovePosition(destination);
 	}
 

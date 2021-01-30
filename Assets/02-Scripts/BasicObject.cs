@@ -16,6 +16,7 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 		transform.position = parent.position;
 		transform.rotation = Quaternion.identity;
 		transform.localScale = scale;
+		transform.eulerAngles = parent.eulerAngles+new Vector3(90, 0, 90);
 		rb.useGravity = false;
 		rb.isKinematic = true;
 	}
