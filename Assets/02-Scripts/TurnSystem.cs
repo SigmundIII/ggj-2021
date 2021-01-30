@@ -8,11 +8,8 @@ public enum TurnPhase{Place,Battle,Loot}
 
 public class TurnSystem : MonoBehaviour {
 	[SerializeField] private TurnPhase currentPhase;
-	public int currentFloor;
-
-	public List<GameObject> floors=new List<GameObject>();
-	
-	
+	public int maxFloors=3;
+	private int currentFloor;
 
 	private PlayerInput playerInput;
 	private Storage storage;
@@ -51,10 +48,11 @@ public class TurnSystem : MonoBehaviour {
 				StartLootPhase();
 				break;
 			case TurnPhase.Loot:
-				if (currentFloor != floors.Count) {
-					Destroy(floors[currentFloor]);
-					StartPlacePhase();
+				if (currentFloor < maxFloors) {
+					storage.CloseDoors(currentFloor);
+					storage.DestroyFloor(currentFloor);
 					currentFloor++;
+					StartPlacePhase();
 				}
 				else {
 					Debug.Log("Niente più piani");
@@ -67,16 +65,19 @@ public class TurnSystem : MonoBehaviour {
 	
 	
 	public void StartPlacePhase() {
+		storage.OpenDoors(currentFloor);
 		currentPhase = TurnPhase.Place;
 		playerInput.enabled = true;
 	}
 	
 	public void StartBattlePhase() {
+		storage.CloseDoors(currentFloor);
 		currentPhase = TurnPhase.Battle;
 		playerInput.enabled = false;
 	}
 	
 	public void StartLootPhase() {
+		storage.OpenDoors(currentFloor);
 		currentPhase = TurnPhase.Loot;
 		playerInput.enabled = true;
 	}

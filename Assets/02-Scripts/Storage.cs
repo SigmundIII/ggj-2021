@@ -8,7 +8,11 @@ using UnityEngine;
 public class Storage : MonoBehaviour {
 	public GameObject prefab;
 	public Transform spawnPoint;
-	public Transform sputoPoint;
+	[Space]
+	public List<Transform> sputoPoint;
+	public List<GameObject> storageDoors;
+	public List<GameObject> storageFloors;
+	[Space]
 	public float sputoForce;
 	public int maxItem;
 	
@@ -16,7 +20,8 @@ public class Storage : MonoBehaviour {
 	public int rareItem;
 	public int epicItem;
 	public int legendaryItem;
-	
+
+	private Transform currentSputoPoint;
 	private List<ItemType> types=new List<ItemType>();
 	private List<Item> items=new List<Item>();
 
@@ -65,20 +70,19 @@ public class Storage : MonoBehaviour {
 		item.gameObject.name = "Item";
 		yield return new WaitForSeconds(0.5f);
 	}
-	
-	private void Update() {
-		// if (Input.GetKeyDown(KeyCode.G)) {
-		// 	var item = prefab.GetComponent<Item>();
-		// 	if (item != null) {
-		// 		item.Generate(types[0],rarities[0]);
-		// 		Instantiate(prefab, spawnPoint.position,spawnPoint.rotation);
-		// 	}
-		// 	else {
-		// 		Debug.LogError("Non stai spawnando un item");
-		// 	}
-		//
-		// }
+
+	public void DestroyFloor(int currentFloor) {
+		Destroy(storageFloors[currentFloor]);
 	}
+
+	public void OpenDoors(int currentFloor) {
+		storageDoors[currentFloor].SetActive(false);
+	}
+	
+	public void CloseDoors(int currentFloor) {
+		storageDoors[currentFloor].SetActive(true);
+	}
+	
 
 	private void OnTriggerEnter(Collider other) {
 		Item item=other.GetComponent<Item>();
@@ -89,7 +93,7 @@ public class Storage : MonoBehaviour {
 			else {
 				IGrabbable grabbable = other.GetComponent<IGrabbable>();
 				if (grabbable!=null) {
-					Vector3 dir = sputoPoint.position - other.gameObject.transform.position;
+					Vector3 dir = currentSputoPoint.position - other.gameObject.transform.position;
 					grabbable.Throw( dir*sputoForce);
 					//other.transform.position = sputoPoint.position;
 				}
