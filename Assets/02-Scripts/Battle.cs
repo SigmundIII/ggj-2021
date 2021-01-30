@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Visual_Log;
+using Random = UnityEngine.Random;
 
 namespace DefaultNamespace {
 
@@ -20,7 +22,7 @@ namespace DefaultNamespace {
 			characters.AddRange(enemies);
 		}
 
-		public IEnumerator BattleCoroutine() {
+		public IEnumerator BattleCoroutine(Action OnBattleEnd) {
 			VisualLog.AddLog("\n\n\nBattle started.");
 			yield return new WaitForSeconds(0.35f);
 			while (heroes.Count > 0 && enemies.Count > 0) {
@@ -28,6 +30,7 @@ namespace DefaultNamespace {
 			}
 			string winners = heroes.Count > 0 ? "Heroes" : "Monsters";
 			VisualLog.AddLog($"Battle ended. {winners} won.");
+			OnBattleEnd?.Invoke();
 		}
 
 		private IEnumerator DoRound() {

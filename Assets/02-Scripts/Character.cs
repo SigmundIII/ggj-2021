@@ -63,7 +63,12 @@ namespace DefaultNamespace {
 		}
 
 		public override string ToString() {
-			return $"";
+			return $"Class: {Class.Name}\n" +
+			       $"Battle Value: {BattleValue}\n" +
+			       $"\n" +
+			       $"Hp: {Health}/{MaxHp}\n" +
+			       $"Attack: {Attack}\n" +
+			       $"Defense: {Defense}";
 		}
 	}
 
