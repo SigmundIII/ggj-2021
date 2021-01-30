@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &35746162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 446397503768687306, guid: 511c5c8e99a4f6548aec7ffb538cad35,
+    type: 3}
+  m_PrefabInstance: {fileID: 1847213527}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &55029638
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +582,27 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
     - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
   aftermath: {fileID: 1543280987}
+  timescale: 10
   items: []
+--- !u!1 &1355983802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3904549182152485890, guid: 511c5c8e99a4f6548aec7ffb538cad35,
+    type: 3}
+  m_PrefabInstance: {fileID: 1847213527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1355983803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355983802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45b2a76b4026e148a4580aba583bdb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 35746162}
 --- !u!114 &1543280987 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6108804232730928862, guid: 511c5c8e99a4f6548aec7ffb538cad35,
@@ -663,7 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPhase: 0
   maxFloors: 3
-  fullTime: 5
+  fullTime: 30
   battleValuePenalty: 1000
 --- !u!4 &1843535061
 Transform:

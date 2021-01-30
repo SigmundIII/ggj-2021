@@ -15,11 +15,12 @@ namespace DefaultNamespace {
 		[SerializeField] private List<FloorEnemy> enemyParty=new List<FloorEnemy>();
 		[Space]
 		[SerializeField] public UIAftermath aftermath;
+		public float timescale;
 		
 		[HideInInspector]
 		public Character[] heroes;
 		private Character[] enemies;
-
+		
 		private Battle battle;
 
 		private TurnSystem turnSystem;
@@ -27,7 +28,7 @@ namespace DefaultNamespace {
 		private bool battleEnded;
 
 		private Dump dump;
-
+		
 		public List<Item> items;
 
 		private Ritual_affordance _ritual;
@@ -43,7 +44,7 @@ namespace DefaultNamespace {
 			for (int i = 0; i < heroes.Length; i++) {
 				heroes[i] = new Character(party[i]);
 			}
-			
+			_ritual = FindObjectOfType<Ritual_affordance>();
 			GetEnemies(0);
 			
 		}
@@ -75,6 +76,7 @@ namespace DefaultNamespace {
 		}
 
 		private void StartBattle(int currentfloor) {
+			Time.timeScale = timescale;
 			Debug.Log("Start battaglia al piano: "+currentfloor);
 			GetEnemies(currentfloor);
 			battleEnded = false;
@@ -85,11 +87,12 @@ namespace DefaultNamespace {
 		}
 
 		private void EndBattle() {
+			Time.timeScale = 1;
 			battleEnded = true;
 			VisualLog.Hide();
 			AssignLoot();
 			aftermath.Show(heroes);
-			//_ritual.StartCoroutine("Ritual_progression");
+			_ritual.StartCoroutine(_ritual.Ritual_progression());
 		}
 
 		private void AssignLoot() {
