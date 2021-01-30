@@ -31,7 +31,7 @@ public class Storage : MonoBehaviour {
 	[HideInInspector]public Transform currentSputoPoint;
 	[HideInInspector]public List<Item> items=new List<Item>();
 
-	public Transform treasonPoint;
+	[HideInInspector] public Transform treasonPoint;
 
 	public void Init(int floorNumber) {
 		for (int i = 0; i < floorNumber; i++) {

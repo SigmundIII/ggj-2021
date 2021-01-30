@@ -1,22 +1,25 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour {
 	[SerializeField]private bool canGrab;
 	[SerializeField]private bool hasGrabbed;
 	[SerializeField]private List<IGrabbable> obj=new List<IGrabbable>();
+	[SerializeField] private GameObject grabVfx;
 
 	[Header("Interact attributes")] 
 	public float throwForce;
-	
+
+	private void Awake() {
+		grabVfx.SetActive(false);
+	}
 
 	public void Grab() {
 		if (obj.Count>0) {
 			if (canGrab && !hasGrabbed) {
 				hasGrabbed = true;
 				obj[0].Grabbed(transform);
+				grabVfx.SetActive(true);
 			}
 		}
 	}
@@ -25,6 +28,7 @@ public class PlayerInteract : MonoBehaviour {
 		if (hasGrabbed && obj.Count>0) {
 			obj[0].Released();
 			hasGrabbed = false;
+			grabVfx.SetActive(false);
 		}
 	}
 
@@ -42,6 +46,7 @@ public class PlayerInteract : MonoBehaviour {
 			var force = transform.forward * throwForce;
 			hasGrabbed = false;
 			obj[0].Throw(force);
+			grabVfx.gameObject.SetActive(false);
 		}
 	}
 	
