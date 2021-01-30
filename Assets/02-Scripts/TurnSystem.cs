@@ -14,8 +14,9 @@ public class TurnSystem : MonoBehaviour {
 	private Storage storage;
 	private CreateDungeon dungeon;
 	private GameManager gameManager;
+	private Follow_Player camera;
 
-	public event Action OnBattlePhaseStart;
+	public event Action<int> OnBattlePhaseStart;
 	public float fullTime=30;
 	private float time = 0;
 	public int battleValuePenalty;
@@ -29,6 +30,7 @@ public class TurnSystem : MonoBehaviour {
 		storage = FindObjectOfType<Storage>();
 		dungeon = FindObjectOfType<CreateDungeon>();
 		gameManager = FindObjectOfType<GameManager>();
+		camera = FindObjectOfType<Follow_Player>();
 
 	}
 
@@ -86,6 +88,7 @@ public class TurnSystem : MonoBehaviour {
 			case TurnPhase.Loot:
 				if (currentFloor < maxFloors) {
 					gameManager.DumpLoot();
+					camera.ClearList();
 					DestroyStorage(currentFloor);
 					DestroyDungeon(currentFloor);
 					FindObjectOfType<PlayerMovement>().ResetFallGuys();
@@ -133,7 +136,7 @@ public class TurnSystem : MonoBehaviour {
 		storage.CloseDoors(currentFloor);
 		currentPhase = TurnPhase.Battle;
 		playerInput.enabled = false;
-		OnBattlePhaseStart?.Invoke();
+		OnBattlePhaseStart?.Invoke(currentFloor);
 	}
 	
 	public void StartLootPhase() {

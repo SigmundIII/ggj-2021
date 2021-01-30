@@ -29,7 +29,7 @@ public class Storage : MonoBehaviour {
 	public List<GameObject> epicItems=new List<GameObject>();
 	public List<GameObject> legendaryItems=new List<GameObject>();
 	[HideInInspector]public Transform currentSputoPoint;
-	public List<Item> items = new List<Item>();
+	public List<Item> items = new List<Item>(); 
 
 	[HideInInspector] public Transform treasonPoint;
 

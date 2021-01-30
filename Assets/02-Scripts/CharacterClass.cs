@@ -5,6 +5,7 @@ using UnityEngine;
 namespace DefaultNamespace {
 
 	[CreateAssetMenu(fileName = "Class-", menuName = "New Class", order = 0)]
+	[System.Serializable]
 	public class CharacterClass : ScriptableObject {
 		[Serializable]
 		public class Slot {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 961403391658074338}
   - component: {fileID: 2239471005890329120}
   - component: {fileID: 6431905607145859360}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 4334480108644598686}
   - component: {fileID: 4334480108644598687}
   - component: {fileID: 6820642032091872201}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: bow_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
