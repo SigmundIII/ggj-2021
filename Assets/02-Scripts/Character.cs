@@ -3,6 +3,10 @@ using System.Collections.Generic;
 namespace DefaultNamespace {
 
 	public class Character {
+		public string name;
+		
+		private Item[] equipment;
+
 		public CharacterClass Class { get; }
 
 		public int MaxHp { get; private set; }
@@ -11,16 +15,23 @@ namespace DefaultNamespace {
 
 		public int BattleValue { get; private set; }
 
-		private Item[] equipment;
+		public int Health { get; private set; }
 
 		public Character(CharacterClass characterClass) {
 			Class = characterClass;
+			name = Class.Name;
 			
-			MaxHp = Class.MAXHp;
+			Health = MaxHp = Class.MAXHp;
 			Attack = Class.Attack;
 			Defense = Class.Defense;
+
+			BattleValue += MaxHp + Attack + Defense;
 			
 			equipment = new Item[characterClass.EquipableTypes.Length];
+		}
+
+		public void Hurt(int damage) {
+			Health -= damage;
 		}
 
 		public bool CanEquip(Item item) {
@@ -40,6 +51,7 @@ namespace DefaultNamespace {
 				int index = Utility.EquipableTypeIndex(Class, item.Type);
 				equipment[index] = item;
 				MaxHp += previousEquip != null ? item.MaxHp - previousEquip.MaxHp : item.MaxHp;
+				Health += previousEquip != null ? item.MaxHp - previousEquip.MaxHp : item.MaxHp;
 				Attack += previousEquip != null ? item.Attack - previousEquip.Attack : item.Attack;
 				Defense += previousEquip != null ? item.Defense - previousEquip.Defense : item.Defense;
 				BattleValue += previousEquip != null ? item.BattleValue - previousEquip.BattleValue : item.BattleValue;

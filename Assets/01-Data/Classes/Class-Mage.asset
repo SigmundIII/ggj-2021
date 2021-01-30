@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719e7c3c3a0e474a9df70e4c292451ab, type: 3}
   m_Name: Class-Mage
   m_EditorClassIdentifier: 
-  _name: Warrior
+  _name: Mage
   maxHp: 10
   attack: 25
   defense: 5

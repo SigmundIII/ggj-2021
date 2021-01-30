@@ -22,6 +22,10 @@ namespace DefaultNamespace {
 			return (int) ((hp + att + def) * rarity);
 		}
 
+		public static int CalculateDamage(Character a, Character d) {
+			return a.Attack - a.Attack * d.Defense / 100;
+		}
+
 		public static int EquipableTypeIndex(CharacterClass characterClass, ItemType type) {
 			for (int i = 0; i < characterClass.EquipableTypes.Length; i++) {
 				if (characterClass.EquipableTypes[i] == type) {
