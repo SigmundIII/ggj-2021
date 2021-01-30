@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using DefaultNamespace.UI;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Visual_Log;
 
 namespace DefaultNamespace {
@@ -31,6 +32,8 @@ namespace DefaultNamespace {
 		public bool battleEnded;
 
 		private void Awake() {
+			EventSystem.current.sendNavigationEvents = false;
+			
 			//_ritual = FindObjectOfType<Ritual_affordance>();
 			turnSystem = FindObjectOfType<TurnSystem>();
 			turnSystem.OnBattlePhaseStart += StartBattle;

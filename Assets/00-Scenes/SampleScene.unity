@@ -560,6 +560,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
   aftermath: {fileID: 1543280987}
   items: []
+  battleEnded: 0
 --- !u!114 &1543280987 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6108804232730928862, guid: 511c5c8e99a4f6548aec7ffb538cad35,
@@ -652,7 +653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPhase: 0
   maxFloors: 3
-  fullTime: 5
+  fullTime: 30
   battleValuePenalty: 1000
 --- !u!4 &1843535061
 Transform:
