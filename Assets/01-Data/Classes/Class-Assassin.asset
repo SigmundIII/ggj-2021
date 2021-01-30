@@ -19,3 +19,6 @@ MonoBehaviour:
   equipableTypes:
   - {fileID: 11400000, guid: 311f436a3a8f4c64fa79fb67042bad65, type: 2}
   - {fileID: 11400000, guid: 10769edc8edcdae44b4bc1d67a96c082, type: 2}
+  - {fileID: 11400000, guid: 677f02e6d75a92b4eb87890d22b89ae7, type: 2}
+  - {fileID: 11400000, guid: 3df9e1412be195245a3ff0d27c7d5b66, type: 2}
+  - {fileID: 11400000, guid: 720e3f329530628469444b5081d09535, type: 2}
