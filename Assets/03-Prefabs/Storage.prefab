@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1936200761
 Transform:
   m_ObjectHideFlags: 0
@@ -103,7 +103,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5107385132199151445}
   - component: {fileID: 5107385132199151444}
-  - component: {fileID: 5107385132199151447}
   m_Layer: 0
   m_Name: Storage
   m_TagString: Untagged
@@ -141,32 +140,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1963537864766123889, guid: ea02251fbc5d57844a2f937dd9a4e1a2, type: 3}
   spawnPoint: {fileID: 5107385133177472541}
-  storageDoorPrefab: {fileID: 0}
-  storageWallsPrefab: {fileID: 0}
-  storageFloorPrefab: {fileID: 0}
-  sputoPoint:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  sputoPointPrefab: {fileID: 6481443347997578613, guid: 80363e0e4c5be434b882a367b32c4d9b,
+    type: 3}
+  storageDoorPrefab: {fileID: 8445035420287511977, guid: 41f69e44465e35442864033a8af9de89,
+    type: 3}
+  storageWallsPrefab: {fileID: 241416013828027671, guid: a59a69c52805a504fa6a696ac548aa6f,
+    type: 3}
+  storageFloorPrefab: {fileID: 4737743149124192655, guid: 20607e00fe285b04189943fa52dfa5d3,
+    type: 3}
   sputoForce: 200
   maxItem: 10
   normalItem: 2
   rareItem: 2
   epicItem: 2
   legendaryItem: 2
---- !u!65 &5107385132199151447
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5107385132199151434}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 5, z: 0}
+  currentSputoPoint: {fileID: 0}
+  types:
+  - {fileID: 11400000, guid: e35caa09f85ce27449a0646bcdddb706, type: 2}
+  - {fileID: 11400000, guid: 10769edc8edcdae44b4bc1d67a96c082, type: 2}
+  items: []
 --- !u!1 &5107385133177472530
 GameObject:
   m_ObjectHideFlags: 0

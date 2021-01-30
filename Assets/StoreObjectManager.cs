@@ -20,6 +20,7 @@ public class StoreObjectManager : MonoBehaviour {
                 IGrabbable grabbable = other.GetComponent<IGrabbable>();
                 if (grabbable!=null) {
                     grabbable.Released();
+                    grabbable.Stop();
                     other.transform.position = storage.currentSputoPoint.position;
                     // Vector3 dir = currentSputoPoint.position - other.gameObject.transform.position;
                     // grabbable.Throw( dir*sputoForce);
