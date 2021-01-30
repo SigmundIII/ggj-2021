@@ -30,24 +30,24 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 	}
 
 	public void Grabbed(Transform parent) {
-		transform.parent = parent;
-		transform.position = parent.position;
-		transform.rotation = Quaternion.identity;
-		transform.eulerAngles = parent.eulerAngles+new Vector3(90, 0, 90);
+		transform.SetParent(parent);
+		transform.localPosition = Vector3.zero;
+		transform.localRotation = Quaternion.identity;
+		transform.localScale = Vector3.one;
 		rb.useGravity = false;
 		rb.isKinematic = true;
 		grabbed = true;
 	}
 
 	public void Released() {
-		transform.parent = null;
+		transform.SetParent(null);
 		rb.useGravity = true;
 		rb.isKinematic = false;
 		grabbed = false;
 	}
 
 	public void Throw(Vector3 force) {
-		transform.parent = null;
+		transform.SetParent(null);
 		rb.useGravity = true;
 		rb.isKinematic = false;
 		rb.AddForce(force);
