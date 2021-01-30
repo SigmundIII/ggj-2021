@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour {
-	[SerializeField]private bool canGrab;
+	[SerializeField]public bool canGrab;
 	[SerializeField]private bool hasGrabbed;
 	[SerializeField]private List<IGrabbable> obj=new List<IGrabbable>();
 	[SerializeField] private GameObject grabVfx;

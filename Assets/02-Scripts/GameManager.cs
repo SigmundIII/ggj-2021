@@ -87,7 +87,6 @@ namespace DefaultNamespace {
 		private void StartBattle(int currentfloor) {
 			_battleEnded = false;
 			Time.timeScale = timescale;
-			Debug.Log("Start battaglia al piano: "+currentfloor);
 			GetEnemies(currentfloor);
 			battleEnded = false;
 			battle = new Battle(heroes, enemies);
