@@ -11,7 +11,7 @@ namespace DefaultNamespace {
 
 		private List<Character> characters;
 
-		private bool someoneDied;
+		private bool someoneDead;
 
 		public Battle(Character[] heroes, Character[] enemies) {
 			this.heroes = new List<Character>(heroes);
@@ -21,7 +21,7 @@ namespace DefaultNamespace {
 		}
 
 		public IEnumerator BattleCoroutine() {
-			VisualLog.AddLog("Battle started.");
+			VisualLog.AddLog("\n\n\nBattle started.");
 			yield return new WaitForSeconds(0.35f);
 			while (heroes.Count > 0 && enemies.Count > 0) {
 				yield return DoRound();
@@ -35,8 +35,7 @@ namespace DefaultNamespace {
 			characters.Sort(SortCharacters);
 			for (int i = 0; i < characters.Count; i++) {
 				yield return DoTurn(characters[i]);
-				if (someoneDied) {
-					i--;
+				if (someoneDead) {
 					if (enemies.Count <= 0) {
 						yield break;
 					}
@@ -66,14 +65,14 @@ namespace DefaultNamespace {
 			target.Hurt(damage);
 			VisualLog.AddLog($"[{target.name}] has now {target.Health}/{target.MaxHp}!");
 			if (target.Health <= 0) {
-				someoneDied = true;
+				someoneDead = true;
+				characters.Remove(target);
 				VisualLog.AddLog($"[{target.name}] Died!");
 				if (isHero) {
 					enemies.Remove(target);
 				} else {
 					heroes.Remove(target);
 				}
-				characters.Remove(target);
 			}
 		}
 

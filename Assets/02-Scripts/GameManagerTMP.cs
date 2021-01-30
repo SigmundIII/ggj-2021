@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace DefaultNamespace {
@@ -27,6 +28,14 @@ namespace DefaultNamespace {
 		private void Start() {
 			battle = new Battle(characters, enemies);
 			StartCoroutine(battle.BattleCoroutine());
+		}
+
+		private void Update() {
+			if (Input.GetKeyDown(KeyCode.R)) {
+				StopAllCoroutines();
+				battle = new Battle(characters, enemies);
+				StartCoroutine(battle.BattleCoroutine());
+			}
 		}
 	}
 
