@@ -6,24 +6,24 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour {
 	[SerializeField]private bool canGrab;
 	[SerializeField]private bool hasGrabbed;
-	[SerializeField]private IGrabbable obj;
+	[SerializeField]private List<IGrabbable> obj=new List<IGrabbable>();
 
 	[Header("Interact attributes")] 
 	public float throwForce;
 	
 
 	public void Grab() {
-		if (obj != null) {
+		if (obj[0] != null) {
 			if (canGrab && !hasGrabbed) {
 				hasGrabbed = true;
-				obj.Grabbed(transform);
+				obj[0].Grabbed(transform);
 			}
 		}
 	}
 
 	public void Release() {
-		if (hasGrabbed && obj!=null) {
-			obj.Released();
+		if (hasGrabbed && obj[0]!=null) {
+			obj[0].Released();
 			hasGrabbed = false;
 		}
 	}
@@ -40,9 +40,8 @@ public class PlayerInteract : MonoBehaviour {
 	public void Throw() {
 		if (hasGrabbed) {
 			var force = transform.forward * throwForce;
-			obj.Released();
 			hasGrabbed = false;
-			obj.Throw(force);
+			obj[0].Throw(force);
 		}
 	}
 	
@@ -50,14 +49,17 @@ public class PlayerInteract : MonoBehaviour {
 		var grabbable=other.GetComponent<IGrabbable>();
 		if (grabbable != null && !hasGrabbed) {
 			canGrab = true;
-			obj = grabbable;
+			obj.Add(grabbable);
 		}
 	}
 	
 	private void OnTriggerExit(Collider other) {
-		if (!hasGrabbed) {
-			canGrab = false;
-			obj = null;
-		}
+			var grabbable=other.GetComponent<IGrabbable>();
+			if (grabbable != null && !hasGrabbed) {
+				obj.Remove(grabbable);
+				if (obj.Count <= 0) {
+					canGrab = false;
+				}
+			}
 	}
 }
