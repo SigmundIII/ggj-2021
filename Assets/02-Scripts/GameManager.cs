@@ -46,6 +46,13 @@ namespace DefaultNamespace {
 			VisualLog.Hide();
 		}
 
+		public void DestroyItems() {
+			foreach (Item item  in items) {
+				Destroy(item.gameObject);
+			}
+			items.Clear();
+		}
+
 		private void Update() {
 			if (Input.GetKeyDown(KeyCode.R)) {
 				StartBattle();

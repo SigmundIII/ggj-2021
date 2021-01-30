@@ -1,7 +1,8 @@
 ﻿using System;
+using DefaultNamespace;
 using UnityEngine;
 
-public enum TurnPhase{Place,Battle,Loot}
+public enum TurnPhase{Place,Battle,Loot,Ending}
 	
 
 public class TurnSystem : MonoBehaviour {
@@ -12,6 +13,7 @@ public class TurnSystem : MonoBehaviour {
 	private PlayerInput playerInput;
 	private Storage storage;
 	private CreateDungeon dungeon;
+	private GameManager gameManager;
 
 	public event Action OnBattlePhaseStart;
 	
@@ -19,11 +21,13 @@ public class TurnSystem : MonoBehaviour {
 		playerInput = FindObjectOfType<PlayerInput>();
 		storage = FindObjectOfType<Storage>();
 		dungeon = FindObjectOfType<CreateDungeon>();
+		gameManager = FindObjectOfType<GameManager>();
 	}
 
 	private void Start() {
 		storage.Init(maxFloors);
-		dungeon.Init(maxFloors);
+		//+1 perchè c'è la stanza del boss
+		dungeon.Init(maxFloors+1);
 		StartPlacePhase();
 	}
 
@@ -52,19 +56,29 @@ public class TurnSystem : MonoBehaviour {
 				break;
 			case TurnPhase.Loot:
 				if (currentFloor < maxFloors) {
+					gameManager.DestroyItems();
 					DestroyStorage(currentFloor);
 					DestroyDungeon(currentFloor);
 					FindObjectOfType<PlayerMovement>().ResetFallGuys();
 					currentFloor++;
-					StartPlacePhase();
+					if (currentFloor < maxFloors) {
+						StartPlacePhase();
+					}
 				}
 				else {
-					Debug.Log("Niente più piani");
+					StartEndingPhase();
 				}
+				break;
+			case TurnPhase.Ending:
+				Debug.Log("Niente più piani");
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
+	}
+
+	private void StartEndingPhase() {
+		currentPhase = TurnPhase.Ending;
 	}
 
 	public void DestroyStorage(int floor) {
