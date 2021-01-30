@@ -62,8 +62,9 @@ namespace DefaultNamespace {
 			yield return new WaitForSeconds(0.35f);
 			
 			int damage = Utility.CalculateDamage(character, target);
-			VisualLog.AddLog($"[{character.name}] deals {damage} damage!");
+			VisualLog.AddLog($"[{character.name}] deals {damage} damage! ");
 			target.Hurt(damage);
+			VisualLog.AddLog($"[{target.name}] has now {target.Health}/{target.MaxHp}!");
 			if (target.Health <= 0) {
 				someoneDied = true;
 				VisualLog.AddLog($"[{target.name}] Died!");
