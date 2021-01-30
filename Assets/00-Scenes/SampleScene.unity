@@ -146,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
       propertyPath: types.Array.size
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
@@ -170,11 +170,41 @@ PrefabInstance:
         type: 3}
       propertyPath: types.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 22258321bdad8984e9a146100507777d,
+      objectReference: {fileID: 11400000, guid: c0a53937009d7f649aaadaae1b183930,
         type: 2}
     - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
       propertyPath: types.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: e35caa09f85ce27449a0646bcdddb706,
+        type: 2}
+    - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
+        type: 3}
+      propertyPath: types.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 148de4bdac0a7aa47b3f7da5206abc0c,
+        type: 2}
+    - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
+        type: 3}
+      propertyPath: types.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a1f467b51fbe8949a736a0a0794f7ed,
+        type: 2}
+    - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
+        type: 3}
+      propertyPath: types.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 311f436a3a8f4c64fa79fb67042bad65,
+        type: 2}
+    - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
+        type: 3}
+      propertyPath: types.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 37ccb1698eba7e942862f9473f5a09f4,
+        type: 2}
+    - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
+        type: 3}
+      propertyPath: types.Array.data[6]
       value: 
       objectReference: {fileID: 11400000, guid: 10769edc8edcdae44b4bc1d67a96c082,
         type: 2}
@@ -466,6 +496,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
   - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
   aftermath: {fileID: 1543280987}
+  items: []
 --- !u!1001 &1356912759
 PrefabInstance:
   m_ObjectHideFlags: 0

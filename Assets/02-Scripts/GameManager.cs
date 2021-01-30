@@ -11,7 +11,7 @@ namespace DefaultNamespace {
 		[Space]
 		[SerializeField] private UIAftermath aftermath;
 		
-		private Character[] characters;
+		private Character[] heroes;
 		private Character[] enemies;
 
 		private Battle battle;
@@ -20,15 +20,15 @@ namespace DefaultNamespace {
 		
 		private bool battleEnded;
 
-		public List<Item> items;
+		[HideInInspector] public List<Item> items;
 
 		private void Awake() {
 			turnSystem = FindObjectOfType<TurnSystem>();
 			turnSystem.OnBattlePhaseStart += StartBattle;
 			
-			characters = new Character[party.Length];
-			for (int i = 0; i < characters.Length; i++) {
-				characters[i] = new Character(party[i]);
+			heroes = new Character[party.Length];
+			for (int i = 0; i < heroes.Length; i++) {
+				heroes[i] = new Character(party[i]);
 			}
 			
 			enemies = new Character[enemyParty.Length];
@@ -55,7 +55,7 @@ namespace DefaultNamespace {
 
 		private void StartBattle() {
 			battleEnded = false;
-			battle = new Battle(characters, enemies, FindObjectOfType<Storage>().items);
+			battle = new Battle(heroes, enemies);
 			aftermath.Hide();
 			VisualLog.Show();
 			StartCoroutine(battle.BattleCoroutine(EndBattle));
@@ -64,7 +64,30 @@ namespace DefaultNamespace {
 		private void EndBattle() {
 			battleEnded = true;
 			VisualLog.Hide();
-			aftermath.Show(characters);
+			AssignLoot();
+			aftermath.Show(heroes);
+		}
+
+		private void AssignLoot() {
+			var loot = new List<Item>(FindObjectOfType<Storage>().items);
+			string log = "";
+			foreach (Item item in loot) {
+				log += $"{item.type.Name} - {item.BattleValue}\n";
+			}
+			Debug.Log(log);
+			var _heroes = new List<Character>(heroes);
+			_heroes.Sort(Utility.SortCharacters);
+			_heroes.Reverse();
+			for (int i = 0; i < loot.Count; i++) {
+				Item item = loot[i];
+				foreach (Character hero in _heroes) {
+					if (hero.CanEquip(item) && hero.Equip(item)) {
+						Debug.Log($"{hero.name} equipped {item.type.Name}");
+						loot.Remove(item);
+						break;
+					}
+				}
+			}
 		}
 	}
 

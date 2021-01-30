@@ -4,8 +4,9 @@ namespace DefaultNamespace {
 	public enum RarityLevel{ Normal, Rare, Legendary, Epic }
 	
 	public class Item : MonoBehaviour {
+		public string Name { get; private set; }
 		public ItemType type;
-		public RarityLevel RarityLevel {  private set; get; }
+		public RarityLevel rarityLevel = RarityLevel.Normal;
 		
 		public int MaxHp { private set; get; }
 		public int Attack { private set; get; }
@@ -13,10 +14,9 @@ namespace DefaultNamespace {
 		
 		public int BattleValue { private set; get; }
 
-		public void Generate(ItemType type, RarityLevel rarityLevel) {
-			this.type = type;
-			RarityLevel = rarityLevel;
-			
+		public void Generate() {
+			Name = rarityLevel + " " + type.Name;
+
 			Vector2 hpr = type.MAXHpRange * Utility.RarityLevelMultiplier(rarityLevel);
 			Vector2 attr = type.AttackRange * Utility.RarityLevelMultiplier(rarityLevel);
 			Vector2 defr = type.DefenseRange * Utility.RarityLevelMultiplier(rarityLevel);

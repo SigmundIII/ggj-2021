@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Class-Enemy
   m_EditorClassIdentifier: 
   _name: Enemy
-  maxHp: 15
+  maxHp: 10
   attack: 10
   defense: 10
   equipableTypes: []
