@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.RigidbodyConstraints;
 
 public class Storage : MonoBehaviour {
 	public GameObject prefab;

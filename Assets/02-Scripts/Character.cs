@@ -38,7 +38,7 @@ namespace DefaultNamespace {
 		}
 
 		public bool CanEquip(Item item) {
-			return Utility.EquipableTypeIndex(Class, item.Type) >= 0;
+			return Utility.EquipableTypeIndex(Class, item.type) >= 0;
 		}
 
 		public bool Equip(Item item) {
@@ -47,11 +47,11 @@ namespace DefaultNamespace {
 			}
 			
 			var equipmentList = new List<Item>(equipment);
-			Item previousEquip = equipmentList.Find(i => i.Type == item.Type);
+			Item previousEquip = equipmentList.Find(i => i.type == item.type);
 			if (previousEquip != null && item.BattleValue < previousEquip.BattleValue) {
 				return false;
 			} else {
-				int index = Utility.EquipableTypeIndex(Class, item.Type);
+				int index = Utility.EquipableTypeIndex(Class, item.type);
 				equipment[index] = item;
 				MaxHp += previousEquip != null ? item.MaxHp - previousEquip.MaxHp : item.MaxHp;
 				Health += previousEquip != null ? item.MaxHp - previousEquip.MaxHp : item.MaxHp;

@@ -17,5 +17,5 @@ MonoBehaviour:
   attack: 20
   defense: 10
   equipableTypes:
-  - {fileID: 11400000, guid: 22258321bdad8984e9a146100507777d, type: 2}
+  - {fileID: 11400000, guid: 311f436a3a8f4c64fa79fb67042bad65, type: 2}
   - {fileID: 11400000, guid: 10769edc8edcdae44b4bc1d67a96c082, type: 2}
