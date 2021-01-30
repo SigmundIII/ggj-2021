@@ -67,8 +67,10 @@ public class Storage : MonoBehaviour {
 	public IEnumerator SpawnItem(RarityLevel rarity, ItemType type) {
 		Instantiate(prefab.gameObject, spawnPoint.position,spawnPoint.rotation);
 		Item item = prefab.GetComponent<Item>();
-		item.Generate(type,rarity);
-		item.gameObject.name = "Item";
+		if (item != null) {
+			item.Generate(type,rarity);
+			item.gameObject.name = "Item";
+		}
 		yield return new WaitForSeconds(0.5f);
 	}
 
