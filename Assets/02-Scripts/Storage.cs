@@ -18,6 +18,7 @@ public class Storage : MonoBehaviour {
 	[Space]
 	private List<Transform> sputoPoint=new List<Transform>();
 	private List<GameObject> storageDoors=new List<GameObject>();
+	private List<GameObject> storageWalls=new List<GameObject>();
 	private List<GameObject> storageFloors=new List<GameObject>();
 	
 	[Space]
@@ -81,6 +82,7 @@ public class Storage : MonoBehaviour {
 		position.y -= (9 * floorNumber);
 		var obj = Instantiate(storageWallsPrefab, position, Quaternion.identity);
 		obj.transform.parent = floor.transform;
+		storageWalls.Add(obj);
 		obj = Instantiate(storageFloorPrefab, position, Quaternion.identity);
 		storageFloors.Add(obj);
 		obj.transform.parent = floor.transform;
@@ -97,6 +99,12 @@ public class Storage : MonoBehaviour {
 	
 	public void DestroyFloor(int currentFloor) {
 		Destroy(storageFloors[currentFloor]);
+	}
+	public void DestroyWalls(int currentFloor) {
+		Destroy(storageWalls[currentFloor]);
+	}
+	public void DestroyDoors(int currentFloor) {
+		Destroy(storageDoors[currentFloor]);
 	}
 
 	public void OpenDoors(int currentFloor) {
