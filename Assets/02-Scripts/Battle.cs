@@ -15,7 +15,7 @@ namespace DefaultNamespace {
 
 		private bool someoneDead;
 
-		public Battle(Character[] heroes, Character[] enemies) {
+		public Battle(Character[] heroes, Character[] enemies, List<Item> loot) {
 			this.heroes = new List<Character>(heroes);
 			this.enemies = new List<Character>(enemies);
 			characters = new List<Character>(heroes);
