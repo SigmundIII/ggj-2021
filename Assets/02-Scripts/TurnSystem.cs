@@ -13,6 +13,8 @@ public class TurnSystem : MonoBehaviour {
 
 	private PlayerInput playerInput;
 	private Storage storage;
+
+	public event Action OnBattlePhaseStart;
 	
 	private void Awake() {
 		playerInput = FindObjectOfType<PlayerInput>();
@@ -74,6 +76,7 @@ public class TurnSystem : MonoBehaviour {
 		storage.CloseDoors(currentFloor);
 		currentPhase = TurnPhase.Battle;
 		playerInput.enabled = false;
+		OnBattlePhaseStart?.Invoke();
 	}
 	
 	public void StartLootPhase() {
