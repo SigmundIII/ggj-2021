@@ -104,6 +104,8 @@ public class Storage : MonoBehaviour {
 			obj = Instantiate(pieces.door, position, Quaternion.identity);
 			storageDoors.Add(obj);
 			obj.transform.parent = floor.transform;
+			obj = Instantiate(pieces.CAZZODITETTO, position, Quaternion.identity);
+			obj.transform.parent = floor.transform;
 			obj = Instantiate(pieces.sputoPoint, position, Quaternion.identity);
 			obj.transform.GetChild(0);
 			sputoPoint.Add(obj.transform.GetChild(0));
