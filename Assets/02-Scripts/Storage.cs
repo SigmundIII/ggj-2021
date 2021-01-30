@@ -5,9 +5,9 @@ using DefaultNamespace;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.RigidbodyConstraints;
+using Random = UnityEngine.Random;
 
 public class Storage : MonoBehaviour {
-	public GameObject prefab;
 	public Transform spawnPoint;
 
 	public GameObject sputoPointPrefab;
@@ -23,17 +23,19 @@ public class Storage : MonoBehaviour {
 	private List<GameObject> storageFloors=new List<GameObject>();
 	
 	[Space]
-	public float sputoForce;
 	public int maxItem;
 	
 	public int normalItem;
 	public int rareItem;
 	public int epicItem;
 	public int legendaryItem;
-
-	public Transform currentSputoPoint;
-	public List<ItemType> types=new List<ItemType>();
-	public List<Item> items=new List<Item>();
+	[Space] 
+	public List<GameObject> normalItems=new List<GameObject>();
+	public List<GameObject> rareItems=new List<GameObject>();
+	public List<GameObject> epicItems=new List<GameObject>();
+	public List<GameObject> legendaryItems=new List<GameObject>();
+	[HideInInspector]public Transform currentSputoPoint;
+	[HideInInspector]public List<Item> items=new List<Item>();
 
 	public void Init(int floorNumber) {
 		StartCoroutine(GenerateInitialItems());
@@ -45,32 +47,41 @@ public class Storage : MonoBehaviour {
 
 	public IEnumerator GenerateInitialItems() {
 		for (int i = 0; i < normalItem; i++) {
-			foreach (ItemType type in types) {
-				yield return StartCoroutine(SpawnItem(RarityLevel.Normal, type));
-			}
+			yield return StartCoroutine(SpawnItem(RarityLevel.Normal));
 		}
 		for (int i = 0; i < rareItem; i++) {
-			foreach (ItemType type in types) {
-				yield return StartCoroutine(SpawnItem(RarityLevel.Rare, type));
-			}
+			yield return StartCoroutine(SpawnItem(RarityLevel.Rare));
 		}
 		for (int i = 0; i < epicItem; i++) {
-			foreach (ItemType type in types) {
-				yield return StartCoroutine(SpawnItem(RarityLevel.Epic, type));
-			}
+			yield return StartCoroutine(SpawnItem(RarityLevel.Epic));
 		}
 		for (int i = 0; i < legendaryItem; i++) {
-			foreach (ItemType type in types) {
-				yield return StartCoroutine(SpawnItem(RarityLevel.Legendary, type));
-			}
+			yield return StartCoroutine(SpawnItem(RarityLevel.Legendary));
 		}
 	}
 	
-	public IEnumerator SpawnItem(RarityLevel rarity, ItemType type) {
+	public IEnumerator SpawnItem(RarityLevel rarity) {
+		GameObject prefab;
+		switch (rarity) {
+			case RarityLevel.Normal:
+				prefab = normalItems[Random.Range(0, normalItems.Count)];
+				break;
+			case RarityLevel.Rare:
+				prefab = rareItems[Random.Range(0, rareItems.Count)];
+				break;
+			case RarityLevel.Legendary:
+				prefab = epicItems[Random.Range(0, epicItems.Count)];
+				break;
+			case RarityLevel.Epic:
+				prefab = legendaryItems[Random.Range(0, legendaryItems.Count)];
+				break;
+			default:
+				throw new ArgumentOutOfRangeException(nameof(rarity), rarity, null);
+		}
 		Instantiate(prefab.gameObject, spawnPoint.position,spawnPoint.rotation);
 		Item item = prefab.GetComponent<Item>();
 		if (item != null) {
-			item.Generate(type,rarity);
+			//item.Generate(,rarity);
 			item.gameObject.name = "Item";
 		}
 		yield return new WaitForSeconds(0.5f);
