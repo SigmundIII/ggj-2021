@@ -20,12 +20,24 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void FallGuys() {
-		rb.isKinematic = false;
+		rb.constraints = RigidbodyConstraints.None;
+		rb.constraints = RigidbodyConstraints.FreezeRotation;
 	}
 
 	public void NotFallGuys() {
-		rb.isKinematic = true;
+		rb.constraints = RigidbodyConstraints.FreezePositionY;
 	}
 
+	private void OnCollisionEnter(Collision other) {
+		if (other.gameObject.CompareTag("Floor")) {
+			NotFallGuys();
+		}
+	}
+
+	private void OnCollisionExit(Collision other) {
+		if (other.gameObject.CompareTag("Floor")) {
+			FallGuys();
+		}
+	}
 
 }
