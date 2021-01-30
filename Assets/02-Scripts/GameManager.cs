@@ -16,7 +16,7 @@ namespace DefaultNamespace {
 		private Battle battle;
 
 		private TurnSystem turnSystem;
-
+		
 		private bool battleEnded;
 
 		private void Awake() {

@@ -31,9 +31,9 @@ public class Storage : MonoBehaviour {
 	public int epicItem;
 	public int legendaryItem;
 
-	private Transform currentSputoPoint;
+	public Transform currentSputoPoint;
 	public List<ItemType> types=new List<ItemType>();
-	private List<Item> items=new List<Item>();
+	public List<Item> items=new List<Item>();
 
 	public void Init(int floorNumber) {
 		StartCoroutine(GenerateInitialItems());
@@ -120,30 +120,6 @@ public class Storage : MonoBehaviour {
 		currentSputoPoint = sputoPoint[currentFloor];
 	}
 
-	private void OnTriggerEnter(Collider other) {
-		Item item=other.GetComponent<Item>();
-		if (item != null) {
-			if (items.Count < maxItem) {
-				items.Add(item);
-			}
-			else {
-				IGrabbable grabbable = other.GetComponent<IGrabbable>();
-				if (grabbable!=null) {
-					grabbable.Released();
-					other.transform.position = currentSputoPoint.position;
-					// Vector3 dir = currentSputoPoint.position - other.gameObject.transform.position;
-					// grabbable.Throw( dir*sputoForce);
-					//other.transform.position = sputoPoint.position;
-				}
-			}
-		}
-	}
 	
-	private void OnTriggerExit(Collider other) {
-		Item item=other.GetComponent<Item>();
-		if (item != null) {
-			items.Remove(item);
-		}
-	}
 
 }
