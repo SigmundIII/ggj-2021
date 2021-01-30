@@ -13,16 +13,7 @@ MonoBehaviour:
   m_Name: Class-Enemy_2
   m_EditorClassIdentifier: 
   _name: Enemy
-  maxHp: 20
-  attack: 5
-  defense: 20
-  equipSlots:
-  - types:
-    - {fileID: 11400000, guid: e35caa09f85ce27449a0646bcdddb706, type: 2}
-    - {fileID: 11400000, guid: 8a1f467b51fbe8949a736a0a0794f7ed, type: 2}
-    equipped: {fileID: 0}
-  - types:
-    - {fileID: 11400000, guid: 3df9e1412be195245a3ff0d27c7d5b66, type: 2}
-    - {fileID: 11400000, guid: 720e3f329530628469444b5081d09535, type: 2}
-    - {fileID: 11400000, guid: dbf68a98bae3f874db65f600d028b6ce, type: 2}
-    equipped: {fileID: 0}
+  maxHp: 100
+  attack: 15
+  defense: 70
+  equipSlots: []

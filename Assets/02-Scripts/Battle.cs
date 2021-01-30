@@ -48,7 +48,7 @@ namespace DefaultNamespace {
 		}
 
 		private IEnumerator DoTurn(Character character) {
-			VisualLog.AddLog($"-- Turn of: {character.name}");
+			VisualLog.AddLog($"\n\n-- Turn of: {character.name}");
 			bool isHero = heroes.Contains(character);
 			yield return new WaitForSeconds(0.35f);
 			
@@ -66,11 +66,11 @@ namespace DefaultNamespace {
 			int damage = Utility.CalculateDamage(character, target);
 			VisualLog.AddLog($"[{character.name}] deals {damage} damage! ");
 			target.Hurt(damage);
-			VisualLog.AddLog($"[{target.name}] has now {target.Health}/{target.MaxHp}!");
+			VisualLog.AddLog($"[{target.name}] has now {target.Health}/{target.MaxHp}!\n\n");
 			if (target.Health <= 0) {
 				someoneDead = true;
 				characters.Remove(target);
-				VisualLog.AddLog($"[{target.name}] Died!");
+				VisualLog.AddLog($"[{target.name}] Died!\n\n");
 				if (isHero) {
 					enemies.Remove(target);
 				} else {

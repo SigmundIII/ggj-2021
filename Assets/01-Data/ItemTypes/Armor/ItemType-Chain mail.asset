@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ItemType-Chain mail
   m_EditorClassIdentifier: 
   _name: Chain mail
-  maxHpRange: {x: 10, y: 15}
-  attackRange: {x: -5, y: -10}
-  defenseRange: {x: 10, y: 15}
+  maxHpRange: {x: 5, y: 10}
+  attackRange: {x: -2, y: -8}
+  defenseRange: {x: 0, y: 0}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ItemType-Tunic
   m_EditorClassIdentifier: 
   _name: Tunic
-  maxHpRange: {x: 5, y: 10}
-  attackRange: {x: -5, y: -10}
-  defenseRange: {x: 5, y: 10}
+  maxHpRange: {x: 20, y: 25}
+  attackRange: {x: -5, y: -15}
+  defenseRange: {x: 0, y: 0}
