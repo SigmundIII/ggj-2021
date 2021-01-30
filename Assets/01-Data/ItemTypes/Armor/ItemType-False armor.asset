@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: False armor
   maxHpRange: {x: -15, y: -25}
   attackRange: {x: -15, y: -30}
-  defenseRange: {x: -10, y: -40}
+  defenseRange: {x: 0, y: 0}

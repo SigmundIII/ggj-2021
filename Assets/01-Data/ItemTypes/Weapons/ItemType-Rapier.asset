@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Rapier
   maxHpRange: {x: 0, y: 0}
-  attackRange: {x: 10, y: 20}
-  defenseRange: {x: -5, y: -10}
+  attackRange: {x: 70, y: 120}
+  defenseRange: {x: -50, y: -100}

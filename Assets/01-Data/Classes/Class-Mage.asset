@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Class-Mage
   m_EditorClassIdentifier: 
   _name: Mage
-  maxHp: 30
-  attack: 7
-  defense: 5
+  maxHp: 250
+  attack: 50
+  defense: 30
   equipSlots:
   - types:
     - {fileID: 11400000, guid: 37ccb1698eba7e942862f9473f5a09f4, type: 2}

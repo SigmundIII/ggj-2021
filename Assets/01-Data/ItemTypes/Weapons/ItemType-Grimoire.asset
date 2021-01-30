@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Grimoire
   maxHpRange: {x: 0, y: 0}
-  attackRange: {x: 10, y: 30}
-  defenseRange: {x: 0, y: 0}
+  attackRange: {x: 50, y: 70}
+  defenseRange: {x: -30, y: -60}

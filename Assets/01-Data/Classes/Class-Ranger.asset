@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Class-Ranger
   m_EditorClassIdentifier: 
   _name: Ranger
-  maxHp: 45
-  attack: 6
-  defense: 15
+  maxHp: 300
+  attack: 40
+  defense: 50
   equipSlots:
   - types:
     - {fileID: 11400000, guid: 148de4bdac0a7aa47b3f7da5206abc0c, type: 2}
