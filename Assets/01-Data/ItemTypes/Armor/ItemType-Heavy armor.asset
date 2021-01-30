@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3756f40dfc2d46bea7dc6b73bf2b9b2a, type: 3}
-  m_Name: ItemType-Armatura
+  m_Name: ItemType-Heavy armor
   m_EditorClassIdentifier: 
-  _name: Armatura
-  maxHpRange: {x: 10, y: 30}
-  attackRange: {x: 0, y: 0}
-  defenseRange: {x: 1, y: 10}
+  _name: Heavy armor
+  maxHpRange: {x: 15, y: 30}
+  attackRange: {x: -10, y: -20}
+  defenseRange: {x: 10, y: 20}
