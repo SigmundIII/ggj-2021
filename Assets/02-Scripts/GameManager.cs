@@ -59,6 +59,9 @@ namespace DefaultNamespace {
 
 		private void Update() {
 			if (_battleEnded && Input.GetKeyDown(KeyCode.Return)) {
+				VisualLog.Hide();
+				AssignLoot();
+				aftermath.Show(heroes);
 				battleEnded = true;
 			}
 		}
@@ -81,9 +84,6 @@ namespace DefaultNamespace {
 
 		private void EndBattle() {
 			_battleEnded = true;
-			VisualLog.Hide();
-			AssignLoot();
-			aftermath.Show(heroes);
 			//_ritual.StartCoroutine("Ritual_progression");
 		}
 
