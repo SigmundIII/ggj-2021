@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 121070996384204070}
   - component: {fileID: 4965704916773878287}
-  - component: {fileID: 8690203656805763487}
   m_Layer: 0
   m_Name: StorageWall
   m_TagString: Untagged
@@ -89,18 +88,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11.981711, y: 8.959809, z: 12.880566}
   m_Center: {x: 0.017121792, y: 4.5032897, z: 0.035028458}
---- !u!114 &8690203656805763487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121070996384204071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2bb719ff387ea1428664174de09ad62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &968072432260821398
 GameObject:
   m_ObjectHideFlags: 0
