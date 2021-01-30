@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public enum TurnPhase{Place,Battle,Loot}
@@ -14,6 +15,7 @@ public class TurnSystem : MonoBehaviour {
 	private PlayerInput playerInput;
 	private Storage storage;
 	private CreateDungeon dungeon;
+	private GameManager gameManager;
 
 	public event Action OnBattlePhaseStart;
 	
@@ -21,6 +23,7 @@ public class TurnSystem : MonoBehaviour {
 		playerInput = FindObjectOfType<PlayerInput>();
 		storage = FindObjectOfType<Storage>();
 		dungeon = FindObjectOfType<CreateDungeon>();
+		gameManager = FindObjectOfType<GameManager>();
 	}
 
 	private void Start() {
@@ -54,6 +57,7 @@ public class TurnSystem : MonoBehaviour {
 				break;
 			case TurnPhase.Loot:
 				if (currentFloor < maxFloors) {
+					gameManager.DestroyItems();
 					DestroyStorage(currentFloor);
 					DestroyDungeon(currentFloor);
 					FindObjectOfType<PlayerMovement>().ResetFallGuys();
