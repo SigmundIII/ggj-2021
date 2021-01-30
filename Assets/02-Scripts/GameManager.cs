@@ -23,7 +23,7 @@ namespace DefaultNamespace {
 
 		private Dump dump;
 
-		[HideInInspector] public List<Item> items;
+		public List<Item> items;
 
 		private Ritual_affordance _ritual;
 

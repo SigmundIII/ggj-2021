@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using DefaultNamespace;
+﻿using DefaultNamespace;
 using UnityEngine;
 
 public class BasicObject : MonoBehaviour,IGrabbable {
@@ -24,13 +21,17 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 			if (transform.position.x > storage.treasonPoint.position.x) {
 				// Inside Storage
 				transform.SetParent(storage.transform);
-				gameManager.items.Remove(item);
-				storage.items.Add(item);
+				if (!storage.items.Contains(item)) {
+					gameManager.items.Remove(item);
+					storage.items.Add(item);
+				}
 			} else {
 				// Outside Storage
 				transform.SetParent(gameManager.transform);
-				gameManager.items.Add(item);
-				storage.items.Remove(item);
+				if (!gameManager.items.Contains(item)) {
+					gameManager.items.Add(item);
+					storage.items.Remove(item);
+				}
 			}
 		}
 	}
