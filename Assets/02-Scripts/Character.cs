@@ -32,6 +32,9 @@ namespace DefaultNamespace {
 
 		public void Hurt(int damage) {
 			Health -= damage;
+			if (Health <= 0) {
+				Health = 0;
+			}
 		}
 
 		public bool CanEquip(Item item) {
@@ -57,6 +60,10 @@ namespace DefaultNamespace {
 				BattleValue += previousEquip != null ? item.BattleValue - previousEquip.BattleValue : item.BattleValue;
 				return true;
 			}
+		}
+
+		public override string ToString() {
+			return $"";
 		}
 	}
 
