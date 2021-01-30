@@ -286,6 +286,14 @@ namespace Visual_Log {
 			instance.Clear();
 		}
 
+		public static void Hide() {
+			instance.enabled = false;
+		}
+
+		public static void Show() {
+			instance.enabled = true;
+		}
+
 		#endregion
 
 		#region Enable - Disable
