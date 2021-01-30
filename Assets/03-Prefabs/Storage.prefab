@@ -139,13 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5107385133177472541}
-  sputoPointPrefab: {fileID: 6481443347997578613, guid: 80363e0e4c5be434b882a367b32c4d9b,
-    type: 3}
-  storageDoorPrefab: {fileID: 8445035420287511977, guid: 41f69e44465e35442864033a8af9de89,
-    type: 3}
-  storageWallsPrefab: {fileID: 241416013828027671, guid: a59a69c52805a504fa6a696ac548aa6f,
-    type: 3}
-  storageFloorPrefab: {fileID: 4737743149124192655, guid: 20607e00fe285b04189943fa52dfa5d3,
+  storagePrefab: {fileID: 7516798460224812987, guid: 779a2a08195bfb74b812e028bcf51990,
     type: 3}
   maxItem: 20
   normalItem: 2
