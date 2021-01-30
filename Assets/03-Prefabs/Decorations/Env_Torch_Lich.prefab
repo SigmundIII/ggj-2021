@@ -1304,9 +1304,9 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 0, b: 0, a: 0}
-        key1: {r: 1, g: 0.7791244, b: 0, a: 1}
-        key2: {r: 1, g: 0.41607806, b: 0.043137252, a: 1}
-        key3: {r: 0.9098039, g: 0.5162096, b: 0.45490196, a: 0}
+        key1: {r: 0, g: 0.6443255, b: 1, a: 1}
+        key2: {r: 0.043137252, g: 1, b: 0.7706495, a: 1}
+        key3: {r: 0.043137252, g: 1, b: 0.5513693, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -1314,21 +1314,21 @@ ParticleSystem:
         ctime0: 0
         ctime1: 2874
         ctime2: 16288
-        ctime3: 35450
-        ctime4: 45223
-        ctime5: 65535
+        ctime3: 17246
+        ctime4: 65535
+        ctime5: 0
         ctime6: 0
         ctime7: 0
         atime0: 0
         atime1: 4216
-        atime2: 34875
-        atime3: 45223
+        atime2: 32193
+        atime3: 52696
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 5
+        m_NumColorKeys: 3
         m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
@@ -4764,7 +4764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1793668867712733745}
   m_Layer: 0
-  m_Name: Env_Torch
+  m_Name: Env_Torch_Lich
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
