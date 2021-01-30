@@ -6,8 +6,12 @@ using UnityEngine;
 
 public class StoreObjectManager : MonoBehaviour {
     private Storage storage;
+
+    private Transform storagedParent;
+    
     private void Awake() {
         storage = FindObjectOfType<Storage>();
+        storagedParent = new GameObject("Storaged Items - " + name).transform;
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -16,7 +20,7 @@ public class StoreObjectManager : MonoBehaviour {
             if (storage.items.Count < storage.maxItem) {
                 storage.items.Add(item);
                 if (!item.gameObject.GetComponent<BasicObject>().grabbed) {
-                    item.transform.SetParent(transform);
+                    item.transform.SetParent(storagedParent);
                 }
             }
             else {

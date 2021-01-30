@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using DefaultNamespace.UI;
 using UnityEngine;
@@ -61,6 +60,7 @@ namespace DefaultNamespace {
 				case TurnPhase.Loot:
 					for (int i = 0; i < items.Count; i++) {
 						dump.AddGarbage(items[i].transform);
+						items.RemoveAt(i);
 					}
 					break;
 				}
