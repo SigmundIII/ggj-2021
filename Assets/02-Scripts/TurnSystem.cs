@@ -15,7 +15,7 @@ public class TurnSystem : MonoBehaviour {
 	private CreateDungeon dungeon;
 	private GameManager gameManager;
 
-	public event Action OnBattlePhaseStart;
+	public event Action<int> OnBattlePhaseStart;
 	public float fullTime=30;
 	private float time = 0;
 	public int battleValuePenalty;
@@ -133,7 +133,7 @@ public class TurnSystem : MonoBehaviour {
 		storage.CloseDoors(currentFloor);
 		currentPhase = TurnPhase.Battle;
 		playerInput.enabled = false;
-		OnBattlePhaseStart?.Invoke();
+		OnBattlePhaseStart?.Invoke(currentFloor);
 	}
 	
 	public void StartLootPhase() {

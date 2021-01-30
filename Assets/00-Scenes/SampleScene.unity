@@ -554,10 +554,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3fa5f5a46e4bb854f93d5ec9d1cc2423, type: 2}
   - {fileID: 11400000, guid: c83466968f15ab747a11eecba21df8fe, type: 2}
   enemyParty:
-  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
-  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
-  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
-  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
+    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
+    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
+    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
+    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
+    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
+    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
   aftermath: {fileID: 1543280987}
   items: []
 --- !u!114 &1543280987 stripped
