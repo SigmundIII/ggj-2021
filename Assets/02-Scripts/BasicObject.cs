@@ -8,6 +8,7 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 	private Rigidbody rb;
 	private Storage storage;
 	private GameManager gameManager;
+	private Item item;
 
 	public bool grabbed;
 
@@ -15,6 +16,7 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 		rb = GetComponent<Rigidbody>();
 		storage = FindObjectOfType<Storage>();
 		gameManager = FindObjectOfType<GameManager>();
+		item = GetComponent<Item>();
 	}
 
 	private void Update() {
@@ -22,9 +24,13 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 			if (transform.position.x > storage.treasonPoint.position.x) {
 				// Inside Storage
 				transform.SetParent(storage.transform);
+				gameManager.items.Remove(item);
+				storage.items.Add(item);
 			} else {
 				// Outside Storage
 				transform.SetParent(gameManager.transform);
+				gameManager.items.Add(item);
+				storage.items.Remove(item);
 			}
 		}
 	}
