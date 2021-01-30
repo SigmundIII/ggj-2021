@@ -36,4 +36,8 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 	private void OnBecameInvisible() {
 		Destroy(this.gameObject);
 	}
+
+	public void Stop() {
+		rb.velocity=Vector3.zero;
+	}
 }

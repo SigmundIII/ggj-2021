@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 8a1f467b51fbe8949a736a0a0794f7ed, type: 2}
+  rarityLevel: 3
 --- !u!114 &6451144946683727706
 MonoBehaviour:
   m_ObjectHideFlags: 0

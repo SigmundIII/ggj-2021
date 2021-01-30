@@ -23,4 +23,8 @@ public class CreateDungeon : MonoBehaviour {
         dungeonFloors.Add(obj);
         dungeonFloor.transform.parent = transform;
     }
+
+    public void DestroyFloor(int currentFloor) {
+        Destroy(dungeonFloors[currentFloor]);
+    }
 }

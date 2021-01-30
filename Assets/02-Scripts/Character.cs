@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace DefaultNamespace {
 
@@ -47,8 +48,8 @@ namespace DefaultNamespace {
 			}
 			
 			var equipmentList = new List<Item>(equipment);
-			Item previousEquip = equipmentList.Find(i => i.type == item.type);
-			if (previousEquip != null && item.BattleValue < previousEquip.BattleValue) {
+			Item previousEquip = equipmentList.Find(i => i != null && i.type == item.type);
+			if (previousEquip != null && item.BattleValue <= previousEquip.BattleValue) {
 				return false;
 			} else {
 				int index = Utility.EquipableTypeIndex(Class, item.type);

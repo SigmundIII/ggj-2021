@@ -7,4 +7,6 @@ public interface IGrabbable {
 	void Released();
 
 	void Throw(Vector3 force);
+
+	void Stop();
 }

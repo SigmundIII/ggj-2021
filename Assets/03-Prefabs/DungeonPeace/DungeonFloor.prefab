@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7214574411998113837}
   - component: {fileID: 7214574411998113836}
+  - component: {fileID: 1351468332509344246}
+  - component: {fileID: 7134639576742700564}
   m_Layer: 0
   m_Name: DungeonFloor
   m_TagString: Floor
@@ -139,8 +141,33 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 24.078571, y: 0.6178026, z: 36.102066}
-  m_Center: {x: -14.998926, y: 0.24759316, z: -5.97427}
+  m_Size: {x: 24.078571, y: 0.6214272, z: 36.102066}
+  m_Center: {x: -14.998926, y: 0.24940544, z: -5.97427}
+--- !u!65 &1351468332509344246
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214574411998113838}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 24.01931, y: 8.428942, z: 36.093475}
+  m_Center: {x: -15, y: 4.76243, z: -5.9779205}
+--- !u!114 &7134639576742700564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214574411998113838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae021a19cbf262429f4ea107ca3ed3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7214574411851525666
 PrefabInstance:
   m_ObjectHideFlags: 0

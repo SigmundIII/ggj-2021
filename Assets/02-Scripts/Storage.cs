@@ -19,6 +19,7 @@ public class Storage : MonoBehaviour {
 	[Space]
 	private List<Transform> sputoPoint=new List<Transform>();
 	private List<GameObject> storageDoors=new List<GameObject>();
+	private List<GameObject> storageWalls=new List<GameObject>();
 	private List<GameObject> storageFloors=new List<GameObject>();
 	
 	[Space]
@@ -30,9 +31,9 @@ public class Storage : MonoBehaviour {
 	public int epicItem;
 	public int legendaryItem;
 
-	private Transform currentSputoPoint;
+	public Transform currentSputoPoint;
 	public List<ItemType> types=new List<ItemType>();
-	private List<Item> items=new List<Item>();
+	public List<Item> items=new List<Item>();
 
 	public void Init(int floorNumber) {
 		StartCoroutine(GenerateInitialItems());
@@ -69,7 +70,7 @@ public class Storage : MonoBehaviour {
 		Instantiate(prefab.gameObject, spawnPoint.position,spawnPoint.rotation);
 		Item item = prefab.GetComponent<Item>();
 		if (item != null) {
-			item.Generate(type,rarity);
+			item.Generate();
 			item.gameObject.name = "Item";
 		}
 		yield return new WaitForSeconds(0.5f);
@@ -82,6 +83,7 @@ public class Storage : MonoBehaviour {
 		position.y -= (9 * floorNumber);
 		var obj = Instantiate(storageWallsPrefab, position, Quaternion.identity);
 		obj.transform.parent = floor.transform;
+		storageWalls.Add(obj);
 		obj = Instantiate(storageFloorPrefab, position, Quaternion.identity);
 		storageFloors.Add(obj);
 		obj.transform.parent = floor.transform;
@@ -99,6 +101,12 @@ public class Storage : MonoBehaviour {
 	public void DestroyFloor(int currentFloor) {
 		Destroy(storageFloors[currentFloor]);
 	}
+	public void DestroyWalls(int currentFloor) {
+		Destroy(storageWalls[currentFloor]);
+	}
+	public void DestroyDoors(int currentFloor) {
+		Destroy(storageDoors[currentFloor]);
+	}
 
 	public void OpenDoors(int currentFloor) {
 		storageDoors[currentFloor].SetActive(false);
@@ -112,30 +120,6 @@ public class Storage : MonoBehaviour {
 		currentSputoPoint = sputoPoint[currentFloor];
 	}
 
-	private void OnTriggerEnter(Collider other) {
-		Item item=other.GetComponent<Item>();
-		if (item != null) {
-			if (items.Count < maxItem) {
-				items.Add(item);
-			}
-			else {
-				IGrabbable grabbable = other.GetComponent<IGrabbable>();
-				if (grabbable!=null) {
-					grabbable.Released();
-					other.transform.position = currentSputoPoint.position;
-					// Vector3 dir = currentSputoPoint.position - other.gameObject.transform.position;
-					// grabbable.Throw( dir*sputoForce);
-					//other.transform.position = sputoPoint.position;
-				}
-			}
-		}
-	}
 	
-	private void OnTriggerExit(Collider other) {
-		Item item=other.GetComponent<Item>();
-		if (item != null) {
-			items.Remove(item);
-		}
-	}
 
 }

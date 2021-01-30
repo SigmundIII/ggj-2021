@@ -34,8 +34,8 @@ namespace DefaultNamespace {
 		}
 
 		private IEnumerator DoRound() {
-			VisualLog.AddLog("\n\n--- New round ---.");
-			characters.Sort(SortCharacters);
+			VisualLog.AddLog("--- New round ---.");
+			characters.Sort(Utility.SortCharacters);
 			for (int i = 0; i < characters.Count; i++) {
 				yield return DoTurn(characters[i]);
 				if (someoneDead) {
@@ -48,7 +48,7 @@ namespace DefaultNamespace {
 		}
 
 		private IEnumerator DoTurn(Character character) {
-			VisualLog.AddLog($"\n-- Turn of: {character.name}");
+			VisualLog.AddLog($"-- Turn of: {character.name}");
 			bool isHero = heroes.Contains(character);
 			yield return new WaitForSeconds(0.35f);
 			
@@ -66,7 +66,7 @@ namespace DefaultNamespace {
 			int damage = Utility.CalculateDamage(character, target);
 			VisualLog.AddLog($"[{character.name}] deals {damage} damage! ");
 			target.Hurt(damage);
-			VisualLog.AddLog($"[{target.name}] has now {target.Health}/{target.MaxHp}!\n\n");
+			VisualLog.AddLog($"[{target.name}] has now {target.Health}/{target.MaxHp}!");
 			if (target.Health <= 0) {
 				someoneDead = true;
 				characters.Remove(target);
@@ -77,12 +77,6 @@ namespace DefaultNamespace {
 					heroes.Remove(target);
 				}
 			}
-		}
-
-		private static int SortCharacters(Character x, Character y) {
-			if (x.BattleValue > y.BattleValue) return -1;
-			else if (x.BattleValue < y.BattleValue) return 1;
-			else return 0;
 		}
 	}
 

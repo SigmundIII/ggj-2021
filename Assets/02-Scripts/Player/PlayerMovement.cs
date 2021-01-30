@@ -20,12 +20,12 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void FallGuys() {
-		rb.constraints = RigidbodyConstraints.None;
-		rb.constraints = RigidbodyConstraints.FreezeRotation;
+		rb.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
 	}
 
 	public void NotFallGuys() {
-		rb.constraints = RigidbodyConstraints.FreezePositionY;
+		//Non si freeza la rotazione
+		rb.constraints = RigidbodyConstraints.FreezeRotation |  RigidbodyConstraints.FreezePositionY;
 	}
 
 	private void OnCollisionEnter(Collision other) {

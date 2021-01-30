@@ -18,12 +18,18 @@ namespace DefaultNamespace {
 			int hp = Mathf.Abs(item.MaxHp);
 			int att = Mathf.Abs(item.Attack);
 			int def = Mathf.Abs(item.Defense);
-			float rarity = RarityLevelMultiplier(item.RarityLevel);
+			float rarity = RarityLevelMultiplier(item.rarityLevel);
 			return (int) ((hp + att + def) * rarity);
 		}
 
 		public static int CalculateDamage(Character a, Character d) {
 			return a.Attack - a.Attack * d.Defense / 100;
+		}
+		
+		public static int SortCharacters(Character x, Character y) {
+			if (x.BattleValue > y.BattleValue) return -1;
+			else if (x.BattleValue < y.BattleValue) return 1;
+			else return 0;
 		}
 
 		public static int EquipableTypeIndex(CharacterClass characterClass, ItemType type) {
@@ -33,9 +39,9 @@ namespace DefaultNamespace {
 				}
 			}
 			
-			Debug.LogError("Item Type not found.\n" +
-			               $"Class: {characterClass.Name}\n" +
-			               $"ItemType: {type.Name}");
+			// Debug.LogError("Item Type not found.\n" +
+			//                $"Class: {characterClass.Name}\n" +
+			//                $"ItemType: {type.Name}");
 			return -1;
 		}
 	}
