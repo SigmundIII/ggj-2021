@@ -139,12 +139,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Storage
       objectReference: {fileID: 0}
-    - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
-        type: 3}
-      propertyPath: storagePrefab
-      value: 
-      objectReference: {fileID: 7516798460224812987, guid: 779a2a08195bfb74b812e028bcf51990,
-        type: 3}
     - target: {fileID: 5107385132199151445, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
       propertyPath: m_RootOrder
