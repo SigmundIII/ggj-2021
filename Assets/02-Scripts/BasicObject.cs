@@ -6,6 +6,8 @@ using UnityEngine;
 public class BasicObject : MonoBehaviour,IGrabbable {
 	private Rigidbody rb;
 
+	public bool grabbed;
+
 	private void Awake() {
 		rb = GetComponent<Rigidbody>();
 	}
@@ -19,12 +21,14 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 		transform.eulerAngles = parent.eulerAngles+new Vector3(90, 0, 90);
 		rb.useGravity = false;
 		rb.isKinematic = true;
+		grabbed = true;
 	}
 
 	public void Released() {
 		transform.parent = null;
 		rb.useGravity = true;
 		rb.isKinematic = false;
+		grabbed = false;
 	}
 
 	public void Throw(Vector3 force) {
@@ -32,10 +36,7 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 		rb.useGravity = true;
 		rb.isKinematic = false;
 		rb.AddForce(force);
-	}
-
-	private void OnBecameInvisible() {
-		Destroy(this.gameObject);
+		grabbed = false;
 	}
 
 	public void Stop() {

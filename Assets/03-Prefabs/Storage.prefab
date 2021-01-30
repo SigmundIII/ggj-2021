@@ -147,11 +147,11 @@ MonoBehaviour:
     type: 3}
   storageFloorPrefab: {fileID: 4737743149124192655, guid: 20607e00fe285b04189943fa52dfa5d3,
     type: 3}
-  maxItem: 20
-  normalItem: 2
-  rareItem: 2
-  epicItem: 2
-  legendaryItem: 2
+  maxItem: 40
+  normalItem: 5
+  rareItem: 5
+  epicItem: 5
+  legendaryItem: 5
   normalItems:
   - {fileID: 2270802354057582385, guid: bf4fdae49185a404e944bdb91a83807f, type: 3}
   - {fileID: 7779320104087347491, guid: 7b6020246faa60248a1811527a6c73bd, type: 3}

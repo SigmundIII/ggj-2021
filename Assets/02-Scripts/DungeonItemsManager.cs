@@ -1,26 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using DefaultNamespace;
+﻿using DefaultNamespace;
 using UnityEngine;
 
 public class DungeonItemsManager : MonoBehaviour
 {
-    private GameManager storage;
+    private GameManager gameManager;
     private void Awake() {
-        storage = FindObjectOfType<GameManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void OnTriggerEnter(Collider other) {
         Item item=other.GetComponent<Item>();
         if (item != null) {
-            storage.items.Add(item);
+            gameManager.items.Add(item);
+            if (!item.gameObject.GetComponent<BasicObject>().grabbed) {
+                item.transform.SetParent(gameManager.transform);
+            }
         }
     }
 	
     private void OnTriggerExit(Collider other) {
         Item item=other.GetComponent<Item>();
         if (item != null) {
-            storage.items.Remove(item);
+            gameManager.items.Remove(item);
         }
     }
 }

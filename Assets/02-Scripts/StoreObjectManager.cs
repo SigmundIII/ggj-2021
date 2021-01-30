@@ -15,6 +15,9 @@ public class StoreObjectManager : MonoBehaviour {
         if (item != null) {
             if (storage.items.Count < storage.maxItem) {
                 storage.items.Add(item);
+                if (!item.gameObject.GetComponent<BasicObject>().grabbed) {
+                    item.transform.SetParent(transform);
+                }
             }
             else {
                 IGrabbable grabbable = other.GetComponent<IGrabbable>();

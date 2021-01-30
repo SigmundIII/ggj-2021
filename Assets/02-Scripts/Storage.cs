@@ -82,8 +82,9 @@ public class Storage : MonoBehaviour {
 			default:
 				throw new ArgumentOutOfRangeException(nameof(rarity), rarity, null);
 		}
-		Instantiate(prefab.gameObject, spawnPoint.position,spawnPoint.rotation);
-		var item = prefab.GetComponent<Item>();
+		
+		GameObject obj = Instantiate(prefab, spawnPoint.position,spawnPoint.rotation);
+		var item = obj.GetComponent<Item>();
 		if (item != null) {
 			item.gameObject.name = item.Name;
 		}

@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum TurnPhase{Place,Battle,Loot}
 	
 
 public class TurnSystem : MonoBehaviour {
-	[SerializeField] private TurnPhase currentPhase;
+	public TurnPhase currentPhase;
 	public int maxFloors=3;
 	private int currentFloor;
 
