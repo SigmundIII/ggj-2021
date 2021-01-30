@@ -1,15 +1,32 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class BasicObject : MonoBehaviour,IGrabbable {
 	private Rigidbody rb;
+	private Storage storage;
+	private GameManager gameManager;
 
 	public bool grabbed;
 
 	private void Awake() {
 		rb = GetComponent<Rigidbody>();
+		storage = FindObjectOfType<Storage>();
+		gameManager = FindObjectOfType<GameManager>();
+	}
+
+	private void Update() {
+		if (!grabbed) {
+			if (transform.position.x > storage.treasonPoint.position.x) {
+				// Inside Storage
+				transform.SetParent(storage.transform);
+			} else {
+				// Outside Storage
+				transform.SetParent(gameManager.transform);
+			}
+		}
 	}
 
 	public void Grabbed(Transform parent) {

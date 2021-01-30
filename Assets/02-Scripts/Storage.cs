@@ -2,17 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
-using UnityEditor;
 using UnityEngine;
-using static UnityEngine.RigidbodyConstraints;
 using Random = UnityEngine.Random;
 
 public class Storage : MonoBehaviour {
 	public Transform spawnPoint;
 
 	public GameObject storagePrefab;
-	
-	
+
 	[Space]
 	private List<Transform> sputoPoint=new List<Transform>();
 	private List<GameObject> storageDoors=new List<GameObject>();
@@ -33,6 +30,8 @@ public class Storage : MonoBehaviour {
 	public List<GameObject> legendaryItems=new List<GameObject>();
 	[HideInInspector]public Transform currentSputoPoint;
 	[HideInInspector]public List<Item> items=new List<Item>();
+
+	public Transform treasonPoint;
 
 	public void Init(int floorNumber) {
 		for (int i = 0; i < floorNumber; i++) {
@@ -94,6 +93,7 @@ public class Storage : MonoBehaviour {
 		var position = transform.position;
 		position.y -= (9 * floorNumber);
 		var pieces=storagePrefab.GetComponent<StoragePieces>();
+		treasonPoint = pieces.treasonPoint;
 		if (pieces != null) {
 			var obj = Instantiate(pieces.walls, position, Quaternion.identity);
 			obj.transform.parent = floor.transform;
