@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DefaultNamespace.UI;
+using UnityEditor;
 using UnityEngine;
 using Visual_Log;
 
@@ -25,13 +26,15 @@ namespace DefaultNamespace {
 
 		private TurnSystem turnSystem;
 		
-		private bool battleEnded;
+		private bool _battleEnded;
 
 		private Dump dump;
 		
 		public List<Item> items;
 
 		private Ritual_affordance _ritual;
+
+		public bool battleEnded;
 
 		private void Awake() {
 			//_ritual = FindObjectOfType<Ritual_affordance>();
@@ -63,8 +66,8 @@ namespace DefaultNamespace {
 
 
 		private void Update() {
-			if (Input.GetKeyDown(KeyCode.R)) {
-				StartBattle(0);
+			if (_battleEnded && Input.GetKeyDown(KeyCode.Return)) {
+				battleEnded = true;
 			}
 		}
 
@@ -76,6 +79,7 @@ namespace DefaultNamespace {
 		}
 
 		private void StartBattle(int currentfloor) {
+			_battleEnded = false;
 			Time.timeScale = timescale;
 			Debug.Log("Start battaglia al piano: "+currentfloor);
 			GetEnemies(currentfloor);
@@ -87,6 +91,7 @@ namespace DefaultNamespace {
 		}
 
 		private void EndBattle() {
+			_battleEnded = true;
 			Time.timeScale = 1;
 			battleEnded = true;
 			VisualLog.Hide();
