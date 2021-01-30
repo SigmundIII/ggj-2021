@@ -16,19 +16,37 @@ public class TurnSystem : MonoBehaviour {
 	private GameManager gameManager;
 
 	public event Action OnBattlePhaseStart;
+	public float fullTime=30;
+	private float time = 0;
+	public int battleValuePenalty;
 	
+	
+	
+	private float timer;
+
 	private void Awake() {
 		playerInput = FindObjectOfType<PlayerInput>();
 		storage = FindObjectOfType<Storage>();
 		dungeon = FindObjectOfType<CreateDungeon>();
 		gameManager = FindObjectOfType<GameManager>();
+
 	}
 
 	private void Start() {
 		storage.Init(maxFloors);
 		//+1 perchè c'è la stanza del boss
 		dungeon.Init(maxFloors+1);
+		SetTimer();
 		StartPlacePhase();
+	}
+
+	public void SetTimer() {
+		int sum = 0;
+		foreach (Character hero in gameManager.heroes) {
+			sum += hero.BattleValue;
+		}
+		time = fullTime-(sum / battleValuePenalty);
+		timer = 0;
 	}
 
 	private void Update() {
@@ -44,6 +62,16 @@ public class TurnSystem : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 			NextTurn();
 		}
+		
+		switch (currentPhase) {
+			case TurnPhase.Place:
+				timer += Time.deltaTime;
+				if (timer >= time) {
+					NextTurn();
+					SetTimer();
+				}
+				break;
+		}
 	}
 
 	public void NextTurn() {
@@ -52,11 +80,12 @@ public class TurnSystem : MonoBehaviour {
 				StartBattlePhase();
 				break;
 			case TurnPhase.Battle:
+				gameManager.aftermath.Hide();
 				StartLootPhase();
 				break;
 			case TurnPhase.Loot:
 				if (currentFloor < maxFloors) {
-					gameManager.DestroyItems();
+					gameManager.DumpLoot();
 					DestroyStorage(currentFloor);
 					DestroyDungeon(currentFloor);
 					FindObjectOfType<PlayerMovement>().ResetFallGuys();
