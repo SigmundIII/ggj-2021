@@ -22,7 +22,7 @@ public class TurnSystem : MonoBehaviour {
 	}
 
 	private void Start() {
-		storage.Init();
+		storage.Init(maxFloors);
 		StartPlacePhase();
 	}
 
@@ -67,6 +67,7 @@ public class TurnSystem : MonoBehaviour {
 	
 	
 	public void StartPlacePhase() {
+		storage.SetSputoPoint(currentFloor);
 		storage.OpenDoors(currentFloor);
 		currentPhase = TurnPhase.Place;
 		playerInput.enabled = true;

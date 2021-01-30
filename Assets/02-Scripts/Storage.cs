@@ -8,10 +8,18 @@ using UnityEngine;
 public class Storage : MonoBehaviour {
 	public GameObject prefab;
 	public Transform spawnPoint;
+
+	public GameObject sputoPointPrefab;
+	public GameObject storageDoorPrefab;
+	public GameObject storageWallsPrefab;
+	public GameObject storageFloorPrefab;
+	
+	
 	[Space]
-	public List<Transform> sputoPoint;
-	public List<GameObject> storageDoors;
-	public List<GameObject> storageFloors;
+	private List<Transform> sputoPoint=new List<Transform>();
+	private List<GameObject> storageDoors=new List<GameObject>();
+	private List<GameObject> storageFloors=new List<GameObject>();
+	
 	[Space]
 	public float sputoForce;
 	public int maxItem;
@@ -22,22 +30,15 @@ public class Storage : MonoBehaviour {
 	public int legendaryItem;
 
 	private Transform currentSputoPoint;
-	private List<ItemType> types=new List<ItemType>();
+	public List<ItemType> types=new List<ItemType>();
 	private List<Item> items=new List<Item>();
 
-	private void Awake() {
-		LoadTypes();
-	}
-	
-	public void Init() {
+	public void Init(int floorNumber) {
 		StartCoroutine(GenerateInitialItems());
-	}
-	
-	private void LoadTypes() {
-		string[] guids = AssetDatabase.FindAssets("t:ItemType");
-		foreach (var guid in guids) {
-			types.Add(AssetDatabase.LoadAssetAtPath<ItemType>(AssetDatabase.GUIDToAssetPath(guid)));
+		for (int i = 0; i < floorNumber; i++) {
+			GenerateStorage(i);
 		}
+		SetSputoPoint(0);
 	}
 
 	public IEnumerator GenerateInitialItems() {
@@ -66,11 +67,34 @@ public class Storage : MonoBehaviour {
 	public IEnumerator SpawnItem(RarityLevel rarity, ItemType type) {
 		Instantiate(prefab.gameObject, spawnPoint.position,spawnPoint.rotation);
 		Item item = prefab.GetComponent<Item>();
-		item.Generate(type,rarity);
-		item.gameObject.name = "Item";
+		if (item != null) {
+			item.Generate(type,rarity);
+			item.gameObject.name = "Item";
+		}
 		yield return new WaitForSeconds(0.5f);
 	}
 
+	public void GenerateStorage(int floorNumber) {
+		GameObject floor=new GameObject();
+		floor.name = "Floor" + floorNumber;
+		var position = transform.position;
+		position.y -= (9 * floorNumber);
+		var obj = Instantiate(storageWallsPrefab, position, Quaternion.identity);
+		obj.transform.parent = floor.transform;
+		obj = Instantiate(storageFloorPrefab, position, Quaternion.identity);
+		storageFloors.Add(obj);
+		obj.transform.parent = floor.transform;
+		obj = Instantiate(storageDoorPrefab, position, Quaternion.identity);
+		storageDoors.Add(obj);
+		obj.transform.parent = floor.transform;
+		obj = Instantiate(sputoPointPrefab, position, Quaternion.identity);
+		obj.transform.GetChild(0);
+		sputoPoint.Add(obj.transform.GetChild(0));
+		obj.transform.parent = floor.transform;
+		floor.transform.parent = transform;
+	}
+	
+	
 	public void DestroyFloor(int currentFloor) {
 		Destroy(storageFloors[currentFloor]);
 	}
@@ -82,7 +106,10 @@ public class Storage : MonoBehaviour {
 	public void CloseDoors(int currentFloor) {
 		storageDoors[currentFloor].SetActive(true);
 	}
-	
+
+	public void SetSputoPoint(int currentFloor) {
+		currentSputoPoint = sputoPoint[currentFloor];
+	}
 
 	private void OnTriggerEnter(Collider other) {
 		Item item=other.GetComponent<Item>();
