@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DefaultNamespace.UI;
 using UnityEngine;
@@ -51,9 +52,18 @@ namespace DefaultNamespace {
 				StartBattle();
 			}
 
-			if (battleEnded && Input.GetKeyDown(KeyCode.N)) {
-				aftermath.Hide();
-				turnSystem.NextTurn();
+			if (Input.GetKeyDown(KeyCode.N)) {
+				switch (turnSystem.currentPhase) {
+				case TurnPhase.Battle when battleEnded:
+					aftermath.Hide();
+					turnSystem.NextTurn();
+					break;
+				case TurnPhase.Loot:
+					for (int i = 0; i < items.Count; i++) {
+						dump.AddGarbage(items[i].transform);
+					}
+					break;
+				}
 			}
 		}
 
@@ -73,7 +83,6 @@ namespace DefaultNamespace {
 		}
 
 		private void AssignLoot() {
-			var loot = new List<Item>(items);
 			// string log = "";
 			// foreach (Item item in loot) {
 			// 	log += $"{item.Name} - {item.BattleValue}\n";
@@ -82,20 +91,16 @@ namespace DefaultNamespace {
 			var _heroes = new List<Character>(heroes);
 			_heroes.Sort(Utility.SortCharacters);
 			_heroes.Reverse();
-			for (int i = 0; i < loot.Count; i++) {
-				Item item = loot[i];
+			for (int i = 0; i < items.Count; i++) {
+				Item item = items[i];
 				foreach (Character hero in _heroes) {
 					if (hero.CanEquip(item) && hero.Equip(item)) {
 						// Debug.Log($"{hero.name} equipped {item.Name}");
-						loot[i].gameObject.SetActive(false);
-						loot.Remove(item);
+						items[i].gameObject.SetActive(false);
+						items.Remove(item);
 						break;
 					}
 				}
-			}
-
-			for (int i = 0; i < loot.Count; i++) {
-				dump.AddGarbage(loot[i].transform);
 			}
 		}
 	}
