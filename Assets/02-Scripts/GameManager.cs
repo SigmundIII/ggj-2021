@@ -11,7 +11,8 @@ namespace DefaultNamespace {
 		[Space]
 		[SerializeField] private UIAftermath aftermath;
 		
-		private Character[] heroes;
+		[HideInInspector]
+		public Character[] heroes;
 		private Character[] enemies;
 
 		private Battle battle;
@@ -24,7 +25,10 @@ namespace DefaultNamespace {
 
 		[HideInInspector] public List<Item> items;
 
+		private Ritual_affordance _ritual;
+
 		private void Awake() {
+			_ritual = FindObjectOfType<Ritual_affordance>();
 			turnSystem = FindObjectOfType<TurnSystem>();
 			turnSystem.OnBattlePhaseStart += StartBattle;
 
@@ -80,6 +84,7 @@ namespace DefaultNamespace {
 			VisualLog.Hide();
 			AssignLoot();
 			aftermath.Show(heroes);
+			_ritual.StartCoroutine("Ritual_progression");
 		}
 
 		private void AssignLoot() {
