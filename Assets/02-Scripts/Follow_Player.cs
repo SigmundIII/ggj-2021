@@ -46,6 +46,10 @@ public class Follow_Player : MonoBehaviour
         
     }
 
+    public void ClearList() {
+        disabledObjects.Clear();
+    }
+
     public bool ContainsMeshRenderer(RaycastHit[] hits, MeshRenderer renderer) {
         foreach(RaycastHit hit in hits)
         {

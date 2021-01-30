@@ -6,17 +6,23 @@ using UnityEngine.EventSystems;
 using Visual_Log;
 
 namespace DefaultNamespace {
-
+	[System.Serializable]
+	public class FloorEnemy {
+		public List<CharacterClass> enemies;
+	}
+	
 	public class GameManager : MonoBehaviour {
 		[SerializeField] private CharacterClass[] party;
-		[SerializeField] private CharacterClass[] enemyParty;
+		
+		[SerializeField] private List<FloorEnemy> enemyParty=new List<FloorEnemy>();
 		[Space]
 		[SerializeField] public UIAftermath aftermath;
+		public float timescale;
 		
 		[HideInInspector]
 		public Character[] heroes;
 		private Character[] enemies;
-
+		
 		private Battle battle;
 
 		private TurnSystem turnSystem;
@@ -24,7 +30,7 @@ namespace DefaultNamespace {
 		private bool _battleEnded;
 
 		private Dump dump;
-
+		
 		public List<Item> items;
 
 		private Ritual_affordance _ritual;
@@ -44,10 +50,15 @@ namespace DefaultNamespace {
 			for (int i = 0; i < heroes.Length; i++) {
 				heroes[i] = new Character(party[i]);
 			}
+			_ritual = FindObjectOfType<Ritual_affordance>();
+			GetEnemies(0);
 			
-			enemies = new Character[enemyParty.Length];
+		}
+
+		public void GetEnemies(int currentFloor) {
+			enemies = new Character[enemyParty[currentFloor].enemies.Count];
 			for (int i = 0; i < enemies.Length; i++) {
-				enemies[i] = new Character(enemyParty[i]);
+				enemies[i] = new Character(enemyParty[currentFloor].enemies[i]);
 				enemies[i].name += $" {i}";
 			}
 		}
@@ -73,8 +84,11 @@ namespace DefaultNamespace {
 			}
 		}
 
-		private void StartBattle() {
+		private void StartBattle(int currentfloor) {
 			_battleEnded = false;
+			Time.timeScale = timescale;
+			Debug.Log("Start battaglia al piano: "+currentfloor);
+			GetEnemies(currentfloor);
 			battleEnded = false;
 			battle = new Battle(heroes, enemies);
 			aftermath.Hide();
@@ -84,7 +98,12 @@ namespace DefaultNamespace {
 
 		private void EndBattle() {
 			_battleEnded = true;
-			//_ritual.StartCoroutine("Ritual_progression");
+			Time.timeScale = 1;
+			battleEnded = true;
+			VisualLog.Hide();
+			AssignLoot();
+			aftermath.Show(heroes);
+			_ritual.StartCoroutine(_ritual.Ritual_progression());
 		}
 
 		private void AssignLoot() {
