@@ -70,7 +70,7 @@ public class Storage : MonoBehaviour {
 		Instantiate(prefab.gameObject, spawnPoint.position,spawnPoint.rotation);
 		Item item = prefab.GetComponent<Item>();
 		if (item != null) {
-			item.Generate(rarity);
+			item.Generate();
 			item.gameObject.name = "Item";
 		}
 		yield return new WaitForSeconds(0.5f);

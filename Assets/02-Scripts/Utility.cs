@@ -18,7 +18,7 @@ namespace DefaultNamespace {
 			int hp = Mathf.Abs(item.MaxHp);
 			int att = Mathf.Abs(item.Attack);
 			int def = Mathf.Abs(item.Defense);
-			float rarity = RarityLevelMultiplier(item.RarityLevel);
+			float rarity = RarityLevelMultiplier(item.rarityLevel);
 			return (int) ((hp + att + def) * rarity);
 		}
 
