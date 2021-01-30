@@ -13,7 +13,7 @@ public class PlayerInteract : MonoBehaviour {
 	
 
 	public void Grab() {
-		if (obj[0] != null) {
+		if (obj.Count>0) {
 			if (canGrab && !hasGrabbed) {
 				hasGrabbed = true;
 				obj[0].Grabbed(transform);
@@ -22,7 +22,7 @@ public class PlayerInteract : MonoBehaviour {
 	}
 
 	public void Release() {
-		if (hasGrabbed && obj[0]!=null) {
+		if (hasGrabbed && obj.Count>0) {
 			obj[0].Released();
 			hasGrabbed = false;
 		}
@@ -38,7 +38,7 @@ public class PlayerInteract : MonoBehaviour {
 	}
 
 	public void Throw() {
-		if (hasGrabbed) {
+		if (hasGrabbed && obj.Count>0) {
 			var force = transform.forward * throwForce;
 			hasGrabbed = false;
 			obj[0].Throw(force);
@@ -55,8 +55,13 @@ public class PlayerInteract : MonoBehaviour {
 	
 	private void OnTriggerExit(Collider other) {
 			var grabbable=other.GetComponent<IGrabbable>();
-			if (grabbable != null && !hasGrabbed) {
-				obj.Remove(grabbable);
+			if (grabbable != null) {
+				var Bobj = other.GetComponent<BasicObject>();
+				if (Bobj != null) {
+					if (!Bobj.grabbed) {
+						obj.Remove(grabbable);
+					}
+				}
 				if (obj.Count <= 0) {
 					canGrab = false;
 				}

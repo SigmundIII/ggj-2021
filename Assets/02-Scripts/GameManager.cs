@@ -28,7 +28,7 @@ namespace DefaultNamespace {
 		private Ritual_affordance _ritual;
 
 		private void Awake() {
-			_ritual = FindObjectOfType<Ritual_affordance>();
+			//_ritual = FindObjectOfType<Ritual_affordance>();
 			turnSystem = FindObjectOfType<TurnSystem>();
 			turnSystem.OnBattlePhaseStart += StartBattle;
 
@@ -91,7 +91,7 @@ namespace DefaultNamespace {
 			VisualLog.Hide();
 			AssignLoot();
 			aftermath.Show(heroes);
-			_ritual.StartCoroutine("Ritual_progression");
+			//_ritual.StartCoroutine("Ritual_progression");
 		}
 
 		private void AssignLoot() {
