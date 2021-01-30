@@ -14,7 +14,7 @@ namespace DefaultNamespace {
 		
 		public int BattleValue { private set; get; }
 
-		public void Generate() {
+		public void Awake() {
 			Name = rarityLevel + " " + type.Name;
 
 			Vector2 hpr = type.MAXHpRange * Utility.RarityLevelMultiplier(rarityLevel);

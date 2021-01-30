@@ -16,7 +16,11 @@ MonoBehaviour:
   maxHp: 45
   attack: 6
   defense: 15
-  equipableTypes:
-  - {fileID: 11400000, guid: 8a1f467b51fbe8949a736a0a0794f7ed, type: 2}
-  - {fileID: 11400000, guid: 148de4bdac0a7aa47b3f7da5206abc0c, type: 2}
-  - {fileID: 11400000, guid: 10769edc8edcdae44b4bc1d67a96c082, type: 2}
+  equipSlots:
+  - types:
+    - {fileID: 11400000, guid: 148de4bdac0a7aa47b3f7da5206abc0c, type: 2}
+    - {fileID: 11400000, guid: 8a1f467b51fbe8949a736a0a0794f7ed, type: 2}
+    equipped: {fileID: 0}
+  - types:
+    - {fileID: 11400000, guid: 10769edc8edcdae44b4bc1d67a96c082, type: 2}
+    equipped: {fileID: 0}

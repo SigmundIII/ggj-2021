@@ -28,7 +28,7 @@ namespace DefaultNamespace {
 
 			BattleValue += MaxHp + Attack + Defense;
 			
-			equipment = new Item[characterClass.EquipableTypes.Length];
+			equipment = new Item[characterClass.EquipSlots.Length];
 		}
 
 		public void Hurt(int damage) {

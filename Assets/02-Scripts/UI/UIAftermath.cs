@@ -25,14 +25,13 @@ namespace DefaultNamespace.UI {
 				
 				for (int j = 0; j < characterAftermath[i].itemContent.childCount; j++) {
 					Transform child = characterAftermath[i].itemContent.GetChild(j);
-					if (child != characterAftermath[i].itemTemplate) {
+					if (child != characterAftermath[i].itemTemplate.transform) {
 						Destroy(child.gameObject);
 					}
 				}
 				
 				foreach (Item item in characters[i].equipment) {
 					if (item != null) {
-						Debug.Log("Item");
 						GameObject itemObj = Instantiate(characterAftermath[i].itemTemplate, characterAftermath[i].itemContent);
 						itemObj.GetComponentInChildren<TextMeshProUGUI>().text = item.Name;
 						itemObj.SetActive(true);

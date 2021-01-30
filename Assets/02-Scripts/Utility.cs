@@ -33,8 +33,8 @@ namespace DefaultNamespace {
 		}
 
 		public static int EquipableTypeIndex(CharacterClass characterClass, ItemType type) {
-			for (int i = 0; i < characterClass.EquipableTypes.Length; i++) {
-				if (characterClass.EquipableTypes[i] == type) {
+			for (int i = 0; i < characterClass.EquipSlots.Length; i++) {
+				if (characterClass.EquipSlots[i].types.Contains(type)) {
 					return i;
 				}
 			}

@@ -69,12 +69,12 @@ namespace DefaultNamespace {
 		}
 
 		private void AssignLoot() {
-			var loot = new List<Item>(FindObjectOfType<Storage>().items);
-			string log = "";
-			foreach (Item item in loot) {
-				log += $"{item.type.Name} - {item.BattleValue}\n";
-			}
-			Debug.Log(log);
+			var loot = new List<Item>(items);
+			// string log = "";
+			// foreach (Item item in loot) {
+			// 	log += $"{item.Name} - {item.BattleValue}\n";
+			// }
+			// Debug.Log(log);
 			var _heroes = new List<Character>(heroes);
 			_heroes.Sort(Utility.SortCharacters);
 			_heroes.Reverse();
@@ -82,7 +82,7 @@ namespace DefaultNamespace {
 				Item item = loot[i];
 				foreach (Character hero in _heroes) {
 					if (hero.CanEquip(item) && hero.Equip(item)) {
-						Debug.Log($"{hero.name} equipped {item.type.Name}");
+						// Debug.Log($"{hero.name} equipped {item.Name}");
 						loot.Remove(item);
 						break;
 					}
