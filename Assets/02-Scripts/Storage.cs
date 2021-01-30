@@ -2,20 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
-using UnityEditor;
 using UnityEngine;
-using static UnityEngine.RigidbodyConstraints;
 using Random = UnityEngine.Random;
 
 public class Storage : MonoBehaviour {
 	public Transform spawnPoint;
 
-	public GameObject sputoPointPrefab;
-	public GameObject storageDoorPrefab;
-	public GameObject storageWallsPrefab;
-	public GameObject storageFloorPrefab;
-	
-	
+	public GameObject storagePrefab;
+
 	[Space]
 	private List<Transform> sputoPoint=new List<Transform>();
 	private List<GameObject> storageDoors=new List<GameObject>();
@@ -35,7 +29,9 @@ public class Storage : MonoBehaviour {
 	public List<GameObject> epicItems=new List<GameObject>();
 	public List<GameObject> legendaryItems=new List<GameObject>();
 	[HideInInspector]public Transform currentSputoPoint;
-	[HideInInspector]public List<Item> items=new List<Item>();
+	public List<Item> items = new List<Item>();
+
+	[HideInInspector] public Transform treasonPoint;
 
 	public void Init(int floorNumber) {
 		for (int i = 0; i < floorNumber; i++) {
@@ -96,20 +92,26 @@ public class Storage : MonoBehaviour {
 		floor.name = "Floor" + floorNumber;
 		var position = transform.position;
 		position.y -= (9 * floorNumber);
-		var obj = Instantiate(storageWallsPrefab, position, Quaternion.identity);
-		obj.transform.parent = floor.transform;
-		storageWalls.Add(obj);
-		obj = Instantiate(storageFloorPrefab, position, Quaternion.identity);
-		storageFloors.Add(obj);
-		obj.transform.parent = floor.transform;
-		obj = Instantiate(storageDoorPrefab, position, Quaternion.identity);
-		storageDoors.Add(obj);
-		obj.transform.parent = floor.transform;
-		obj = Instantiate(sputoPointPrefab, position, Quaternion.identity);
-		obj.transform.GetChild(0);
-		sputoPoint.Add(obj.transform.GetChild(0));
-		obj.transform.parent = floor.transform;
-		floor.transform.parent = transform;
+		var pieces=storagePrefab.GetComponent<StoragePieces>();
+		treasonPoint = pieces.treasonPoint;
+		if (pieces != null) {
+			var obj = Instantiate(pieces.walls, position, Quaternion.identity);
+			obj.transform.parent = floor.transform;
+			storageWalls.Add(obj);
+			obj = Instantiate(pieces.floor, position, Quaternion.identity);
+			storageFloors.Add(obj);
+			obj.transform.parent = floor.transform;
+			obj = Instantiate(pieces.door, position, Quaternion.identity);
+			storageDoors.Add(obj);
+			obj.transform.parent = floor.transform;
+			obj = Instantiate(pieces.CAZZODITETTO, position, Quaternion.identity);
+			obj.transform.parent = floor.transform;
+			obj = Instantiate(pieces.sputoPoint, position, Quaternion.identity);
+			obj.transform.GetChild(0);
+			sputoPoint.Add(obj.transform.GetChild(0));
+			obj.transform.parent = floor.transform;
+			floor.transform.parent = transform;
+		}
 	}
 	
 	
@@ -132,7 +134,13 @@ public class Storage : MonoBehaviour {
 	}
 
 	public void SetSputoPoint(int currentFloor) {
-		currentSputoPoint = sputoPoint[currentFloor];
+		if (currentFloor < sputoPoint.Count) {
+			currentSputoPoint = sputoPoint[currentFloor];
+		}
+		else {
+			Debug.Log("Finiti gli sputoPoint");
+		}
+		
 	}
 
 	

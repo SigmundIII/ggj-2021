@@ -1,7 +1,8 @@
 ﻿using System;
+using DefaultNamespace;
 using UnityEngine;
 
-public enum TurnPhase{Place,Battle,Loot}
+public enum TurnPhase{Place,Battle,Loot,Ending}
 	
 
 public class TurnSystem : MonoBehaviour {
@@ -12,19 +13,40 @@ public class TurnSystem : MonoBehaviour {
 	private PlayerInput playerInput;
 	private Storage storage;
 	private CreateDungeon dungeon;
+	private GameManager gameManager;
 
 	public event Action OnBattlePhaseStart;
+	public float fullTime=30;
+	private float time = 0;
+	public int battleValuePenalty;
 	
+	
+	
+	private float timer;
+
 	private void Awake() {
 		playerInput = FindObjectOfType<PlayerInput>();
 		storage = FindObjectOfType<Storage>();
 		dungeon = FindObjectOfType<CreateDungeon>();
+		gameManager = FindObjectOfType<GameManager>();
+
 	}
 
 	private void Start() {
 		storage.Init(maxFloors);
-		dungeon.Init(maxFloors);
+		//+1 perchè c'è la stanza del boss
+		dungeon.Init(maxFloors+1);
+		SetTimer();
 		StartPlacePhase();
+	}
+
+	public void SetTimer() {
+		int sum = 0;
+		foreach (Character hero in gameManager.heroes) {
+			sum += hero.BattleValue;
+		}
+		time = fullTime-(sum / battleValuePenalty);
+		timer = 0;
 	}
 
 	private void Update() {
@@ -40,6 +62,16 @@ public class TurnSystem : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 			NextTurn();
 		}
+		
+		switch (currentPhase) {
+			case TurnPhase.Place:
+				timer += Time.deltaTime;
+				if (timer >= time) {
+					NextTurn();
+					SetTimer();
+				}
+				break;
+		}
 	}
 
 	public void NextTurn() {
@@ -48,23 +80,34 @@ public class TurnSystem : MonoBehaviour {
 				StartBattlePhase();
 				break;
 			case TurnPhase.Battle:
+				gameManager.aftermath.Hide();
 				StartLootPhase();
 				break;
 			case TurnPhase.Loot:
 				if (currentFloor < maxFloors) {
+					gameManager.DumpLoot();
 					DestroyStorage(currentFloor);
 					DestroyDungeon(currentFloor);
 					FindObjectOfType<PlayerMovement>().ResetFallGuys();
 					currentFloor++;
-					StartPlacePhase();
+					if (currentFloor < maxFloors) {
+						StartPlacePhase();
+					}
 				}
 				else {
-					Debug.Log("Niente più piani");
+					StartEndingPhase();
 				}
+				break;
+			case TurnPhase.Ending:
+				Debug.Log("Niente più piani");
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
+	}
+
+	private void StartEndingPhase() {
+		currentPhase = TurnPhase.Ending;
 	}
 
 	public void DestroyStorage(int floor) {

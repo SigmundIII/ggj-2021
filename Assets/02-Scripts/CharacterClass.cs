@@ -14,10 +14,11 @@ namespace DefaultNamespace {
 		
 		[SerializeField] private string _name;
 		
-		[Header("Base Stats")] 
+		[Header("Base Stats")]
 		[SerializeField] private int maxHp;
 		[SerializeField] private int attack;
 		[SerializeField] private int defense;
+		[SerializeField] private int baseBattleValue;
 		
 		[Header("Equipment")]
 		[SerializeField] private Slot[] equipSlots;
@@ -27,7 +28,8 @@ namespace DefaultNamespace {
 		public int MAXHp => maxHp;
 		public int Attack => attack;
 		public int Defense => defense;
-		
+		public int BaseBattleValue => baseBattleValue;
+
 		public Slot[] EquipSlots => equipSlots;
 	}
 }

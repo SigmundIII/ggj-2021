@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Button
   - Floor
+  - StorageTrigger
   - rituale
   layers:
   - Default
@@ -18,7 +19,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Floor
   - 
   - 
   - 

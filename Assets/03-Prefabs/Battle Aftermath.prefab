@@ -115,6 +115,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Sheet (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3151798543917025636, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dc79b73247092e4ab1b277f39e3f809,
+        type: 3}
     - target: {fileID: 3151798543917025637, guid: 9180c5f40c04ca8489beca8562619c2a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -331,6 +337,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Sheet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3151798543917025636, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dc79b73247092e4ab1b277f39e3f809,
+        type: 3}
     - target: {fileID: 3151798543917025637, guid: 9180c5f40c04ca8489beca8562619c2a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -486,6 +498,12 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9186117313981028890, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dc79b73247092e4ab1b277f39e3f809,
+        type: 3}
     - target: {fileID: 9186117314071913646, guid: 9180c5f40c04ca8489beca8562619c2a,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -547,6 +565,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Sheet (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3151798543917025636, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dc79b73247092e4ab1b277f39e3f809,
+        type: 3}
     - target: {fileID: 3151798543917025637, guid: 9180c5f40c04ca8489beca8562619c2a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -763,6 +787,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Sheet
       objectReference: {fileID: 0}
+    - target: {fileID: 3151798543917025636, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dc79b73247092e4ab1b277f39e3f809,
+        type: 3}
     - target: {fileID: 3151798543917025637, guid: 9180c5f40c04ca8489beca8562619c2a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -866,6 +896,41 @@ PrefabInstance:
     - target: {fileID: 3151798543917025637, guid: 9180c5f40c04ca8489beca8562619c2a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186117312625570394, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186117312625570394, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186117312625570397, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 9186117313906812078, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186117313906812078, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186117313906812078, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186117314071913646, guid: 9180c5f40c04ca8489beca8562619c2a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

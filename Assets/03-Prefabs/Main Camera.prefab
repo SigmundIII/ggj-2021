@@ -171,3 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   zoom: 15
+  disabledObjects: []
+  hide:
+    serializedVersion: 2
+    m_Bits: 1

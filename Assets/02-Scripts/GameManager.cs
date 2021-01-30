@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DefaultNamespace.UI;
+using UnityEditor;
 using UnityEngine;
 using Visual_Log;
 
@@ -9,7 +10,7 @@ namespace DefaultNamespace {
 		[SerializeField] private CharacterClass[] party;
 		[SerializeField] private CharacterClass[] enemyParty;
 		[Space]
-		[SerializeField] private UIAftermath aftermath;
+		[SerializeField] public UIAftermath aftermath;
 		
 		[HideInInspector]
 		public Character[] heroes;
@@ -19,16 +20,18 @@ namespace DefaultNamespace {
 
 		private TurnSystem turnSystem;
 		
-		private bool battleEnded;
+		private bool _battleEnded;
 
 		private Dump dump;
 
-		[HideInInspector] public List<Item> items;
+		public List<Item> items;
 
 		private Ritual_affordance _ritual;
 
+		public bool battleEnded;
+
 		private void Awake() {
-			_ritual = FindObjectOfType<Ritual_affordance>();
+			//_ritual = FindObjectOfType<Ritual_affordance>();
 			turnSystem = FindObjectOfType<TurnSystem>();
 			turnSystem.OnBattlePhaseStart += StartBattle;
 
@@ -50,28 +53,22 @@ namespace DefaultNamespace {
 			VisualLog.Hide();
 		}
 
-		private void Update() {
-			if (Input.GetKeyDown(KeyCode.R)) {
-				StartBattle();
-			}
 
-			if (Input.GetKeyDown(KeyCode.N)) {
-				switch (turnSystem.currentPhase) {
-				case TurnPhase.Battle when battleEnded:
-					aftermath.Hide();
-					turnSystem.NextTurn();
-					break;
-				case TurnPhase.Loot:
-					for (int i = 0; i < items.Count; i++) {
-						dump.AddGarbage(items[i].transform);
-						items.RemoveAt(i);
-					}
-					break;
-				}
+		private void Update() {
+			if (_battleEnded && Input.GetKeyDown(KeyCode.Return)) {
+				battleEnded = true;
+			}
+		}
+
+		public void DumpLoot() {
+			for (int i = 0; i < items.Count; i++) {
+				dump.AddGarbage(items[i].transform);
+				items.RemoveAt(i);
 			}
 		}
 
 		private void StartBattle() {
+			_battleEnded = false;
 			battleEnded = false;
 			battle = new Battle(heroes, enemies);
 			aftermath.Hide();
@@ -80,11 +77,11 @@ namespace DefaultNamespace {
 		}
 
 		private void EndBattle() {
-			battleEnded = true;
+			_battleEnded = true;
 			VisualLog.Hide();
 			AssignLoot();
 			aftermath.Show(heroes);
-			_ritual.StartCoroutine("Ritual_progression");
+			//_ritual.StartCoroutine("Ritual_progression");
 		}
 
 		private void AssignLoot() {

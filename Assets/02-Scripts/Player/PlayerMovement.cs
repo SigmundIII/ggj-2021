@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
@@ -17,10 +15,11 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void Move(Vector3 direction) {
-		Vector3 destination = transform.position + (direction * speed)*Time.deltaTime;
+		Vector3 destination = transform.position + direction.normalized * (speed * Time.deltaTime);
 		model.transform.LookAt(destination);
-		//rb.velocity = direction * speed * Time.deltaTime;
-		rb.MovePosition(destination);
+		Vector3 planarVel = direction * (speed * Time.deltaTime);
+		rb.velocity = new Vector3(planarVel.x, rb.velocity.y, planarVel.z);
+		// rb.MovePosition(destination);
 	}
 
 	public void SetOrientation(Camera camera) {
