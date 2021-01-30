@@ -1,19 +1,21 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace DefaultNamespace {
-	public enum RarityLevel { Normal, Rare, Legendary, Epic }
+	public enum RarityLevel{ Normal, Rare, Legendary, Epic }
 	
-	public class Item {
-		public ItemType Type { get; }
-		public RarityLevel RarityLevel { get; }
+	public class Item : MonoBehaviour{
+		public ItemType Type {  private set; get; }
+		public RarityLevel RarityLevel {  private set; get; }
 		
-		public int MaxHp { get; }
-		public int Attack { get; }
-		public int Defense { get; }
+		public int MaxHp { private set; get; }
+		public int Attack { private set; get; }
+		public int Defense { private set; get; }
 		
-		public int BattleValue { get; }
-		
-		public Item(ItemType type, RarityLevel rarityLevel) {
+		public int BattleValue { private set; get; }
+
+		public void Generate(ItemType type, RarityLevel rarityLevel) {
 			Type = type;
 			RarityLevel = rarityLevel;
 
