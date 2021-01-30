@@ -20,11 +20,15 @@ namespace DefaultNamespace {
 		
 		private bool battleEnded;
 
+		private Dump dump;
+
 		[HideInInspector] public List<Item> items;
 
 		private void Awake() {
 			turnSystem = FindObjectOfType<TurnSystem>();
 			turnSystem.OnBattlePhaseStart += StartBattle;
+
+			dump = FindObjectOfType<Dump>();
 			
 			heroes = new Character[party.Length];
 			for (int i = 0; i < heroes.Length; i++) {
@@ -83,10 +87,15 @@ namespace DefaultNamespace {
 				foreach (Character hero in _heroes) {
 					if (hero.CanEquip(item) && hero.Equip(item)) {
 						// Debug.Log($"{hero.name} equipped {item.Name}");
+						loot[i].gameObject.SetActive(false);
 						loot.Remove(item);
 						break;
 					}
 				}
+			}
+
+			for (int i = 0; i < loot.Count; i++) {
+				dump.AddGarbage(loot[i].transform);
 			}
 		}
 	}

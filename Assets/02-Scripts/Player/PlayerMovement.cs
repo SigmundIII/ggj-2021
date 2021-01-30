@@ -36,13 +36,11 @@ public class PlayerMovement : MonoBehaviour {
 	public void FallGuys() {
 		if (floorColliders.Count <= 0) {
 			rb.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
-			Debug.Log("Fall Guys");
 		}
 	}
 
 	public void NotFallGuys() {
 		rb.constraints = RigidbodyConstraints.FreezeRotation |  RigidbodyConstraints.FreezePositionY;
-		Debug.Log("Not Fall Guys");
 	}
 
 	private void OnCollisionEnter(Collision other) {
@@ -55,7 +53,6 @@ public class PlayerMovement : MonoBehaviour {
 	private void OnCollisionExit(Collision other) {
 		if (other.gameObject.CompareTag("Floor")) {
 			floorColliders.Remove(other.collider);
-			Debug.Log(other.gameObject.name);
 			FallGuys();
 		}
 	}
