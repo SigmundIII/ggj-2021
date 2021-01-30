@@ -13,16 +13,19 @@ public class TurnSystem : MonoBehaviour {
 
 	private PlayerInput playerInput;
 	private Storage storage;
+	private CreateDungeon dungeon;
 
 	public event Action OnBattlePhaseStart;
 	
 	private void Awake() {
 		playerInput = FindObjectOfType<PlayerInput>();
 		storage = FindObjectOfType<Storage>();
+		dungeon = FindObjectOfType<CreateDungeon>();
 	}
 
 	private void Start() {
 		storage.Init(maxFloors);
+		dungeon.Init(maxFloors);
 		StartPlacePhase();
 	}
 

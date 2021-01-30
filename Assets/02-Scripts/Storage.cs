@@ -120,8 +120,10 @@ public class Storage : MonoBehaviour {
 			else {
 				IGrabbable grabbable = other.GetComponent<IGrabbable>();
 				if (grabbable!=null) {
-					Vector3 dir = currentSputoPoint.position - other.gameObject.transform.position;
-					grabbable.Throw( dir*sputoForce);
+					grabbable.Released();
+					other.transform.position = currentSputoPoint.position;
+					// Vector3 dir = currentSputoPoint.position - other.gameObject.transform.position;
+					// grabbable.Throw( dir*sputoForce);
 					//other.transform.position = sputoPoint.position;
 				}
 			}
