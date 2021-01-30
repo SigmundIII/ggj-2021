@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Button
   - Floor
+  - StorageTrigger
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Floor
   - 
   - 
   - 

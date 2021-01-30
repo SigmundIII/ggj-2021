@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4462956258539166661}
   - component: {fileID: 7583639610677744714}
   - component: {fileID: -1254189290176481986}
-  - component: {fileID: 7583639610677744715}
   - component: {fileID: 7583639610677744724}
   - component: {fileID: 7583639610677744725}
-  m_Layer: 0
+  - component: {fileID: 4755078304004021754}
+  m_Layer: 2
   m_Name: book_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,19 +121,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!65 &7583639610677744715
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7583639610677744726}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.60937285, y: 0.16861877, z: 0.47354805}
-  m_Center: {x: -0.000000059604645, y: 0.000000115484, z: -0.000000037252903}
 --- !u!114 &7583639610677744724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +148,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+--- !u!65 &4755078304004021754
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7583639610677744726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8281186, y: 0.5058563, z: 1.4206442}
+  m_Center: {x: -0.00000017881393, y: 0.0000003427267, z: -0.00000011920929}

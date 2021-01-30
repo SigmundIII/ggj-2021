@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 8899403163777182910}
   - component: {fileID: 3758830500491326706}
   - component: {fileID: -5418655133962272804}
-  - component: {fileID: 3758830500491326701}
   - component: {fileID: 3758830500491326700}
   - component: {fileID: 3758830500491326703}
-  m_Layer: 0
+  - component: {fileID: -4513506338927756778}
+  m_Layer: 2
   m_Name: axe_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,19 +120,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!65 &3758830500491326701
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3758830500491326702}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13962646, y: 1.2691554, z: 0.58477724}
-  m_Center: {x: -0.0000003054738, y: 0.000000059604645, z: -0.000000074505806}
 --- !u!114 &3758830500491326700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,3 +147,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+--- !u!65 &-4513506338927756778
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3758830500491326702}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4188794, y: 3.8074663, z: 1.7543316}
+  m_Center: {x: -0.0000009164214, y: 0.00000011920929, z: -0.00000023841858}

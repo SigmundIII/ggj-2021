@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4578933614588643383}
   - component: {fileID: 4413387463188674041}
   - component: {fileID: 2145092557415124352}
-  - component: {fileID: 4413387463188674046}
   - component: {fileID: 4413387463188674047}
   - component: {fileID: 4413387463188674044}
-  m_Layer: 0
+  - component: {fileID: -1935125030990660272}
+  m_Layer: 2
   m_Name: pugnale_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,19 +121,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!65 &4413387463188674046
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4413387463188674045}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05066101, y: 0.75721514, z: 0.19369751}
-  m_Center: {x: -0.00000018067658, y: 0.000000074505806, z: 0.00000008568168}
 --- !u!114 &4413387463188674047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +148,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+--- !u!65 &-1935125030990660272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4413387463188674045}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15198302, y: 2.2716453, z: 0.5810925}
+  m_Center: {x: -0.0000005438924, y: 0.00000023841858, z: 0.00000025331974}

@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 5177503919413039809}
   - component: {fileID: 4334480108644598684}
   - component: {fileID: -2795285227921070597}
-  - component: {fileID: 4334480108644598685}
   - component: {fileID: 4334480108644598686}
   - component: {fileID: 4334480108644598687}
-  m_Layer: 0
+  - component: {fileID: 5386834843486740229}
+  m_Layer: 2
   m_Name: bow_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,19 +119,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!65 &4334480108644598685
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4334480108644598672}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.09388794, y: 1.7239089, z: 0.5932007}
-  m_Center: {x: -0.00000023283064, y: 0.00000008940697, z: -0.000000014901161}
 --- !u!114 &4334480108644598686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,3 +146,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+--- !u!65 &5386834843486740229
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4334480108644598672}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2816638, y: 5.1717267, z: 1.779602}
+  m_Center: {x: -0.0000007003546, y: 0.00000023841858, z: -0.000000059604645}

@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 2786771989518715662}
   - component: {fileID: 1839749258254133190}
   - component: {fileID: 5815120459772031533}
-  - component: {fileID: 1839749258254133191}
   - component: {fileID: 1839749258254133184}
   - component: {fileID: 1839749258254133185}
-  m_Layer: 0
+  - component: {fileID: 6294825533148927012}
+  m_Layer: 2
   m_Name: Sword_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,19 +121,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!65 &1839749258254133191
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839749258254133186}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.11890015, y: 1.4343837, z: 0.34290832}
-  m_Center: {x: -0.00000018067658, y: 0.69675523, z: -0.000000059604645}
 --- !u!114 &1839749258254133184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +148,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+--- !u!65 &6294825533148927012
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839749258254133186}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.35670042, y: 4.303151, z: 1.0287249}
+  m_Center: {x: -0.0000005438924, y: 2.0902658, z: -0.00000017881393}

@@ -10,6 +10,8 @@ public class Follow_Player : MonoBehaviour
     public float zoom;
 
     public List<MeshRenderer> disabledObjects=new List<MeshRenderer>();
+
+    public LayerMask hide;
     
     void Update() {
         Vector3 targetpos=Vector3.zero;
@@ -22,7 +24,7 @@ public class Follow_Player : MonoBehaviour
         RaycastHit[] hits;
         // you can also use CapsuleCastAll()
         // TODO: setup your layermask it improve performance and filter your hits.
-        hits = Physics.BoxCastAll(transform.position,Vector3.one, target.position-transform.position,Quaternion.identity, Vector3.Distance(transform.position,target.position));
+        hits = Physics.BoxCastAll(transform.position,Vector3.one, target.position-transform.position,Quaternion.identity, Vector3.Distance(transform.position,target.position), hide);
         foreach(RaycastHit hit in hits)
         {
             MeshRenderer R = hit.collider.GetComponent<MeshRenderer>();

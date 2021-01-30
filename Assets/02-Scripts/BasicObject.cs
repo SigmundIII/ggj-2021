@@ -30,11 +30,9 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 	}
 
 	public void Grabbed(Transform parent) {
-		Vector3 scale = transform.localScale;
 		transform.parent = parent;
 		transform.position = parent.position;
 		transform.rotation = Quaternion.identity;
-		transform.localScale = scale;
 		transform.eulerAngles = parent.eulerAngles+new Vector3(90, 0, 90);
 		rb.useGravity = false;
 		rb.isKinematic = true;
