@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Tunic
   maxHpRange: {x: 20, y: 25}
   attackRange: {x: -5, y: -15}
-  defenseRange: {x: 0, y: 0}
+  defenseRange: {x: 1, y: 1}

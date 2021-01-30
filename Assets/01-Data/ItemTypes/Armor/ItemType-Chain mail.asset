@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Chain mail
   maxHpRange: {x: 5, y: 10}
   attackRange: {x: -2, y: -8}
-  defenseRange: {x: 0, y: 0}
+  defenseRange: {x: 1, y: 2}
