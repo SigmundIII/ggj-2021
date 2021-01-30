@@ -84,7 +84,7 @@ public class Storage : MonoBehaviour {
 			//item.Generate(,rarity);
 			item.gameObject.name = "Item";
 		}
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0f);
 	}
 
 	public void GenerateStorage(int floorNumber) {
