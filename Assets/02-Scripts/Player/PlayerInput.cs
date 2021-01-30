@@ -30,22 +30,23 @@ public class PlayerInput : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        playerMovement.SetOrientation(camera);
         playerMovement.Move(GetDirection());
     }
 
     private Vector3 GetDirection() {
         Vector3 dir=Vector3.zero;
         if (Input.GetKey(KeyCode.W)) {
-            dir += camera.transform.up;
+            dir += transform.forward;
         }
         if (Input.GetKey(KeyCode.S)) {
-            dir -= camera.transform.up;
+            dir -= transform.forward;
         }
         if (Input.GetKey(KeyCode.D)) {
-            dir += camera.transform.right;
+            dir += transform.right;
         }
         if (Input.GetKey(KeyCode.A)) {
-            dir -= camera.transform.right;
+            dir -= transform.right;
         }
         dir.Normalize();
         return dir;
