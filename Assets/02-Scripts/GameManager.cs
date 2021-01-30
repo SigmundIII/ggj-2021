@@ -9,7 +9,7 @@ namespace DefaultNamespace {
 		[SerializeField] private CharacterClass[] party;
 		[SerializeField] private CharacterClass[] enemyParty;
 		[Space]
-		[SerializeField] private UIAftermath aftermath;
+		[SerializeField] public UIAftermath aftermath;
 		
 		[HideInInspector]
 		public Character[] heroes;
@@ -23,7 +23,7 @@ namespace DefaultNamespace {
 
 		private Dump dump;
 
-		[HideInInspector] public List<Item> items;
+		public List<Item> items;
 
 		private Ritual_affordance _ritual;
 
@@ -50,31 +50,17 @@ namespace DefaultNamespace {
 			VisualLog.Hide();
 		}
 
-		public void DestroyItems() {
-			foreach (Item item  in items) {
-				Destroy(item.gameObject);
-			}
-			items.Clear();
-		}
 
 		private void Update() {
 			if (Input.GetKeyDown(KeyCode.R)) {
 				StartBattle();
 			}
+		}
 
-			if (Input.GetKeyDown(KeyCode.N)) {
-				switch (turnSystem.currentPhase) {
-				case TurnPhase.Battle when battleEnded:
-					aftermath.Hide();
-					turnSystem.NextTurn();
-					break;
-				case TurnPhase.Loot:
-					for (int i = 0; i < items.Count; i++) {
-						dump.AddGarbage(items[i].transform);
-						items.RemoveAt(i);
-					}
-					break;
-				}
+		public void DumpLoot() {
+			for (int i = 0; i < items.Count; i++) {
+				dump.AddGarbage(items[i].transform);
+				items.RemoveAt(i);
 			}
 		}
 

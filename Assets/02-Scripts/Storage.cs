@@ -29,7 +29,7 @@ public class Storage : MonoBehaviour {
 	public List<GameObject> epicItems=new List<GameObject>();
 	public List<GameObject> legendaryItems=new List<GameObject>();
 	[HideInInspector]public Transform currentSputoPoint;
-	[HideInInspector]public List<Item> items=new List<Item>();
+	public List<Item> items = new List<Item>();
 
 	[HideInInspector] public Transform treasonPoint;
 
@@ -103,6 +103,8 @@ public class Storage : MonoBehaviour {
 			obj.transform.parent = floor.transform;
 			obj = Instantiate(pieces.door, position, Quaternion.identity);
 			storageDoors.Add(obj);
+			obj.transform.parent = floor.transform;
+			obj = Instantiate(pieces.CAZZODITETTO, position, Quaternion.identity);
 			obj.transform.parent = floor.transform;
 			obj = Instantiate(pieces.sputoPoint, position, Quaternion.identity);
 			obj.transform.GetChild(0);

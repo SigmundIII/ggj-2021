@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DefaultNamespace.UI {
 
@@ -13,7 +14,8 @@ namespace DefaultNamespace.UI {
 		}
 
 		[SerializeField] private CharacterAftermath[] characterAftermath;
-
+		public Button next;
+		
 		private void Awake() {
 			Hide();
 		}
