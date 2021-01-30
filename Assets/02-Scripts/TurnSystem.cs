@@ -33,9 +33,9 @@ public class TurnSystem : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
 			StartBattlePhase();
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			StartLootPhase();
-		}
+		// if (Input.GetKeyDown(KeyCode.Alpha3)) {
+		// 	StartLootPhase(); // Changed with N - See GameManager
+		// }
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 			NextTurn();
 		}
