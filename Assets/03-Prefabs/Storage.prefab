@@ -119,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 5107385132199151434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 5107385133177472541}
   - {fileID: 1936200761}
@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060ff8086f636f3489c2fe2cd1e767ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1963537864766123889, guid: ea02251fbc5d57844a2f937dd9a4e1a2, type: 3}
   spawnPoint: {fileID: 5107385133177472541}
   sputoPointPrefab: {fileID: 6481443347997578613, guid: 80363e0e4c5be434b882a367b32c4d9b,
     type: 3}
@@ -148,16 +147,40 @@ MonoBehaviour:
     type: 3}
   storageFloorPrefab: {fileID: 4737743149124192655, guid: 20607e00fe285b04189943fa52dfa5d3,
     type: 3}
-  sputoForce: 200
-  maxItem: 10
+  maxItem: 20
   normalItem: 2
   rareItem: 2
   epicItem: 2
   legendaryItem: 2
+  normalItems:
+  - {fileID: 2270802354057582385, guid: bf4fdae49185a404e944bdb91a83807f, type: 3}
+  - {fileID: 7779320104087347491, guid: 7b6020246faa60248a1811527a6c73bd, type: 3}
+  - {fileID: 7281677933061398633, guid: 48fe92bd0b385704aa5ba31caa7e7649, type: 3}
+  - {fileID: 7478479272510202164, guid: a242ad398a9638e4a955c60199114705, type: 3}
+  - {fileID: 3015880192638040781, guid: c24ec1e6fc4bd734cac3dd085d4be1aa, type: 3}
+  - {fileID: 1179489996534926454, guid: 725cab248f035dc439507fc7900e0555, type: 3}
+  rareItems:
+  - {fileID: 1907640521654592456, guid: d68ed713b7e9b2d4088b6f98f1e8dcfa, type: 3}
+  - {fileID: 7583639610677744726, guid: e11e36bed88fefe4d92931be57e0e95b, type: 3}
+  - {fileID: 7941488440746029337, guid: b36c53a551475724f842968035d517f4, type: 3}
+  - {fileID: 8483723978021123883, guid: 3a7634df821c7e348a1fa15cd4288bbc, type: 3}
+  - {fileID: 4413387463188674045, guid: 6010834e9003b7b46b08be5eca8d93c2, type: 3}
+  - {fileID: 8255137476964211461, guid: 6b8d62ba528a1114bbcd891d311981c9, type: 3}
+  epicItems:
+  - {fileID: 3758830500491326702, guid: 21c86ff73d809a8469c930f9f75303fb, type: 3}
+  - {fileID: 7895299251085433378, guid: 98c39e2007f101d4aa9f69cad50e1152, type: 3}
+  - {fileID: 4334480108644598672, guid: 6322a72d8ac31f941bc5f843d0a00a23, type: 3}
+  - {fileID: 6451144946683727709, guid: 27429b63ba34c5d48984c777ba7cfe22, type: 3}
+  - {fileID: 1839749258254133186, guid: 8ae218247bbb2df4bbdb393cdbe70428, type: 3}
+  - {fileID: 6184966138539641422, guid: 67efe504116614f428ab33e02b006508, type: 3}
+  legendaryItems:
+  - {fileID: 1862422312833259813, guid: 54ae9fca3ddd60943a3ffffd3dcbbd7e, type: 3}
+  - {fileID: 2681975166994101005, guid: 8f035a776161dce4998c5b2d7cd1f00f, type: 3}
+  - {fileID: 3488098806780897008, guid: 7f57679bb6cca0a40a33646eaac54fd2, type: 3}
+  - {fileID: 3364058141464261330, guid: 4e53d34b5b6aca046a25577739ee020b, type: 3}
+  - {fileID: 2310114582909093432, guid: 5b4fa77ebbde95942ae2995431288491, type: 3}
+  - {fileID: 8969160064293928394, guid: f66d0eb35d917174eaa006095e939033, type: 3}
   currentSputoPoint: {fileID: 0}
-  types:
-  - {fileID: 11400000, guid: e35caa09f85ce27449a0646bcdddb706, type: 2}
-  - {fileID: 11400000, guid: 10769edc8edcdae44b4bc1d67a96c082, type: 2}
   items: []
 --- !u!1 &5107385133177472530
 GameObject:
@@ -183,7 +206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5107385133177472530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.48, z: 0}
+  m_LocalPosition: {x: 0, y: 1.299, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5107385132199151445}

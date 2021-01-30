@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 	private Rigidbody rb;
+	public GameObject model;
 
 	[Header("MovementStats")] 
 	public float speed;
@@ -15,8 +16,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void Move(Vector3 direction) {
 		Vector3 destination = transform.position + (direction * speed);
-		transform.LookAt(destination);
+		model.transform.LookAt(destination);
 		rb.MovePosition(destination);
+	}
+
+	public void SetOrientation(Camera camera) {
+		var rotationY = camera.transform.eulerAngles.y;
+		transform.eulerAngles=new Vector3(0,rotationY,0);
 	}
 
 	public void FallGuys() {
