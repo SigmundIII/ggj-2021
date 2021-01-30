@@ -1,9 +1,17 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace DefaultNamespace {
 
 	[CreateAssetMenu(fileName = "Class-", menuName = "New Class", order = 0)]
 	public class CharacterClass : ScriptableObject {
+		[Serializable]
+		public class Slot {
+			public List<ItemType> types;
+			[HideInInspector] public Item equipped;
+		}
+		
 		[SerializeField] private string _name;
 		
 		[Header("Base Stats")] 
@@ -12,7 +20,7 @@ namespace DefaultNamespace {
 		[SerializeField] private int defense;
 		
 		[Header("Equipment")]
-		[SerializeField] private ItemType[] equipableTypes;
+		[SerializeField] private Slot[] equipSlots;
 		
 		public string Name => _name;
 
@@ -20,6 +28,6 @@ namespace DefaultNamespace {
 		public int Attack => attack;
 		public int Defense => defense;
 		
-		public ItemType[] EquipableTypes => equipableTypes;
+		public Slot[] EquipSlots => equipSlots;
 	}
 }

@@ -38,14 +38,16 @@ public class Storage : MonoBehaviour {
 	[HideInInspector]public List<Item> items=new List<Item>();
 
 	public void Init(int floorNumber) {
-		StartCoroutine(GenerateInitialItems());
 		for (int i = 0; i < floorNumber; i++) {
 			GenerateStorage(i);
 		}
+		StartCoroutine(GenerateInitialItems());
 		SetSputoPoint(0);
 	}
 
 	public IEnumerator GenerateInitialItems() {
+		yield return null;
+		CloseDoors(0);
 		for (int i = 0; i < normalItem; i++) {
 			yield return StartCoroutine(SpawnItem(RarityLevel.Normal));
 		}
@@ -58,6 +60,8 @@ public class Storage : MonoBehaviour {
 		for (int i = 0; i < legendaryItem; i++) {
 			yield return StartCoroutine(SpawnItem(RarityLevel.Legendary));
 		}
+		yield return new WaitForSeconds(2);
+		OpenDoors(0);
 	}
 	
 	public IEnumerator SpawnItem(RarityLevel rarity) {
@@ -79,10 +83,9 @@ public class Storage : MonoBehaviour {
 				throw new ArgumentOutOfRangeException(nameof(rarity), rarity, null);
 		}
 		Instantiate(prefab.gameObject, spawnPoint.position,spawnPoint.rotation);
-		Item item = prefab.GetComponent<Item>();
+		var item = prefab.GetComponent<Item>();
 		if (item != null) {
-			//item.Generate(,rarity);
-			item.gameObject.name = "Item";
+			item.gameObject.name = item.Name;
 		}
 		yield return new WaitForSeconds(0f);
 	}

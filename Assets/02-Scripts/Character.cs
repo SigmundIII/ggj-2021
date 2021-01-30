@@ -6,7 +6,7 @@ namespace DefaultNamespace {
 	public class Character {
 		public string name;
 		
-		private Item[] equipment;
+		public Item[] equipment;
 
 		public CharacterClass Class { get; }
 
@@ -28,7 +28,7 @@ namespace DefaultNamespace {
 
 			BattleValue += MaxHp + Attack + Defense;
 			
-			equipment = new Item[characterClass.EquipableTypes.Length];
+			equipment = new Item[characterClass.EquipSlots.Length];
 		}
 
 		public void Hurt(int damage) {
