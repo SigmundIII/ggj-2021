@@ -15,7 +15,7 @@ namespace DefaultNamespace {
 
 		private bool someoneDead;
 
-		public Battle(Character[] heroes, Character[] enemies, List<Item> loot) {
+		public Battle(Character[] heroes, Character[] enemies) {
 			this.heroes = new List<Character>(heroes);
 			this.enemies = new List<Character>(enemies);
 			characters = new List<Character>(heroes);
@@ -35,7 +35,7 @@ namespace DefaultNamespace {
 
 		private IEnumerator DoRound() {
 			VisualLog.AddLog("--- New round ---.");
-			characters.Sort(SortCharacters);
+			characters.Sort(Utility.SortCharacters);
 			for (int i = 0; i < characters.Count; i++) {
 				yield return DoTurn(characters[i]);
 				if (someoneDead) {
@@ -77,12 +77,6 @@ namespace DefaultNamespace {
 					heroes.Remove(target);
 				}
 			}
-		}
-
-		private static int SortCharacters(Character x, Character y) {
-			if (x.BattleValue > y.BattleValue) return -1;
-			else if (x.BattleValue < y.BattleValue) return 1;
-			else return 0;
 		}
 	}
 
