@@ -7,4 +7,5 @@ public class StoragePieces : MonoBehaviour {
     public GameObject door;
     public GameObject walls;
     public GameObject sputoPoint;
+    public Transform treasonPoint;
 }
