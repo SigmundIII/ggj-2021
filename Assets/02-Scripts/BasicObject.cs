@@ -11,8 +11,11 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 	}
 
 	public void Grabbed(Transform parent) {
+		Vector3 scale = transform.localScale;
 		transform.parent = parent;
 		transform.position = parent.position;
+		transform.rotation = Quaternion.identity;
+		transform.localScale = scale;
 		rb.useGravity = false;
 		rb.isKinematic = true;
 	}

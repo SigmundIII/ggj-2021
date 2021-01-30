@@ -22,9 +22,12 @@ public class Storage : MonoBehaviour {
 
 	private void Awake() {
 		LoadTypes();
+	}
+	
+	public void Init() {
 		StartCoroutine(GenerateInitialItems());
 	}
-
+	
 	private void LoadTypes() {
 		string[] guids = AssetDatabase.FindAssets("t:ItemType");
 		foreach (var guid in guids) {
@@ -100,4 +103,5 @@ public class Storage : MonoBehaviour {
 			items.Remove(item);
 		}
 	}
+
 }

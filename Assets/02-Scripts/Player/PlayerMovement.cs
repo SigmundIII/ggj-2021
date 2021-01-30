@@ -18,4 +18,14 @@ public class PlayerMovement : MonoBehaviour {
 		transform.LookAt(destination);
 		rb.MovePosition(destination);
 	}
+
+	public void FallGuys() {
+		rb.isKinematic = false;
+	}
+
+	public void NotFallGuys() {
+		rb.isKinematic = true;
+	}
+
+
 }

@@ -6,11 +6,13 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour {
     private PlayerMovement playerMovement;
     private PlayerInteract playerInteract;
+    private PlayerButtonLover playerButton;
     private Camera camera;
 
     private void Awake() {
         playerMovement = GetComponent<PlayerMovement>();
         playerInteract = GetComponentInChildren<PlayerInteract>();
+        playerButton = GetComponentInChildren<PlayerButtonLover>();
         camera = Camera.main;
     }
 
@@ -21,6 +23,10 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space)) {
             playerInteract.Throw();
         }
+        if (Input.GetKeyDown(KeyCode.F)) {
+            playerButton.Push();
+        }
+        
     }
 
     private void FixedUpdate() {
