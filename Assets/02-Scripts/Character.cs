@@ -6,7 +6,7 @@ namespace DefaultNamespace {
 	public class Character {
 		public string name;
 		
-		private Item[] equipment;
+		public Item[] equipment;
 
 		public CharacterClass Class { get; }
 
