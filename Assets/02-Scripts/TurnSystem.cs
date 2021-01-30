@@ -54,8 +54,8 @@ public class TurnSystem : MonoBehaviour {
 				break;
 			case TurnPhase.Loot:
 				if (currentFloor < maxFloors) {
-					storage.CloseDoors(currentFloor);
-					storage.DestroyFloor(currentFloor);
+					DestroyStorage(currentFloor);
+					DestroyDungeon(currentFloor);
 					currentFloor++;
 					StartPlacePhase();
 				}
@@ -66,6 +66,17 @@ public class TurnSystem : MonoBehaviour {
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
+	}
+
+	public void DestroyStorage(int floor) {
+		storage.CloseDoors(floor);
+		storage.DestroyFloor(floor);
+		storage.DestroyWalls(floor);
+		storage.DestroyDoors(floor);
+	}
+
+	public void DestroyDungeon(int floor) {
+		dungeon.DestroyFloor(floor);
 	}
 	
 	
