@@ -38,6 +38,8 @@ public class Follow_Player : MonoBehaviour
                 continue; // no renderer attached? go to next hit
             // TODO: maybe implement here a check for GOs that should not be affected like the player
 
+            
+            
             R.enabled = false;
             //
             // AutoTransparent AT = R.GetComponent<AutoTransparent>();
