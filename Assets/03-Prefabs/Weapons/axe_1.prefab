@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2270802354057582387}
   - component: {fileID: 2270802354057582384}
   - component: {fileID: 1713343054703796050}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: axe_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 3842514409867711674}
   - component: {fileID: 5712198473365372735}
   - component: {fileID: 7551218182494549535}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

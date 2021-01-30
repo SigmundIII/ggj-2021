@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 418666712305711271}
   - component: {fileID: 5739062245609629221}
   - component: {fileID: 491293109028714827}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 6451144946683727707}
   - component: {fileID: 6451144946683727706}
   - component: {fileID: 6125119217376706399}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: crossbow_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

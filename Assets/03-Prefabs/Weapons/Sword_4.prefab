@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1839749258254133184}
   - component: {fileID: 1839749258254133185}
   - component: {fileID: 4832495905925642161}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: Sword_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5233162984716485153}
   - component: {fileID: 8928463548529925293}
   - component: {fileID: 4314135401409741736}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

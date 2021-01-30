@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4642519896004613673}
   - component: {fileID: 8109608237148528202}
   - component: {fileID: 8674217981513740675}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: Mersh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1907640521654592502}
   - component: {fileID: 1907640521654592503}
   - component: {fileID: 7556663814738852749}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: axe_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
