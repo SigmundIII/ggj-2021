@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Light armor
   maxHpRange: {x: 10, y: 15}
-  attackRange: {x: -15, y: -5}
+  attackRange: {x: 0, y: 1}
   defenseRange: {x: 1, y: 3}

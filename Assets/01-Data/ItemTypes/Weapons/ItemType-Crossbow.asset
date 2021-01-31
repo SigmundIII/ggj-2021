@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Crossbow
   maxHpRange: {x: 0, y: 0}
   attackRange: {x: 15, y: 30}
-  defenseRange: {x: -15, y: -20}
+  defenseRange: {x: 6, y: 12}

@@ -84,10 +84,10 @@ MonoBehaviour:
   floorHeight: 9
   storageAllFloor: []
   maxItem: 50
-  normalItem: 2
-  rareItem: 2
-  epicItem: 2
-  legendaryItem: 2
+  normalItem: 6
+  rareItem: 5
+  epicItem: 1
+  legendaryItem: 3
   normalItems:
   - {fileID: 2270802354057582385, guid: bf4fdae49185a404e944bdb91a83807f, type: 3}
   - {fileID: 7779320104087347491, guid: 7b6020246faa60248a1811527a6c73bd, type: 3}

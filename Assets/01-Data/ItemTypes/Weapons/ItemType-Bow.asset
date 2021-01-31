@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Bow
   maxHpRange: {x: 0, y: 0}
   attackRange: {x: 15, y: 25}
-  defenseRange: {x: -5, y: -15}
+  defenseRange: {x: 3, y: 6}

@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Rapier
   maxHpRange: {x: 0, y: 0}
   attackRange: {x: 70, y: 120}
-  defenseRange: {x: -50, y: -100}
+  defenseRange: {x: 5, y: 8}
