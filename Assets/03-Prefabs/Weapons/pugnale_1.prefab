@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2661844242209745831}
   - component: {fileID: 4302056852808474590}
   - component: {fileID: 583424405642842709}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 7478479272510202166}
   - component: {fileID: 7478479272510202167}
   - component: {fileID: -2612630265350377527}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: pugnale_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

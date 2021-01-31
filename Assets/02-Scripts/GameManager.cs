@@ -74,6 +74,7 @@ namespace DefaultNamespace {
 				AssignLoot();
 				aftermath.Show(heroes);
 				battleEnded = true;
+				_ritual.StartCoroutine(_ritual.Ritual_progression());
 			}
 		}
 
@@ -98,11 +99,6 @@ namespace DefaultNamespace {
 		private void EndBattle() {
 			_battleEnded = true;
 			Time.timeScale = 1;
-			battleEnded = true;
-			VisualLog.Hide();
-			AssignLoot();
-			aftermath.Show(heroes);
-			_ritual.StartCoroutine(_ritual.Ritual_progression());
 		}
 
 		private void AssignLoot() {

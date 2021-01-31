@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3488098806780897010}
   - component: {fileID: 3488098806780897009}
   - component: {fileID: 9102802794855177980}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: book_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 742642863707729523}
   - component: {fileID: 4592443372057072829}
   - component: {fileID: 1594318163396326249}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

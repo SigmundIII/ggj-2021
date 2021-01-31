@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour {
@@ -8,6 +9,8 @@ public class PlayerInput : MonoBehaviour {
     private PlayerInteract playerInteract;
     private PlayerButtonLover playerButton;
     private Camera camera;
+
+    public LayerMask itemsLayer;
 
     private void Awake() {
         playerMovement = GetComponent<PlayerMovement>();
@@ -26,7 +29,16 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F)) {
             playerButton.Push();
         }
-        
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, itemsLayer)) {
+            var item = hit.transform.gameObject.GetComponent<Item>();
+            if (item != null) {
+                ItemPopup.Show(item);
+            }
+        } else {
+            ItemPopup.Hide();
+        }
     }
 
     private void FixedUpdate() {
