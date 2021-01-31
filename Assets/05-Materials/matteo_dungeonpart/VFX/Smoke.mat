@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Circle
+  m_Name: Smoke
   m_Shader: {fileID: -6465566751694194690, guid: 66259505ce976ee48b5ea0261b2691e6,
     type: 3}
   m_ShaderKeywords: 
@@ -22,7 +22,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_E676F7C:
-        m_Texture: {fileID: 2800000, guid: c9e8a9c89bfd0da43b09328dc0edb7c0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8334dda377c93b6448342bef885dcc92, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
