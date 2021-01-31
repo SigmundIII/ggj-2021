@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPhase: 0
   maxFloors: 3
-  fullTime: 9999
-  battleValuePenalty: 1000
+  fullTime: 50
+  battleValuePenalty: 100

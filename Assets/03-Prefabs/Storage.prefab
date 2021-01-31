@@ -78,15 +78,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5107385133177472541}
   sputoPoint: {fileID: 531226562810321246}
+  playerSpawn: {fileID: 7912207153097073907}
   storagePrefab: {fileID: 7516798460224812987, guid: 779a2a08195bfb74b812e028bcf51990,
     type: 3}
   floorHeight: 9
   storageAllFloor: []
   maxItem: 50
-  normalItem: 2
-  rareItem: 2
-  epicItem: 2
-  legendaryItem: 2
+  normalItem: 6
+  rareItem: 5
+  epicItem: 1
+  legendaryItem: 3
   normalItems:
   - {fileID: 2270802354057582385, guid: bf4fdae49185a404e944bdb91a83807f, type: 3}
   - {fileID: 7779320104087347491, guid: 7b6020246faa60248a1811527a6c73bd, type: 3}
