@@ -82,7 +82,7 @@ public class TurnSystem : MonoBehaviour {
 				StartBattlePhase();
 				break;
 			case TurnPhase.Battle:
-				gameManager.aftermath.Hide();
+				gameManager.characterSheetsManager.Hide();
 				StartLootPhase();
 				break;
 			case TurnPhase.Loot:
