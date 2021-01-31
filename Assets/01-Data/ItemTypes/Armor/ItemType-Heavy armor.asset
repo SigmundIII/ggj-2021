@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ItemType-Heavy armor
   m_EditorClassIdentifier: 
   _name: Heavy armor
-  maxHpRange: {x: 15, y: 30}
-  attackRange: {x: -10, y: -20}
-  defenseRange: {x: 2, y: 4}
+  maxHpRange: {x: 10, y: 20}
+  attackRange: {x: 2, y: 3}
+  defenseRange: {x: 1, y: 4}

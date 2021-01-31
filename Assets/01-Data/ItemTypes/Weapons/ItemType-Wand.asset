@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Wand
   maxHpRange: {x: 0, y: 0}
   attackRange: {x: 30, y: 50}
-  defenseRange: {x: -50, y: -20}
+  defenseRange: {x: 5, y: 6}

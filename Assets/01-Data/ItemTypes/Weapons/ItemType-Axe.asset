@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Axe
   maxHpRange: {x: 0, y: 0}
   attackRange: {x: 20, y: 30}
-  defenseRange: {x: -10, y: -20}
+  defenseRange: {x: 0, y: 5}

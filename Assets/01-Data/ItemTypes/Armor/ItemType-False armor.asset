@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ItemType-False armor
   m_EditorClassIdentifier: 
   _name: False armor
-  maxHpRange: {x: -15, y: -25}
-  attackRange: {x: -15, y: -30}
-  defenseRange: {x: 0, y: 0}
+  maxHpRange: {x: 1, y: 2}
+  attackRange: {x: 0, y: 0}
+  defenseRange: {x: 1, y: 2}
