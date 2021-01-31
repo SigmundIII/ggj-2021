@@ -1199,6 +1199,7 @@ GameObject:
   - component: {fileID: 9160066275642429113}
   - component: {fileID: 6964091161870207575}
   - component: {fileID: 7750476148410559154}
+  - component: {fileID: 3729439389944245123}
   m_Layer: 2
   m_Name: tavolo_imbandito
   m_TagString: Untagged
@@ -1265,6 +1266,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3729439389944245123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382543687707759619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f54af559705d5344b077beb6d2555d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbed: 0
 --- !u!1 &8469064859395532889
 GameObject:
   m_ObjectHideFlags: 0

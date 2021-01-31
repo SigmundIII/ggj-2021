@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7779320104087347501}
   - component: {fileID: 7779320104087347490}
   - component: {fileID: 1214112834452173196}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: book_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 8406737545587007670}
   - component: {fileID: 120339535331293900}
   - component: {fileID: 8566586135533566393}
-  m_Layer: 2
+  m_Layer: 17
   m_Name: book_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

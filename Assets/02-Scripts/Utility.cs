@@ -20,6 +20,7 @@ namespace DefaultNamespace {
 			int def = Mathf.Abs(item.Defense);
 			float rarity = RarityLevelMultiplier(item.rarityLevel);
 			return (int) ((hp + att + def) * rarity);
+			//return (int)(((hp * att) / def) * rarity);
 		}
 
 		public static int CalculateDamage(Character a, Character d) {

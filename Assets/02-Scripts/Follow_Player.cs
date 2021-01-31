@@ -35,15 +35,23 @@ public class Follow_Player : MonoBehaviour
                 disabledObjects.Add(R);
             }
         }
-        foreach (MeshRenderer render in disabledObjects) {
-            if (ContainsMeshRenderer(hits, render)) {
-                render.enabled = false;
-            }
-            else {
-                render.enabled = true;
+        try {
+            foreach (MeshRenderer render in disabledObjects) {
+                if (ContainsMeshRenderer(hits, render)) {
+                    render.enabled = false;
+                }
+                else {
+                    render.enabled = true;
+                }
             }
         }
-        
+        catch (Exception e) {
+            ClearList();
+        }
+    }
+
+    public void ClearList() {
+        disabledObjects.Clear();
     }
 
     public bool ContainsMeshRenderer(RaycastHit[] hits, MeshRenderer renderer) {
@@ -57,6 +65,4 @@ public class Follow_Player : MonoBehaviour
         return false;
     }
 
-    private void OnDrawGizmos() {
-    }
 }

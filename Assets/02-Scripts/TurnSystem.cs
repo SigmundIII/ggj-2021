@@ -1,6 +1,7 @@
 ﻿using System;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum TurnPhase{Place,Battle,Loot,Ending}
 	
@@ -14,22 +15,28 @@ public class TurnSystem : MonoBehaviour {
 	private Storage storage;
 	private CreateDungeon dungeon;
 	private GameManager gameManager;
+	private PlayerInteract playerInteract;
+	private Follow_Player camera;
+	private Ritual_affordance ritual;
+	private Fade fade;
+	
 
-	public event Action OnBattlePhaseStart;
+	public event Action<int> OnBattlePhaseStart;
 	public float fullTime=30;
 	private float time = 0;
 	public int battleValuePenalty;
-	
-	
 	
 	private float timer;
 
 	private void Awake() {
 		playerInput = FindObjectOfType<PlayerInput>();
+		playerInteract = FindObjectOfType<PlayerInteract>();
 		storage = FindObjectOfType<Storage>();
 		dungeon = FindObjectOfType<CreateDungeon>();
 		gameManager = FindObjectOfType<GameManager>();
-
+		camera = FindObjectOfType<Follow_Player>();
+		ritual = FindObjectOfType <Ritual_affordance>();
+		fade = FindObjectOfType<Fade>();
 	}
 
 	private void Start() {
@@ -50,18 +57,6 @@ public class TurnSystem : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			StartPlacePhase();
-		}
-		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			StartBattlePhase();
-		}
-		// if (Input.GetKeyDown(KeyCode.Alpha3)) {
-		// 	StartLootPhase(); // Changed with N - See GameManager
-		// }
-		if (Input.GetKeyDown(KeyCode.Alpha4)) {
-			NextTurn();
-		}
 		
 		switch (currentPhase) {
 			case TurnPhase.Place:
@@ -80,14 +75,16 @@ public class TurnSystem : MonoBehaviour {
 				StartBattlePhase();
 				break;
 			case TurnPhase.Battle:
-				gameManager.aftermath.Hide();
 				StartLootPhase();
 				break;
 			case TurnPhase.Loot:
 				if (currentFloor < maxFloors) {
+					fade.fadeOutComplete += StartPlacePhase;
+					fade.FadeOut();
+					camera.ClearList();
 					gameManager.DumpLoot();
-					DestroyStorage(currentFloor);
-					DestroyDungeon(currentFloor);
+					storage.NextFloor(currentFloor);
+					dungeon.NextFloor(currentFloor);
 					FindObjectOfType<PlayerMovement>().ResetFallGuys();
 					currentFloor++;
 					if (currentFloor < maxFloors) {
@@ -95,11 +92,11 @@ public class TurnSystem : MonoBehaviour {
 					}
 				}
 				else {
+					camera.ClearList();
 					StartEndingPhase();
 				}
 				break;
 			case TurnPhase.Ending:
-				Debug.Log("Niente più piani");
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
@@ -108,36 +105,38 @@ public class TurnSystem : MonoBehaviour {
 
 	private void StartEndingPhase() {
 		currentPhase = TurnPhase.Ending;
+		//start new scene
+		//playerInput.transform.position = storage.playerSpawn.position;
+		if (ritual.slider.value < gameManager.maxBattleValue && ritual.slider.value > gameManager.minBattleValue) {
+			//Caricamento scena di vittoria
+			HasWon.hasWon = true;
+			Debug.Log("You win: "+ritual.slider.value);
+		}
+		else {
+			//Caricamento scena di sconfitta
+			HasWon.hasWon = false;
+			Debug.Log("You lose with: "+ritual.slider.value);
+		}
+		SceneManager.LoadScene("BossScene");
+
 	}
 
-	public void DestroyStorage(int floor) {
-		storage.CloseDoors(floor);
-		storage.DestroyFloor(floor);
-		storage.DestroyWalls(floor);
-		storage.DestroyDoors(floor);
-	}
 
-	public void DestroyDungeon(int floor) {
-		dungeon.DestroyFloor(floor);
-	}
-	
-	
 	public void StartPlacePhase() {
-		storage.SetSputoPoint(currentFloor);
-		storage.OpenDoors(currentFloor);
+		fade.fadeOutComplete -= StartPlacePhase;
+		playerInput.transform.position = storage.playerSpawn.position;
 		currentPhase = TurnPhase.Place;
 		playerInput.enabled = true;
+		fade.FadeIn();
 	}
 	
 	public void StartBattlePhase() {
-		storage.CloseDoors(currentFloor);
 		currentPhase = TurnPhase.Battle;
 		playerInput.enabled = false;
-		OnBattlePhaseStart?.Invoke();
+		OnBattlePhaseStart?.Invoke(currentFloor);
 	}
 	
 	public void StartLootPhase() {
-		storage.OpenDoors(currentFloor);
 		currentPhase = TurnPhase.Loot;
 		playerInput.enabled = true;
 	}

@@ -22,15 +22,19 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 				// Inside Storage
 				transform.SetParent(storage.transform);
 				if (!storage.items.Contains(item)) {
-					gameManager.items.Remove(item);
-					storage.items.Add(item);
+					if (item != null) {
+						gameManager.items.Remove(item);
+						storage.AddItem(item);
+					}
 				}
 			} else {
 				// Outside Storage
 				transform.SetParent(gameManager.transform);
 				if (!gameManager.items.Contains(item)) {
-					gameManager.items.Add(item);
-					storage.items.Remove(item);
+					if (item != null) {
+						gameManager.items.Add(item);
+						storage.items.Remove(item);
+					}
 				}
 			}
 		}
@@ -38,6 +42,8 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 
 	public void Grabbed(Transform parent) {
 		transform.SetParent(parent);
+		gameManager.items.Remove(item);
+		storage.items.Remove(item);
 		transform.localPosition = Vector3.zero;
 		transform.localRotation = Quaternion.identity;
 		transform.localScale = Vector3.one;
@@ -63,5 +69,10 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 
 	public void Stop() {
 		rb.velocity=Vector3.zero;
+	}
+
+	public void DisappearInTheVoid() {
+		gameManager.items.Remove(item);
+		storage.items.Remove(item);
 	}
 }

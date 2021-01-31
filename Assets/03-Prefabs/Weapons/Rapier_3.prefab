@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8748780675036621915}
   - component: {fileID: 6020997325334999438}
   - component: {fileID: 304541432040335609}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rapier_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,8 +102,7 @@ GameObject:
   - component: {fileID: 8340522490859232157}
   - component: {fileID: 8846491091962637321}
   - component: {fileID: 9195831571632353119}
-  - component: {fileID: 1137886779583593}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: rapier3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,21 +173,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1137886779583593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2930526103849878633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 0.96469927, g: 0, b: 1, a: 1}
-  outlineWidth: 5
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []

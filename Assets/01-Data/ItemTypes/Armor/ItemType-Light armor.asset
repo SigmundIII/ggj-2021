@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Light armor
   maxHpRange: {x: 10, y: 15}
   attackRange: {x: -15, y: -5}
-  defenseRange: {x: 0, y: 0}
+  defenseRange: {x: 1, y: 3}

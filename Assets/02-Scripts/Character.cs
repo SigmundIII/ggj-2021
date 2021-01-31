@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace DefaultNamespace {
 
@@ -21,18 +20,20 @@ namespace DefaultNamespace {
 		public Character(CharacterClass characterClass) {
 			Class = characterClass;
 			name = Class.Name;
-			
+
 			Health = MaxHp = Class.MAXHp;
 			Attack = Class.Attack;
 			Defense = Class.Defense;
 
-			BattleValue += MaxHp + Attack + Defense;
+			BattleValue += characterClass.BaseBattleValue + (MaxHp*Attack/ Defense);
 			
 			equipment = new Item[characterClass.EquipSlots.Length];
 		}
 
 		public void Hurt(int damage) {
+			BattleValue -= Health;
 			Health -= damage;
+			BattleValue += Health;
 			if (Health <= 0) {
 				Health = 0;
 			}

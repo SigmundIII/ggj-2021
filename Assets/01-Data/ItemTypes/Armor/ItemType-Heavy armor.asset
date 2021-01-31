@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Heavy armor
   maxHpRange: {x: 15, y: 30}
   attackRange: {x: -10, y: -20}
-  defenseRange: {x: 0, y: 0}
+  defenseRange: {x: 2, y: 4}
