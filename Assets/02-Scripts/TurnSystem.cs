@@ -18,7 +18,7 @@ public class TurnSystem : MonoBehaviour {
 	private PlayerInteract playerInteract;
 	private Follow_Player camera;
 	private Ritual_affordance ritual;
-	private Fade fade;
+	public BarCardTimer barTimer;
 	
 
 	public event Action<int> OnBattlePhaseStart;
@@ -28,6 +28,8 @@ public class TurnSystem : MonoBehaviour {
 	
 	private float timer;
 
+	private Fade fade;
+
 	private void Awake() {
 		playerInput = FindObjectOfType<PlayerInput>();
 		playerInteract = FindObjectOfType<PlayerInteract>();
@@ -36,6 +38,7 @@ public class TurnSystem : MonoBehaviour {
 		gameManager = FindObjectOfType<GameManager>();
 		camera = FindObjectOfType<Follow_Player>();
 		ritual = FindObjectOfType <Ritual_affordance>();
+		barTimer = FindObjectOfType<BarCardTimer>();
 		fade = FindObjectOfType<Fade>();
 
 		fade.fadeInComplete += StopFade;
@@ -65,6 +68,7 @@ public class TurnSystem : MonoBehaviour {
 		switch (currentPhase) {
 			case TurnPhase.Place:
 				timer += Time.deltaTime;
+				barTimer.SetSlider(timer/time);
 				if (timer >= time) {
 					NextTurn();
 					SetTimer();

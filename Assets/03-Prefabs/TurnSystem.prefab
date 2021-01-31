@@ -45,5 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPhase: 0
   maxFloors: 3
-  fullTime: 9999
+  barTimer: {fileID: 0}
+  fullTime: 30
   battleValuePenalty: 1000

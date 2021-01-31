@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5107385133177472541}
   sputoPoint: {fileID: 531226562810321246}
+  playerSpawn: {fileID: 7912207153097073907}
   storagePrefab: {fileID: 7516798460224812987, guid: 779a2a08195bfb74b812e028bcf51990,
     type: 3}
   floorHeight: 9

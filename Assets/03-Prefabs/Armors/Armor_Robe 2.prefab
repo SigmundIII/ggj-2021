@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2387655540768225167}
   - component: {fileID: 3408336135623370651}
   m_Layer: 0
-  m_Name: Armor_Robe
+  m_Name: Armor_Robe 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: a351d3dbd0ffe814b9432d33ec0fdfed, type: 2}
-  rarityLevel: 0
+  rarityLevel: 2
 --- !u!54 &2387655540768225167
 Rigidbody:
   m_ObjectHideFlags: 0
