@@ -61,6 +61,4 @@ public class Follow_Player : MonoBehaviour
         return false;
     }
 
-    private void OnDrawGizmos() {
-    }
 }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using DefaultNamespace.UI;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Visual_Log;
@@ -16,7 +15,7 @@ namespace DefaultNamespace {
 		
 		[SerializeField] private List<FloorEnemy> enemyParty=new List<FloorEnemy>();
 		[Space]
-		[SerializeField] public UIAftermath aftermath;
+		public UICharacterSheetsManager characterSheetsManager;
 		public float timescale;
 		
 		[HideInInspector]
@@ -72,9 +71,11 @@ namespace DefaultNamespace {
 			if (_battleEnded && Input.GetKeyDown(KeyCode.Return)) {
 				VisualLog.Hide();
 				AssignLoot();
-				aftermath.Show(heroes);
+				characterSheetsManager.Show();
 				battleEnded = true;
+				_battleEnded = false;
 				_ritual.StartCoroutine(_ritual.Ritual_progression());
+				FindObjectOfType<PlayerInput>().enabled = true;
 			}
 		}
 
@@ -87,12 +88,11 @@ namespace DefaultNamespace {
 
 		private void StartBattle(int currentfloor) {
 			_battleEnded = false;
-			Time.timeScale = timescale;
-			Debug.Log("Start battaglia al piano: "+currentfloor);
-			GetEnemies(currentfloor);
 			battleEnded = false;
+			Time.timeScale = timescale;
+			GetEnemies(currentfloor);
 			battle = new Battle(heroes, enemies);
-			aftermath.Hide();
+			characterSheetsManager.Hide();
 			VisualLog.Show();
 			StartCoroutine(battle.BattleCoroutine(EndBattle));
 		}

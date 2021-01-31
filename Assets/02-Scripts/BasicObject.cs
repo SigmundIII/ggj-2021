@@ -23,7 +23,7 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 				transform.SetParent(storage.transform);
 				if (!storage.items.Contains(item)) {
 					gameManager.items.Remove(item);
-					storage.items.Add(item);
+					storage.AddItem(item);
 				}
 			} else {
 				// Outside Storage
@@ -38,6 +38,8 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 
 	public void Grabbed(Transform parent) {
 		transform.SetParent(parent);
+		gameManager.items.Remove(item);
+		storage.items.Remove(item);
 		transform.localPosition = Vector3.zero;
 		transform.localRotation = Quaternion.identity;
 		transform.localScale = Vector3.one;

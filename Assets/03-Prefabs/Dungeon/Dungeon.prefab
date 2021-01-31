@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835855396424956854}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.247518, y: 23.583168, z: 25.43858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -43,7 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1895404a43b91874b9c31ede6125e210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeonFloorPrefab: {fileID: 7214574411998113838, guid: 56ecb7f633a29fc40a01c44c422e7903,
-    type: 3}
+  dungeonFloorPrefab:
+  - {fileID: 7214574411998113838, guid: 56ecb7f633a29fc40a01c44c422e7903, type: 3}
+  - {fileID: 7214574411998113838, guid: c7d9f664f496df742bd400d9733afd41, type: 3}
+  - {fileID: 7214574411998113838, guid: 9b171ede2972a6d4ea739616506fef69, type: 3}
   bossDungeonPrefab: {fileID: 7214574411998113838, guid: 56ecb7f633a29fc40a01c44c422e7903,
     type: 3}
+  dungeonHeight: 9

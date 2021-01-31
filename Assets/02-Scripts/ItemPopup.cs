@@ -6,6 +6,8 @@ namespace DefaultNamespace {
 	public class ItemPopup : MonoBehaviour {
 		private static ItemPopup instance;
 
+		[SerializeField] private TextMeshProUGUI itemName;
+		[SerializeField] private TextMeshProUGUI hp;
 		[SerializeField] private TextMeshProUGUI atk;
 		[SerializeField] private TextMeshProUGUI def;
 		[SerializeField] private TextMeshProUGUI bl;
@@ -29,6 +31,8 @@ namespace DefaultNamespace {
 		private void _Show(Item item) {
 			gameObject.SetActive(true);
 			transform.position = item.transform.position;
+			itemName.text = item.Name;
+			hp.text = item.MaxHp.ToString();
 			atk.text = item.Attack.ToString();
 			def.text = item.Defense.ToString();
 			bl.text = item.BattleValue.ToString();

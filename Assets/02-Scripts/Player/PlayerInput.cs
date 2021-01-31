@@ -8,8 +8,13 @@ public class PlayerInput : MonoBehaviour {
     private PlayerMovement playerMovement;
     private PlayerInteract playerInteract;
     private PlayerButtonLover playerButton;
+    public AudioSource audioSource;
     private Camera camera;
 
+    
+    public AudioEvent ghostInteract;
+    public AudioEvent ghostMove;
+    
     public LayerMask itemsLayer;
 
     private void Awake() {
@@ -20,10 +25,14 @@ public class PlayerInput : MonoBehaviour {
     }
 
     private void Update() {
+        if (!audioSource.isPlaying) {
+            ghostMove.Play(audioSource);
+        }
         if (Input.GetKeyDown(KeyCode.E)) {
             playerInteract.GrabOrRealease();
         }
         if (Input.GetKeyDown(KeyCode.Space)) {
+            ghostInteract.Play(audioSource);
             playerInteract.Throw();
         }
         if (Input.GetKeyDown(KeyCode.F)) {
@@ -42,6 +51,7 @@ public class PlayerInput : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        
         playerMovement.SetOrientation(camera);
         playerMovement.Move(GetDirection());
     }
