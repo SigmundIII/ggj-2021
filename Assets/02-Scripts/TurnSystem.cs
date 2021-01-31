@@ -123,7 +123,7 @@ public class TurnSystem : MonoBehaviour {
 			//Caricamento scena di sconfitta
 			HasWon.hasWon = false;
 			Debug.Log("You lose with: "+ritual.slider.value);
-			SceneManager.LoadScene("LoseBossScene");
+			SceneManager.LoadScene("00-Scenes/SCENE GIUSTE/Boss/BossScene");
 		}
 		
 
