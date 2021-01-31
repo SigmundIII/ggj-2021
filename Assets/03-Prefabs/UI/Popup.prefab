@@ -866,6 +866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32bcabd4c7c4775a06557a3708fed7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: {fileID: 3193994106917195540}
+  hp: {fileID: 1729208317382982771}
   atk: {fileID: 514786285}
   def: {fileID: 1621231327803205910}
   bl: {fileID: 5935548739549272853}
