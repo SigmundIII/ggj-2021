@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class Storage : MonoBehaviour {
 	public Transform spawnPoint;
 	public Transform sputoPoint;
+	public Transform playerSpawn;
 	
 	public GameObject storagePrefab;
 
