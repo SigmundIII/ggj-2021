@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2988442438258139566}
   - component: {fileID: 6803347557129350699}
   m_Layer: 0
-  m_Name: Armor_Chainmail
+  m_Name: Armor_Chainmail 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,6 @@ GameObject:
   - component: {fileID: 8860980437819100491}
   - component: {fileID: 1800156444653490782}
   - component: {fileID: 1244084195648902730}
-  - component: {fileID: 6564495962122613936}
   m_Layer: 0
   m_Name: Armor_Chainmail
   m_TagString: Untagged
@@ -171,21 +170,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6564495962122613936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8158992111833194208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
