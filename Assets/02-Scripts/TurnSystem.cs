@@ -1,6 +1,7 @@
 ﻿using System;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum TurnPhase{Place,Battle,Loot,Ending}
 	
@@ -17,6 +18,8 @@ public class TurnSystem : MonoBehaviour {
 	private PlayerInteract playerInteract;
 	private Follow_Player camera;
 	private Ritual_affordance ritual;
+	private Fade fade;
+	
 
 	public event Action<int> OnBattlePhaseStart;
 	public float fullTime=30;
@@ -33,6 +36,7 @@ public class TurnSystem : MonoBehaviour {
 		gameManager = FindObjectOfType<GameManager>();
 		camera = FindObjectOfType<Follow_Player>();
 		ritual = FindObjectOfType <Ritual_affordance>();
+		fade = FindObjectOfType<Fade>();
 	}
 
 	private void Start() {
@@ -75,6 +79,8 @@ public class TurnSystem : MonoBehaviour {
 				break;
 			case TurnPhase.Loot:
 				if (currentFloor < maxFloors) {
+					fade.fadeOutComplete += StartPlacePhase;
+					fade.FadeOut();
 					camera.ClearList();
 					gameManager.DumpLoot();
 					storage.NextFloor(currentFloor);
@@ -99,22 +105,29 @@ public class TurnSystem : MonoBehaviour {
 
 	private void StartEndingPhase() {
 		currentPhase = TurnPhase.Ending;
+		//start new scene
+		//playerInput.transform.position = storage.playerSpawn.position;
 		if (ritual.slider.value < gameManager.maxBattleValue && ritual.slider.value > gameManager.minBattleValue) {
 			//Caricamento scena di vittoria
+			HasWon.hasWon = true;
 			Debug.Log("You win: "+ritual.slider.value);
 		}
 		else {
 			//Caricamento scena di sconfitta
+			HasWon.hasWon = false;
 			Debug.Log("You lose with: "+ritual.slider.value);
 		}
-		
+		SceneManager.LoadScene("BossScene");
+
 	}
 
 
 	public void StartPlacePhase() {
-		playerInput.transform.position = storage.spawnPoint.position;
+		fade.fadeOutComplete -= StartPlacePhase;
+		playerInput.transform.position = storage.playerSpawn.position;
 		currentPhase = TurnPhase.Place;
 		playerInput.enabled = true;
+		fade.FadeIn();
 	}
 	
 	public void StartBattlePhase() {
