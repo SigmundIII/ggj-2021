@@ -74,6 +74,7 @@ namespace DefaultNamespace {
 				AssignLoot();
 				aftermath.Show(heroes);
 				battleEnded = true;
+				_battleEnded = false;
 				_ritual.StartCoroutine(_ritual.Ritual_progression());
 			}
 		}

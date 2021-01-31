@@ -92,6 +92,7 @@ public class TurnSystem : MonoBehaviour {
 					gameManager.DumpLoot();
 					camera.ClearList();
 					storage.NextFloor(currentFloor);
+					dungeon.NextFloor(currentFloor);
 					FindObjectOfType<PlayerMovement>().ResetFallGuys();
 					currentFloor++;
 					if (currentFloor < maxFloors) {
