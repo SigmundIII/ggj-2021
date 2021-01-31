@@ -20,7 +20,7 @@ namespace DefaultNamespace.UI {
 			for (int i = 0; i < characterButtons.Length; i++) {
 				int index = i;
 				characterButtons[i].onClick.AddListener(() => ShowCharacter(characterButtons[index].transform.position, gameManager.heroes[index]));
-				characterButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = gameManager.heroes[i].name;
+				// characterButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = gameManager.heroes[i].name;
 			}
 		}
 
