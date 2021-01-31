@@ -2,12 +2,14 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+	
 	private Rigidbody rb;
 	public GameObject model;
 
 	[Header("MovementStats")] 
 	public float speed;
 
+	
 	private List<Collider> floorColliders = new List<Collider>();
 
 	private void Awake() {
