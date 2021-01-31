@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00-Scenes/SCENE GIUSTE/Boss/BossScene_Win.unity
     guid: 76a831719edb01a46951b271a9c6154d
+  - enabled: 1
+    path: Assets/00-Scenes/SCENE GIUSTE/Boss/BossScene_Lose.unity
+    guid: 165194173f00e9d42867e9da5786890f
   m_configObjects: {}

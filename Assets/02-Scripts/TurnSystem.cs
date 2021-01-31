@@ -117,13 +117,13 @@ public class TurnSystem : MonoBehaviour {
 		if (ritual.slider.value < gameManager.maxBattleValue && ritual.slider.value > gameManager.minBattleValue) {
 			//Caricamento scena di vittoria
 			HasWon.hasWon = true;
-			SceneManager.LoadScene("00-Scenes/SCENE GIUSTE/Boss/BossScene");
+			SceneManager.LoadScene("BossScene_Win");
 		}
 		else {
 			//Caricamento scena di sconfitta
 			HasWon.hasWon = false;
 			Debug.Log("You lose with: "+ritual.slider.value);
-			SceneManager.LoadScene("00-Scenes/SCENE GIUSTE/Boss/BossScene");
+			SceneManager.LoadScene("BossScene_Lose");
 		}
 		
 
