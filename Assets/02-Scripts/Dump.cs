@@ -6,7 +6,13 @@ namespace DefaultNamespace {
 
 		public void AddGarbage(Transform garbage) {
 			garbage.SetParent(transform);
+			garbage.gameObject.SetActive(false);
 			Destroy(garbage.gameObject);
+		}
+
+		private void OnTriggerEnter(Collider other) {
+			other.gameObject.GetComponent<BasicObject>()?.DisappearInTheVoid();
+			AddGarbage(other.transform);
 		}
 	}
 
