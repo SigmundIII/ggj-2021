@@ -13,6 +13,7 @@ namespace DefaultNamespace {
 	
 	public class GameManager : MonoBehaviour {
 
+		public int MAXSLIDERVALUE = 0;
 		public int minBattleValue;
 		public int maxBattleValue;
 		[SerializeField] private CharacterClass[] party;

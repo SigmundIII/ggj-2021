@@ -102,11 +102,11 @@ public class TurnSystem : MonoBehaviour {
 		currentPhase = TurnPhase.Ending;
 		if (ritual.slider.value < gameManager.maxBattleValue && ritual.slider.value > gameManager.minBattleValue) {
 			//Caricamento scena di vittoria
-			Debug.Log("You win");
+			Debug.Log("You win: "+ritual.slider.value);
 		}
 		else {
 			//Caricamento scena di sconfitta
-			Debug.Log("You lose");
+			Debug.Log("You lose with: "+ritual.slider.value);
 		}
 		
 	}
