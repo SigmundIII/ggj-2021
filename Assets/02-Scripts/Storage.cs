@@ -13,8 +13,7 @@ public class Storage : MonoBehaviour {
 
 	[Space] public int floorHeight = 9;
 	public List<GameObject> storageAllFloor=new List<GameObject>();
-	public List<GameObject> storageDoors=new List<GameObject>();
-	
+
 	[Space]
 	public int maxItem;
 	
@@ -46,7 +45,6 @@ public class Storage : MonoBehaviour {
 
 	public IEnumerator GenerateInitialItems() {
 		yield return null;
-		CloseDoors(0);
 		for (int i = 0; i < normalItem; i++) {
 			yield return StartCoroutine(SpawnItem(RarityLevel.Normal));
 		}
@@ -60,7 +58,6 @@ public class Storage : MonoBehaviour {
 			yield return StartCoroutine(SpawnItem(RarityLevel.Legendary));
 		}
 		yield return new WaitForSeconds(2);
-		OpenDoors(0);
 	}
 	
 	public IEnumerator SpawnItem(RarityLevel rarity) {
@@ -100,33 +97,6 @@ public class Storage : MonoBehaviour {
 		}
 	}
 
-	// public void GenerateStorage(int floorNumber) {
-	// 	GameObject floor=new GameObject();
-	// 	floor.name = "Floor" + floorNumber;
-	// 	var position = transform.position;
-	// 	position.y -= (9 * floorNumber);
-	// 	var pieces=storagePrefab.GetComponent<StoragePieces>();
-	// 	treasonPoint = pieces.treasonPoint;
-	// 	if (pieces != null) {
-	// 		var obj = Instantiate(pieces.walls, position, Quaternion.identity);
-	// 		obj.transform.parent = floor.transform;
-	// 		storageWalls.Add(obj);
-	// 		obj = Instantiate(pieces.floor, position, Quaternion.identity);
-	// 		storageFloors.Add(obj);
-	// 		obj.transform.parent = floor.transform;
-	// 		obj = Instantiate(pieces.door, position, Quaternion.identity);
-	// 		storageDoors.Add(obj);
-	// 		obj.transform.parent = floor.transform;
-	// 		obj = Instantiate(pieces.CAZZODITETTO, position, Quaternion.identity);
-	// 		obj.transform.parent = floor.transform;
-	// 		obj = Instantiate(pieces.sputoPoint, position, Quaternion.identity);
-	// 		obj.transform.GetChild(0);
-	// 		sputoPoint.Add(obj.transform.GetChild(0));
-	// 		obj.transform.parent = floor.transform;
-	// 		floor.transform.parent = transform;
-	// 	}
-	// }
-
 	public void GenerateFloor(int floorNumber) {
 		GameObject floor=new GameObject();
 		floor.name = "Floor" + floorNumber;
@@ -138,7 +108,6 @@ public class Storage : MonoBehaviour {
 		var pieces=storagePrefab.GetComponent<StoragePieces>();
 		if (pieces != null) {
 			treasonPoint = pieces.treasonPoint;
-			storageDoors.Add(pieces.door);
 		}
 	}
 
@@ -154,31 +123,10 @@ public class Storage : MonoBehaviour {
 		Destroy(storageAllFloor[currentFloor]);
 	}
 
-	public void OpenDoor(int currentFloor) {
-		Animator anim=storageDoors[currentFloor].GetComponent<Animator>();
-		if (anim != null) {
-			anim.SetBool("Open", true);
-		}
-	}
-	
-	public void CloseDoor(int currentFloor) {
-		Animator anim=storageDoors[currentFloor].GetComponent<Animator>();
-		if (anim != null) {
-			anim.SetBool("Open",false);
-		}
-	}
-	
 	public void NextFloor(int currentFloor) {
 		DestroyAllFloor(currentFloor);
 		MoveFloors();
-	}
-	
-	public void OpenDoors(int currentFloor) {
-		storageDoors[currentFloor].SetActive(false);
-	}
-	
-	public void CloseDoors(int currentFloor) {
-		storageDoors[currentFloor].SetActive(true);
+		StartCoroutine(GenerateInitialItems());
 	}
 	
 }

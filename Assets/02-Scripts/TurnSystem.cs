@@ -117,20 +117,17 @@ public class TurnSystem : MonoBehaviour {
 
 
 	public void StartPlacePhase() {
-		storage.OpenDoors(currentFloor);
 		currentPhase = TurnPhase.Place;
 		playerInput.enabled = true;
 	}
 	
 	public void StartBattlePhase() {
-		storage.CloseDoors(currentFloor);
 		currentPhase = TurnPhase.Battle;
 		playerInput.enabled = false;
 		OnBattlePhaseStart?.Invoke(currentFloor);
 	}
 	
 	public void StartLootPhase() {
-		storage.OpenDoors(currentFloor);
 		currentPhase = TurnPhase.Loot;
 		playerInput.enabled = true;
 	}
