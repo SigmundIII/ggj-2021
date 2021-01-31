@@ -19,11 +19,11 @@ public class Fade : MonoBehaviour {
         if (fading) {
             if (canvasGroup.alpha == 1) {
                 fading = false;
-                Debug.Log("Fade In complete");
+                // Debug.Log("Fade In complete");
                 fadeInComplete?.Invoke();
             } else if (canvasGroup.alpha == 0) {
                 fading = false;
-                Debug.Log("Fade Out complete");
+                // Debug.Log("Fade Out complete");
                 fadeOutComplete?.Invoke();
             }
         }
