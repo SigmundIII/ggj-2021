@@ -140,19 +140,16 @@ public class TurnSystem : MonoBehaviour {
 	}
 
 	private void FadeIn() {
-		Debug.Log("Fade In");
 		fade.FadeIn();
 	}
 
 	private void FadeOut() {
-		Debug.Log("Fade Out");
 		playerInput.enabled = false;
 		fade.FadeOut();
 	}
 
 	private void StopFade() {
 		playerInput.enabled = true;
-		Debug.Log("Stop fading");
 
 		if (currentFloor >= maxFloors) {
 			camera.ClearList();
