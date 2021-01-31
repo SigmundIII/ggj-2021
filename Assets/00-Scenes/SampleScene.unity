@@ -409,27 +409,27 @@ PrefabInstance:
     - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
       propertyPath: maxItem
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
       propertyPath: epicItem
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
       propertyPath: rareItem
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
       propertyPath: normalItem
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
       propertyPath: legendaryItem
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
@@ -880,9 +880,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3136174891596975689, guid: 0f65855e4b8eba643bcf5c8929f1d405,
+        type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136174891596975689, guid: 0f65855e4b8eba643bcf5c8929f1d405,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 3136174891760206083, guid: 0f65855e4b8eba643bcf5c8929f1d405,
         type: 3}
       propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136174891760206083, guid: 0f65855e4b8eba643bcf5c8929f1d405,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5528842243030523150, guid: 0f65855e4b8eba643bcf5c8929f1d405,
@@ -1047,6 +1062,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1131926972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5528842243030523150, guid: 0f65855e4b8eba643bcf5c8929f1d405,
+    type: 3}
+  m_PrefabInstance: {fileID: 765462449}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1345585026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,11 +1117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed60078cac1c4d2192d2d1c281166428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minBattleValue: 3500
+  maxBattleValue: 4500
   party:
   - {fileID: 11400000, guid: 58ccb8a06c8da2943ba7d0f2cdbbf3be, type: 2}
   - {fileID: 11400000, guid: 0b3995de4f89fe94dbce9379ba15339a, type: 2}
   - {fileID: 11400000, guid: 3fa5f5a46e4bb854f93d5ec9d1cc2423, type: 2}
   - {fileID: 11400000, guid: c83466968f15ab747a11eecba21df8fe, type: 2}
+  button: {fileID: 1131926972}
   enemyParty:
   - enemies:
     - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using DefaultNamespace.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Visual_Log;
 
 namespace DefaultNamespace {
@@ -11,7 +12,11 @@ namespace DefaultNamespace {
 	}
 	
 	public class GameManager : MonoBehaviour {
+
+		public int minBattleValue;
+		public int maxBattleValue;
 		[SerializeField] private CharacterClass[] party;
+		public Button button;
 		
 		[SerializeField] private List<FloorEnemy> enemyParty=new List<FloorEnemy>();
 		[Space]
@@ -68,7 +73,8 @@ namespace DefaultNamespace {
 
 
 		private void Update() {
-			if (_battleEnded && Input.GetKeyDown(KeyCode.Return)) {
+			if (_battleEnded && Input.GetKeyDown(KeyCode.Space)) {
+				button.interactable = true;
 				VisualLog.Hide();
 				AssignLoot();
 				characterSheetsManager.Show();
@@ -76,6 +82,7 @@ namespace DefaultNamespace {
 				_battleEnded = false;
 				_ritual.StartCoroutine(_ritual.Ritual_progression());
 				FindObjectOfType<PlayerInput>().enabled = true;
+				turnSystem.NextTurn();
 			}
 		}
 
@@ -87,6 +94,7 @@ namespace DefaultNamespace {
 		}
 
 		private void StartBattle(int currentfloor) {
+			button.interactable = false;
 			_battleEnded = false;
 			battleEnded = false;
 			Time.timeScale = timescale;
