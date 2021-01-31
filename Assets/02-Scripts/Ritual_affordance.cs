@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,8 +12,13 @@ public class Ritual_affordance : MonoBehaviour
     public Slider slider;
     private GameManager _manager;
 
-    private void Start()
-    {
+    private void Awake() {
+        _manager = FindObjectOfType<GameManager>();
+    }
+
+    private void Start() {
+        slider.minValue = 0;
+        slider.maxValue = _manager.MAXSLIDERVALUE;
         _manager = FindObjectOfType<GameManager>();
     }
 

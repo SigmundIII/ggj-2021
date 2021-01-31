@@ -25,7 +25,7 @@ namespace DefaultNamespace {
 			Attack = Class.Attack;
 			Defense = Class.Defense;
 
-			BattleValue += characterClass.BaseBattleValue + MaxHp + Attack + Defense;
+			BattleValue += characterClass.BaseBattleValue + (MaxHp*Attack/ Defense);
 			
 			equipment = new Item[characterClass.EquipSlots.Length];
 		}
