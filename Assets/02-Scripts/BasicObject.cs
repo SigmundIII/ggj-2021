@@ -70,4 +70,9 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 	public void Stop() {
 		rb.velocity=Vector3.zero;
 	}
+
+	public void DisappearInTheVoid() {
+		gameManager.items.Remove(item);
+		storage.items.Remove(item);
+	}
 }

@@ -1089,6 +1089,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1662806864}
   - component: {fileID: 1662806865}
+  - component: {fileID: 1662806866}
   m_Layer: 0
   m_Name: DUMP
   m_TagString: Untagged
@@ -1104,7 +1105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662806863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1122,6 +1123,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484a7ad9a6fe4284821823e3beb9b0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1662806866
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662806863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 400, y: 20, z: 400}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1804513494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1835855396424956852, guid: 38e40626b6251274a9371d3e4a2fe3f6,

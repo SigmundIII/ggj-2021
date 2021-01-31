@@ -31,7 +31,9 @@ namespace DefaultNamespace {
 		}
 
 		public void Hurt(int damage) {
+			BattleValue -= Health;
 			Health -= damage;
+			BattleValue += Health;
 			if (Health <= 0) {
 				Health = 0;
 			}
