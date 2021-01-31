@@ -16,6 +16,7 @@ public class TurnSystem : MonoBehaviour {
 	private GameManager gameManager;
 	private PlayerInteract playerInteract;
 	private Follow_Player camera;
+	private Ritual_affordance ritual;
 
 	public event Action<int> OnBattlePhaseStart;
 	public float fullTime=30;
@@ -31,6 +32,7 @@ public class TurnSystem : MonoBehaviour {
 		dungeon = FindObjectOfType<CreateDungeon>();
 		gameManager = FindObjectOfType<GameManager>();
 		camera = FindObjectOfType<Follow_Player>();
+		ritual = FindObjectOfType <Ritual_affordance>();
 	}
 
 	private void Start() {
@@ -51,18 +53,6 @@ public class TurnSystem : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			StartPlacePhase();
-		}
-		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			StartBattlePhase();
-		}
-		// if (Input.GetKeyDown(KeyCode.Alpha3)) {
-		// 	StartLootPhase(); // Changed with N - See GameManager
-		// }
-		if (Input.GetKeyDown(KeyCode.Alpha4)) {
-			NextTurn();
-		}
 		
 		switch (currentPhase) {
 			case TurnPhase.Place:
@@ -86,8 +76,8 @@ public class TurnSystem : MonoBehaviour {
 				break;
 			case TurnPhase.Loot:
 				if (currentFloor < maxFloors) {
-					gameManager.DumpLoot();
 					camera.ClearList();
+					gameManager.DumpLoot();
 					storage.NextFloor(currentFloor);
 					dungeon.NextFloor(currentFloor);
 					FindObjectOfType<PlayerMovement>().ResetFallGuys();
@@ -97,11 +87,11 @@ public class TurnSystem : MonoBehaviour {
 					}
 				}
 				else {
+					camera.ClearList();
 					StartEndingPhase();
 				}
 				break;
 			case TurnPhase.Ending:
-				Debug.Log("Niente più piani");
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
@@ -110,10 +100,20 @@ public class TurnSystem : MonoBehaviour {
 
 	private void StartEndingPhase() {
 		currentPhase = TurnPhase.Ending;
+		if (ritual.slider.value < gameManager.maxBattleValue && ritual.slider.value > gameManager.minBattleValue) {
+			//Caricamento scena di vittoria
+			Debug.Log("You win");
+		}
+		else {
+			//Caricamento scena di sconfitta
+			Debug.Log("You lose");
+		}
+		
 	}
 
 
 	public void StartPlacePhase() {
+		playerInput.transform.position = storage.spawnPoint.position;
 		currentPhase = TurnPhase.Place;
 		playerInput.enabled = true;
 	}

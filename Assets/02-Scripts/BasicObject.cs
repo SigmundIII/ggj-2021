@@ -22,15 +22,19 @@ public class BasicObject : MonoBehaviour,IGrabbable {
 				// Inside Storage
 				transform.SetParent(storage.transform);
 				if (!storage.items.Contains(item)) {
-					gameManager.items.Remove(item);
-					storage.AddItem(item);
+					if (item != null) {
+						gameManager.items.Remove(item);
+						storage.AddItem(item);
+					}
 				}
 			} else {
 				// Outside Storage
 				transform.SetParent(gameManager.transform);
 				if (!gameManager.items.Contains(item)) {
-					gameManager.items.Add(item);
-					storage.items.Remove(item);
+					if (item != null) {
+						gameManager.items.Add(item);
+						storage.items.Remove(item);
+					}
 				}
 			}
 		}
