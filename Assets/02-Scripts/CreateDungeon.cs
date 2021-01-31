@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CreateDungeon : MonoBehaviour {
-    public GameObject dungeonFloorPrefab;
+    public List<GameObject> dungeonFloorPrefab;
     public GameObject bossDungeonPrefab;
 
     private List<GameObject> dungeonFloors=new List<GameObject>();
@@ -15,7 +15,7 @@ public class CreateDungeon : MonoBehaviour {
                 GenerateDungeon(i,bossDungeonPrefab);
             }
             else {
-                GenerateDungeon(i,dungeonFloorPrefab);
+                GenerateDungeon(i,dungeonFloorPrefab[Random.Range(0,dungeonFloorPrefab.Count)]);
             }
         }
     }
