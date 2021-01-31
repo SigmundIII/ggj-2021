@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.05
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.13296545, g: 0.19145328, b: 0.33962262, a: 1}
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 0ffaa0b7117ba8c47a9d05ae701d4b4d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -121,18 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &35746162 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 446397503768687306, guid: 511c5c8e99a4f6548aec7ffb538cad35,
-    type: 3}
-  m_PrefabInstance: {fileID: 1847213527}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &55029638
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,16 +200,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1074303572}
     m_Modifications:
-    - target: {fileID: 531226562810321246, guid: b3b33c921cb9126469666e1957dee93d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 531226562810321246, guid: b3b33c921cb9126469666e1957dee93d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.333
-      objectReference: {fileID: 0}
     - target: {fileID: 5107385132199151434, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
       propertyPath: m_Name
@@ -229,14 +207,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
-      propertyPath: maxItem
-      value: 10
+      propertyPath: epicItem
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
-      propertyPath: sputoPoint
-      value: 
-      objectReference: {fileID: 248230103}
+      propertyPath: rareItem
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
+        type: 3}
+      propertyPath: normalItem
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107385132199151444, guid: b3b33c921cb9126469666e1957dee93d,
+        type: 3}
+      propertyPath: legendaryItem
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5107385132199151445, guid: b3b33c921cb9126469666e1957dee93d,
         type: 3}
       propertyPath: m_RootOrder
@@ -294,12 +282,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3b33c921cb9126469666e1957dee93d, type: 3}
---- !u!4 &248230103 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 531226562810321246, guid: b3b33c921cb9126469666e1957dee93d,
-    type: 3}
-  m_PrefabInstance: {fileID: 248230102}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &328266228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -428,6 +410,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459979845349715148, guid: 3e32a8858b433f9439a69f6b2003fb17,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459979845349715148, guid: 3e32a8858b433f9439a69f6b2003fb17,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459979845349715148, guid: 3e32a8858b433f9439a69f6b2003fb17,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459979845349715148, guid: 3e32a8858b433f9439a69f6b2003fb17,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5459979845349715149, guid: 3e32a8858b433f9439a69f6b2003fb17,
         type: 3}
@@ -572,44 +574,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3fa5f5a46e4bb854f93d5ec9d1cc2423, type: 2}
   - {fileID: 11400000, guid: c83466968f15ab747a11eecba21df8fe, type: 2}
   enemyParty:
-  - enemies:
-    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
-    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
-    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
-    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
-  - enemies:
-    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
-    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
-    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
-    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
-  - enemies:
-    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
-    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
-    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
-    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
+  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+  - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
   aftermath: {fileID: 1543280987}
-  timescale: 10
   items: []
-  battleEnded: 0
---- !u!1 &1355983802 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3904549182152485890, guid: 511c5c8e99a4f6548aec7ffb538cad35,
-    type: 3}
-  m_PrefabInstance: {fileID: 1847213527}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1355983803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355983802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f45b2a76b4026e148a4580aba583bdb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 35746162}
 --- !u!114 &1543280987 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6108804232730928862, guid: 511c5c8e99a4f6548aec7ffb538cad35,
@@ -702,7 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPhase: 0
   maxFloors: 3
-  fullTime: 30
+  fullTime: 9999
   battleValuePenalty: 1000
 --- !u!4 &1843535061
 Transform:
@@ -1110,7 +1080,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.8392157, g: 0.97252154, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
