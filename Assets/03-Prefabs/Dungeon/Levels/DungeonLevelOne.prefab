@@ -22216,30 +22216,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4647839420455732681}
     m_Modifications:
-    - target: {fileID: 300257140839417929, guid: ad5aff97570aedd438e658445f706a94,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2512075640915153070, guid: ad5aff97570aedd438e658445f706a94,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2512075640915153070, guid: ad5aff97570aedd438e658445f706a94,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2512075640915153070, guid: ad5aff97570aedd438e658445f706a94,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2512075640915153070, guid: ad5aff97570aedd438e658445f706a94,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2512075640915153070, guid: ad5aff97570aedd438e658445f706a94,
         type: 3}
@@ -22291,45 +22271,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2613705113106323145, guid: ad5aff97570aedd438e658445f706a94,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2997004612580968980, guid: ad5aff97570aedd438e658445f706a94,
         type: 3}
       propertyPath: m_Name
       value: Door
-      objectReference: {fileID: 0}
-    - target: {fileID: 2997004612580968980, guid: ad5aff97570aedd438e658445f706a94,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073427030403117166, guid: ad5aff97570aedd438e658445f706a94,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6476916666007608755, guid: ad5aff97570aedd438e658445f706a94,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.40813673
-      objectReference: {fileID: 0}
-    - target: {fileID: 6476916666007608755, guid: ad5aff97570aedd438e658445f706a94,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6476916666007608755, guid: ad5aff97570aedd438e658445f706a94,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.9129209
-      objectReference: {fileID: 0}
-    - target: {fileID: 6476916666007608755, guid: ad5aff97570aedd438e658445f706a94,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 131.824
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad5aff97570aedd438e658445f706a94, type: 3}
