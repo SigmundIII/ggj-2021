@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Class-Assassin
   m_EditorClassIdentifier: 
   _name: Assassin
-  maxHp: 200
-  attack: 60
-  defense: 40
+  maxHp: 150
+  attack: 50
+  defense: 25
+  baseBattleValue: 0
   equipSlots:
   - types:
     - {fileID: 11400000, guid: 311f436a3a8f4c64fa79fb67042bad65, type: 2}

@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Dagger
   maxHpRange: {x: 0, y: 0}
   attackRange: {x: 13, y: 18}
-  defenseRange: {x: 5, y: 10}
+  defenseRange: {x: 7, y: 14}

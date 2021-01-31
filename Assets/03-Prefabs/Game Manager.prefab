@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed60078cac1c4d2192d2d1c281166428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXSLIDERVALUE: 6000
-  minBattleValue: 4500
-  maxBattleValue: 5500
+  MAXSLIDERVALUE: 3500
+  minBattleValue: 2500
+  maxBattleValue: 3000
   party:
   - {fileID: 11400000, guid: 58ccb8a06c8da2943ba7d0f2cdbbf3be, type: 2}
   - {fileID: 11400000, guid: 0b3995de4f89fe94dbce9379ba15339a, type: 2}
@@ -54,21 +54,20 @@ MonoBehaviour:
   button: {fileID: 0}
   enemyParty:
   - enemies:
+    - {fileID: 11400000, guid: 1bab08bc9653a2a4f96a2eebfb7f5ed5, type: 2}
+    - {fileID: 11400000, guid: 99971b69024a12946ab62d0941b86b0a, type: 2}
     - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
-    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
-    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
-    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+    - {fileID: 11400000, guid: 1bab08bc9653a2a4f96a2eebfb7f5ed5, type: 2}
   - enemies:
+    - {fileID: 11400000, guid: b53d27ac04ae0f041a95b802aabb8711, type: 2}
     - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
-    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
-    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
-    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
+    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
+    - {fileID: 11400000, guid: b53d27ac04ae0f041a95b802aabb8711, type: 2}
   - enemies:
-    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
-    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
-    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
-    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
-  - enemies: []
+    - {fileID: 11400000, guid: af5cd1c49beeb4647b081e58b455bf2b, type: 2}
+    - {fileID: 11400000, guid: af5cd1c49beeb4647b081e58b455bf2b, type: 2}
+    - {fileID: 11400000, guid: 000f4113d9837ae4c8d804e4ab5eb659, type: 2}
+    - {fileID: 11400000, guid: 51bb1011ac5935c4980a5f9f6ea2ffca, type: 2}
   characterSheetsManager: {fileID: 0}
   timescale: 10
   items: []

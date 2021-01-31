@@ -46,5 +46,5 @@ MonoBehaviour:
   currentPhase: 0
   maxFloors: 3
   barTimer: {fileID: 0}
-  fullTime: 30
-  battleValuePenalty: 1000
+  fullTime: 50
+  battleValuePenalty: 100
