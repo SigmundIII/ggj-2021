@@ -126,7 +126,6 @@ public class Storage : MonoBehaviour {
 	public void NextFloor(int currentFloor) {
 		DestroyAllFloor(currentFloor);
 		MoveFloors();
-		StartCoroutine(GenerateInitialItems());
 	}
 	
 }
