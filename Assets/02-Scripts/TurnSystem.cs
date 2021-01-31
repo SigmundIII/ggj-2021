@@ -14,6 +14,7 @@ public class TurnSystem : MonoBehaviour {
 	private Storage storage;
 	private CreateDungeon dungeon;
 	private GameManager gameManager;
+	private PlayerInteract playerInteract;
 	private Follow_Player camera;
 
 	public event Action<int> OnBattlePhaseStart;
@@ -27,6 +28,7 @@ public class TurnSystem : MonoBehaviour {
 
 	private void Awake() {
 		playerInput = FindObjectOfType<PlayerInput>();
+		playerInteract = FindObjectOfType<PlayerInteract>();
 		storage = FindObjectOfType<Storage>();
 		dungeon = FindObjectOfType<CreateDungeon>();
 		gameManager = FindObjectOfType<GameManager>();
@@ -89,8 +91,8 @@ public class TurnSystem : MonoBehaviour {
 				if (currentFloor < maxFloors) {
 					gameManager.DumpLoot();
 					camera.ClearList();
-					DestroyStorage(currentFloor);
-					DestroyDungeon(currentFloor);
+					storage.NextFloor(currentFloor);
+					dungeon.NextFloor(currentFloor);
 					FindObjectOfType<PlayerMovement>().ResetFallGuys();
 					currentFloor++;
 					if (currentFloor < maxFloors) {
@@ -113,34 +115,19 @@ public class TurnSystem : MonoBehaviour {
 		currentPhase = TurnPhase.Ending;
 	}
 
-	public void DestroyStorage(int floor) {
-		storage.CloseDoors(floor);
-		storage.DestroyFloor(floor);
-		storage.DestroyWalls(floor);
-		storage.DestroyDoors(floor);
-	}
 
-	public void DestroyDungeon(int floor) {
-		dungeon.DestroyFloor(floor);
-	}
-	
-	
 	public void StartPlacePhase() {
-		storage.SetSputoPoint(currentFloor);
-		storage.OpenDoors(currentFloor);
 		currentPhase = TurnPhase.Place;
 		playerInput.enabled = true;
 	}
 	
 	public void StartBattlePhase() {
-		storage.CloseDoors(currentFloor);
 		currentPhase = TurnPhase.Battle;
 		playerInput.enabled = false;
 		OnBattlePhaseStart?.Invoke(currentFloor);
 	}
 	
 	public void StartLootPhase() {
-		storage.OpenDoors(currentFloor);
 		currentPhase = TurnPhase.Loot;
 		playerInput.enabled = true;
 	}

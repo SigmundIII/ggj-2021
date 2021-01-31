@@ -73,6 +73,7 @@ namespace DefaultNamespace {
 				AssignLoot();
 				characterSheetsManager.Show();
 				battleEnded = true;
+				_battleEnded = false;
 				_ritual.StartCoroutine(_ritual.Ritual_progression());
 			}
 		}
@@ -88,7 +89,6 @@ namespace DefaultNamespace {
 			_battleEnded = false;
 			battleEnded = false;
 			Time.timeScale = timescale;
-			Debug.Log("Start battaglia al piano: "+currentfloor);
 			GetEnemies(currentfloor);
 			battle = new Battle(heroes, enemies);
 			characterSheetsManager.Hide();

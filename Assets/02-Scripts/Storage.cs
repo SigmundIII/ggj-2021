@@ -7,15 +7,13 @@ using Random = UnityEngine.Random;
 
 public class Storage : MonoBehaviour {
 	public Transform spawnPoint;
-
+	public Transform sputoPoint;
+	
 	public GameObject storagePrefab;
 
-	[Space]
-	private List<Transform> sputoPoint=new List<Transform>();
-	private List<GameObject> storageDoors=new List<GameObject>();
-	private List<GameObject> storageWalls=new List<GameObject>();
-	private List<GameObject> storageFloors=new List<GameObject>();
-	
+	[Space] public int floorHeight = 9;
+	public List<GameObject> storageAllFloor=new List<GameObject>();
+
 	[Space]
 	public int maxItem;
 	
@@ -28,22 +26,25 @@ public class Storage : MonoBehaviour {
 	public List<GameObject> rareItems=new List<GameObject>();
 	public List<GameObject> epicItems=new List<GameObject>();
 	public List<GameObject> legendaryItems=new List<GameObject>();
-	[HideInInspector]public Transform currentSputoPoint;
 	public List<Item> items = new List<Item>();
 
 	[HideInInspector] public Transform treasonPoint;
 
 	public void Init(int floorNumber) {
 		for (int i = 0; i < floorNumber; i++) {
-			GenerateStorage(i);
+			GenerateFloor(i);
 		}
 		StartCoroutine(GenerateInitialItems());
-		SetSputoPoint(0);
+	}
+
+	private void Update() {
+		if (Input.GetKeyDown(KeyCode.UpArrow)) {
+			MoveFloors();
+		}
 	}
 
 	public IEnumerator GenerateInitialItems() {
 		yield return null;
-		CloseDoors(0);
 		for (int i = 0; i < normalItem; i++) {
 			yield return StartCoroutine(SpawnItem(RarityLevel.Normal));
 		}
@@ -57,7 +58,6 @@ public class Storage : MonoBehaviour {
 			yield return StartCoroutine(SpawnItem(RarityLevel.Legendary));
 		}
 		yield return new WaitForSeconds(2);
-		OpenDoors(0);
 	}
 	
 	public IEnumerator SpawnItem(RarityLevel rarity) {
@@ -83,66 +83,50 @@ public class Storage : MonoBehaviour {
 		var item = obj.GetComponent<Item>();
 		if (item != null) {
 			item.gameObject.name = item.Name;
+			AddItem(item);
 		}
 		yield return new WaitForSeconds(0f);
 	}
 
-	public void GenerateStorage(int floorNumber) {
+	public void AddItem(Item it) {
+		if (items.Count < maxItem) {
+			items.Add(it);
+		}
+		else {
+			it.transform.position = sputoPoint.transform.position;
+		}
+	}
+
+	public void GenerateFloor(int floorNumber) {
 		GameObject floor=new GameObject();
 		floor.name = "Floor" + floorNumber;
 		var position = transform.position;
-		position.y -= (9 * floorNumber);
+		position.y = -floorHeight*floorNumber;
+		var obj = Instantiate(storagePrefab, position, Quaternion.identity);
+		obj.transform.SetParent(floor.transform);
+		storageAllFloor.Add(obj);
 		var pieces=storagePrefab.GetComponent<StoragePieces>();
-		treasonPoint = pieces.treasonPoint;
 		if (pieces != null) {
-			var obj = Instantiate(pieces.walls, position, Quaternion.identity);
-			obj.transform.parent = floor.transform;
-			storageWalls.Add(obj);
-			obj = Instantiate(pieces.floor, position, Quaternion.identity);
-			storageFloors.Add(obj);
-			obj.transform.parent = floor.transform;
-			obj = Instantiate(pieces.door, position, Quaternion.identity);
-			storageDoors.Add(obj);
-			obj.transform.parent = floor.transform;
-			obj = Instantiate(pieces.CAZZODITETTO, position, Quaternion.identity);
-			obj.transform.parent = floor.transform;
-			obj = Instantiate(pieces.sputoPoint, position, Quaternion.identity);
-			obj.transform.GetChild(0);
-			sputoPoint.Add(obj.transform.GetChild(0));
-			obj.transform.parent = floor.transform;
-			floor.transform.parent = transform;
+			treasonPoint = pieces.treasonPoint;
 		}
 	}
-	
-	
-	public void DestroyFloor(int currentFloor) {
-		Destroy(storageFloors[currentFloor]);
-	}
-	public void DestroyWalls(int currentFloor) {
-		Destroy(storageWalls[currentFloor]);
-	}
-	public void DestroyDoors(int currentFloor) {
-		Destroy(storageDoors[currentFloor]);
-	}
 
-	public void OpenDoors(int currentFloor) {
-		storageDoors[currentFloor].SetActive(false);
-	}
-	
-	public void CloseDoors(int currentFloor) {
-		storageDoors[currentFloor].SetActive(true);
-	}
-
-	public void SetSputoPoint(int currentFloor) {
-		if (currentFloor < sputoPoint.Count) {
-			currentSputoPoint = sputoPoint[currentFloor];
+	public void MoveFloors() {
+		foreach (GameObject obj in storageAllFloor) {
+			if (obj != null) {
+				obj.transform.position=new Vector3(obj.transform.position.x,obj.transform.position.y+floorHeight,obj.transform.position.z);
+			}
 		}
-		else {
-			Debug.Log("Finiti gli sputoPoint");
-		}
-		
 	}
 
-	
+	public void DestroyAllFloor(int currentFloor) {
+		Destroy(storageAllFloor[currentFloor]);
+	}
 
+	public void NextFloor(int currentFloor) {
+		DestroyAllFloor(currentFloor);
+		MoveFloors();
+		StartCoroutine(GenerateInitialItems());
+	}
+	
 }
