@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +12,10 @@ namespace DefaultNamespace.UI {
 		private Vector3 velocity;
 
 		private Vector3 ScreenCenter => new Vector3(Screen.width / 2, Screen.height / 2);
+
+		private void Start() {
+			Close();
+		}
 
 		private void Update() {
 			if (Vector3.Distance(transform.position, ScreenCenter) > 1) {

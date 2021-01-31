@@ -875,6 +875,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5528842243030523150, guid: 0f65855e4b8eba643bcf5c8929f1d405,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1843535060}
+    - target: {fileID: 5528842243030523150, guid: 0f65855e4b8eba643bcf5c8929f1d405,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextTurn
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f65855e4b8eba643bcf5c8929f1d405, type: 3}
 --- !u!1001 &910331158
@@ -1068,10 +1078,22 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
     - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
   - enemies: []
-  characterSheetsManager: {fileID: 0}
+  characterSheetsManager: {fileID: 1543280987}
   timescale: 10
   items: []
   battleEnded: 0
+--- !u!114 &1543280987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6108804232730928862, guid: 511c5c8e99a4f6548aec7ffb538cad35,
+    type: 3}
+  m_PrefabInstance: {fileID: 1847213527}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876f64bfacb34bb9a0f6257eedeab5de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1662806863
 GameObject:
   m_ObjectHideFlags: 0

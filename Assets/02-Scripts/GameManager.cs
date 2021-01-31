@@ -15,7 +15,7 @@ namespace DefaultNamespace {
 		
 		[SerializeField] private List<FloorEnemy> enemyParty=new List<FloorEnemy>();
 		[Space]
-		[SerializeField] public UICharacterSheetsManager characterSheetsManager;
+		public UICharacterSheetsManager characterSheetsManager;
 		public float timescale;
 		
 		[HideInInspector]
@@ -75,6 +75,7 @@ namespace DefaultNamespace {
 				battleEnded = true;
 				_battleEnded = false;
 				_ritual.StartCoroutine(_ritual.Ritual_progression());
+				FindObjectOfType<PlayerInput>().enabled = true;
 			}
 		}
 

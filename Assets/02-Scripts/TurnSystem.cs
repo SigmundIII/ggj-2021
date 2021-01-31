@@ -22,8 +22,6 @@ public class TurnSystem : MonoBehaviour {
 	private float time = 0;
 	public int battleValuePenalty;
 	
-	
-	
 	private float timer;
 
 	private void Awake() {
@@ -33,7 +31,6 @@ public class TurnSystem : MonoBehaviour {
 		dungeon = FindObjectOfType<CreateDungeon>();
 		gameManager = FindObjectOfType<GameManager>();
 		camera = FindObjectOfType<Follow_Player>();
-
 	}
 
 	private void Start() {
