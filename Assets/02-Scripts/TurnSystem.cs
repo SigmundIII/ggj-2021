@@ -19,6 +19,11 @@ public class TurnSystem : MonoBehaviour {
 	private Follow_Player camera;
 	private Ritual_affordance ritual;
 	public BarCardTimer barTimer;
+
+	public AudioSource audioSourceBG;
+	public AudioSource audioSource;
+	public AudioEvent battleAudio;
+	public AudioEvent soundtrack;
 	
 
 	public event Action<int> OnBattlePhaseStart;
@@ -48,6 +53,7 @@ public class TurnSystem : MonoBehaviour {
 
 	private void Start() {
 		storage.Init(maxFloors);
+		soundtrack.Play(audioSourceBG);
 		//+1 perchè c'è la stanza del boss
 		dungeon.Init(maxFloors+1);
 		SetTimer();
@@ -83,6 +89,7 @@ public class TurnSystem : MonoBehaviour {
 				StartBattlePhase();
 				break;
 			case TurnPhase.Battle:
+				battleAudio.Play(audioSource);
 				StartLootPhase();
 				break;
 			case TurnPhase.Loot:
