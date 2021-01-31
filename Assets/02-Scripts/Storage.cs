@@ -38,12 +38,6 @@ public class Storage : MonoBehaviour {
 		StartCoroutine(GenerateInitialItems());
 	}
 
-	private void Update() {
-		if (Input.GetKeyDown(KeyCode.UpArrow)) {
-			MoveFloors();
-		}
-	}
-
 	public IEnumerator GenerateInitialItems() {
 		yield return null;
 		for (int i = 0; i < normalItem; i++) {

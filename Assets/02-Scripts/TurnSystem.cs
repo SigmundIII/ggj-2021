@@ -28,6 +28,8 @@ public class TurnSystem : MonoBehaviour {
 	
 	private float timer;
 
+	private Fade fade;
+
 	private void Awake() {
 		playerInput = FindObjectOfType<PlayerInput>();
 		playerInteract = FindObjectOfType<PlayerInteract>();
@@ -37,6 +39,11 @@ public class TurnSystem : MonoBehaviour {
 		camera = FindObjectOfType<Follow_Player>();
 		ritual = FindObjectOfType <Ritual_affordance>();
 		barTimer = FindObjectOfType<BarCardTimer>();
+		fade = FindObjectOfType<Fade>();
+
+		fade.fadeInComplete += StopFade;
+		fade.fadeOutComplete += StopFade;
+		fade.fadeOutComplete += StartPlacePhase;
 	}
 
 	private void Start() {
@@ -80,19 +87,13 @@ public class TurnSystem : MonoBehaviour {
 				break;
 			case TurnPhase.Loot:
 				if (currentFloor < maxFloors) {
+					FadeOut();
 					camera.ClearList();
 					gameManager.DumpLoot();
 					storage.NextFloor(currentFloor);
 					dungeon.NextFloor(currentFloor);
 					FindObjectOfType<PlayerMovement>().ResetFallGuys();
 					currentFloor++;
-					if (currentFloor < maxFloors) {
-						StartPlacePhase();
-					}
-				}
-				else {
-					camera.ClearList();
-					StartEndingPhase();
 				}
 				break;
 			case TurnPhase.Ending:
@@ -122,15 +123,41 @@ public class TurnSystem : MonoBehaviour {
 
 
 	public void StartPlacePhase() {
+		if (currentFloor >= maxFloors) {
+			return;
+		}
+		
 		playerInput.transform.position = storage.playerSpawn.position;
 		currentPhase = TurnPhase.Place;
 		playerInput.enabled = true;
+		FadeIn();
 	}
 	
 	public void StartBattlePhase() {
 		currentPhase = TurnPhase.Battle;
 		playerInput.enabled = false;
 		OnBattlePhaseStart?.Invoke(currentFloor);
+	}
+
+	private void FadeIn() {
+		Debug.Log("Fade In");
+		fade.FadeIn();
+	}
+
+	private void FadeOut() {
+		Debug.Log("Fade Out");
+		playerInput.enabled = false;
+		fade.FadeOut();
+	}
+
+	private void StopFade() {
+		playerInput.enabled = true;
+		Debug.Log("Stop fading");
+
+		if (currentFloor >= maxFloors) {
+			camera.ClearList();
+			StartEndingPhase();
+		}
 	}
 	
 	public void StartLootPhase() {
