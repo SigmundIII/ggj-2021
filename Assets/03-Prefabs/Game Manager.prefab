@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &183573052011789113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 183573052011789112}
+  - component: {fileID: 183573052011789119}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &183573052011789112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183573052011789113}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &183573052011789119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183573052011789113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed60078cac1c4d2192d2d1c281166428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAXSLIDERVALUE: 6000
+  minBattleValue: 4500
+  maxBattleValue: 5500
+  party:
+  - {fileID: 11400000, guid: 58ccb8a06c8da2943ba7d0f2cdbbf3be, type: 2}
+  - {fileID: 11400000, guid: 0b3995de4f89fe94dbce9379ba15339a, type: 2}
+  - {fileID: 11400000, guid: 3fa5f5a46e4bb854f93d5ec9d1cc2423, type: 2}
+  - {fileID: 11400000, guid: c83466968f15ab747a11eecba21df8fe, type: 2}
+  button: {fileID: 0}
+  enemyParty:
+  - enemies:
+    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+    - {fileID: 11400000, guid: 2f53bdd785b63f2439fab003bbb92ddc, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
+    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
+    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
+    - {fileID: 11400000, guid: 70cc24633c40f9e44b8bc6fa36d005c4, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
+    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
+    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
+    - {fileID: 11400000, guid: ad3f7b4f896bd914994cdd82676b35a1, type: 2}
+  - enemies: []
+  characterSheetsManager: {fileID: 0}
+  timescale: 10
+  items: []
+  battleEnded: 0

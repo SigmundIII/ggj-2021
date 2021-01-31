@@ -1,6 +1,7 @@
 ﻿using System;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum TurnPhase{Place,Battle,Loot,Ending}
 	
@@ -108,13 +109,16 @@ public class TurnSystem : MonoBehaviour {
 		//playerInput.transform.position = storage.playerSpawn.position;
 		if (ritual.slider.value < gameManager.maxBattleValue && ritual.slider.value > gameManager.minBattleValue) {
 			//Caricamento scena di vittoria
+			HasWon.hasWon = true;
 			Debug.Log("You win: "+ritual.slider.value);
 		}
 		else {
 			//Caricamento scena di sconfitta
+			HasWon.hasWon = false;
 			Debug.Log("You lose with: "+ritual.slider.value);
 		}
-		
+		SceneManager.LoadScene("BossScene");
+
 	}
 
 
