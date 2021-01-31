@@ -18,7 +18,7 @@ public class TurnSystem : MonoBehaviour {
 	private PlayerInteract playerInteract;
 	private Follow_Player camera;
 	private Ritual_affordance ritual;
-	private Fade fade;
+	public BarCardTimer barTimer;
 	
 
 	public event Action<int> OnBattlePhaseStart;
@@ -36,7 +36,7 @@ public class TurnSystem : MonoBehaviour {
 		gameManager = FindObjectOfType<GameManager>();
 		camera = FindObjectOfType<Follow_Player>();
 		ritual = FindObjectOfType <Ritual_affordance>();
-		fade = FindObjectOfType<Fade>();
+		barTimer = FindObjectOfType<BarCardTimer>();
 	}
 
 	private void Start() {
@@ -61,6 +61,7 @@ public class TurnSystem : MonoBehaviour {
 		switch (currentPhase) {
 			case TurnPhase.Place:
 				timer += Time.deltaTime;
+				barTimer.SetSlider(timer/time);
 				if (timer >= time) {
 					NextTurn();
 					SetTimer();
@@ -79,8 +80,6 @@ public class TurnSystem : MonoBehaviour {
 				break;
 			case TurnPhase.Loot:
 				if (currentFloor < maxFloors) {
-					fade.fadeOutComplete += StartPlacePhase;
-					fade.FadeOut();
 					camera.ClearList();
 					gameManager.DumpLoot();
 					storage.NextFloor(currentFloor);
@@ -123,11 +122,9 @@ public class TurnSystem : MonoBehaviour {
 
 
 	public void StartPlacePhase() {
-		fade.fadeOutComplete -= StartPlacePhase;
 		playerInput.transform.position = storage.playerSpawn.position;
 		currentPhase = TurnPhase.Place;
 		playerInput.enabled = true;
-		fade.FadeIn();
 	}
 	
 	public void StartBattlePhase() {

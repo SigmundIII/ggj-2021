@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: a351d3dbd0ffe814b9432d33ec0fdfed, type: 2}
-  rarityLevel: 0
+  rarityLevel: 1
 --- !u!54 &2387655540768225167
 Rigidbody:
   m_ObjectHideFlags: 0

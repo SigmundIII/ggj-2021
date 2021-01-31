@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 5857075170301338153}
   - component: {fileID: 3896109528511384267}
   m_Layer: 0
-  m_Name: Armor_Heavy
+  m_Name: Armor_Heavy 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: dbf68a98bae3f874db65f600d028b6ce, type: 2}
-  rarityLevel: 0
+  rarityLevel: 1
 --- !u!114 &5857075170301338153
 MonoBehaviour:
   m_ObjectHideFlags: 0
