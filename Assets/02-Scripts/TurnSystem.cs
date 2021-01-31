@@ -134,6 +134,7 @@ public class TurnSystem : MonoBehaviour {
 	}
 	
 	public void StartBattlePhase() {
+		SetTimer();
 		currentPhase = TurnPhase.Battle;
 		playerInput.enabled = false;
 		OnBattlePhaseStart?.Invoke(currentFloor);
